@@ -17,8 +17,8 @@ import urllib.request
 # 大陆公网出口被墙的目标，能通就说明这条隧道真的能用
 DELAY_URL = "https://www.gstatic.com/generate_204"
 
-# 延迟测试超时：3 秒不通的基本就是死的，不值得再等
-DELAY_TIMEOUT_MS = 3000
+# 延迟测试超时：2 秒不通的基本就是死的，不值得再等
+DELAY_TIMEOUT_MS = 2000
 
 # 下载测速：拉一个 ~2MB 的 Cloudflare 文件，3 秒内能下多少算多少
 SPEED_URL = "https://speed.cloudflare.com/__down?bytes=3000000"
@@ -223,17 +223,20 @@ class Mihomo:
             return json.loads(r.read().decode())
 
     def delay(self, name, timeout_ms=DELAY_TIMEOUT_MS):
-        # 两个测试 URL，一个通了就算（有的节点只放行 google，有的只放行 gstatic）
-        for url in TEST_URLS:
-            q = urllib.parse.quote(url, safe="")
-            try:
-                d = self._get(
-                    f"/proxies/{urllib.parse.quote(name, safe='')}/delay?url={q}&timeout={timeout_ms}",
-                    timeout=timeout_ms / 1000 + 6).get("delay")
-                if d:
-                    return d
-            except Exception:
-                continue
+        # 两个测试 URL 并行发，谁先通用谁（串行重试是最大的时间浪费）
+        import concurrent.futures as cf
+        q = lambda url: urllib.parse.quote(url, safe="")
+        urls = [f"/proxies/{urllib.parse.quote(name, safe='')}/delay?url={q(u)}&timeout={timeout_ms}"
+                for u in TEST_URLS]
+        with cf.ThreadPoolExecutor(max_workers=len(urls)) as ex:
+            futs = [ex.submit(self._get, u, timeout_ms / 1000 + 4) for u in urls]
+            for f in cf.as_completed(futs):
+                try:
+                    d = f.result().get("delay")
+                    if d:
+                        return d
+                except Exception:
+                    continue
         return None
 
     def delay_batch(self, names, timeout_ms=DELAY_TIMEOUT_MS, on_done=None):

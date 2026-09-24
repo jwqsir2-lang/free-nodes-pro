@@ -176,16 +176,13 @@ def add_source(name, url, kind):
 
 
 def remove_source(url):
-    """GUI 删除源（内置源只是停用，不真删，下次还能自动回来）。"""
+    """GUI 删除源：从状态文件里真删，列表立即消失。
+    内置源也删（下次 current_sources() 会重新播种回来，想用再启用即可）。"""
     st = current_sources()
-    s = next((x for x in st["sources"] if x["url"] == url), None)
-    if not s:
-        return False, "没有这个源"
-    if s.get("builtin"):
-        s["enabled"] = False
-        save_state(st)
-        return True, "内置源已停用（删除后还能在列表里重新启用）"
+    before = len(st["sources"])
     st["sources"] = [x for x in st["sources"] if x["url"] != url]
+    if len(st["sources"]) == before:
+        return False, "没有这个源"
     save_state(st)
     return True, "已删除"
 

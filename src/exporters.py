@@ -360,16 +360,13 @@ def build_all(ok, out_dir, meta=None):
 
     tags = [o["tag"] for o in outbounds]
 
-    # 顶层 singbox.json = GUI.for.SingBox 订阅格式：{"outbounds": [...节点...]}
-    # 它的 isValidSubJson 只认 .outbounds；纯数组会被当成 base64 报"需装节点转换插件"
+    # 顶层 singbox.json = GUI.for.SingBox 手动导入格式：纯节点数组 [{...}]
+    # 它的 Manual 分支是 JSON.parse(body)，要 [ ] 开头结尾；带壳的它不认。
     with open(os.path.join(out_dir, "singbox.json"), "w", encoding="utf-8") as f:
-        json.dump({"outbounds": outbounds}, f, ensure_ascii=False, indent=2)
-
-    # singbox-array.json = 纯节点数组（NekoBox / Karing 等其它客户端）
-    with open(os.path.join(out_dir, "singbox-array.json"), "w", encoding="utf-8") as f:
         json.dump(outbounds, f, ensure_ascii=False, indent=2)
 
     # singbox-full.json = 带 inbounds/route 的完整配置（进阶用户自用）
+    # 用 {"outbounds": [...]} 壳格式，sing-box check 能通过
     sb = {
         "log": {"level": "warn", "timestamp": True},
         "inbounds": [{"type": "mixed", "tag": "mixed-in",
@@ -419,13 +416,9 @@ def build_all(ok, out_dir, meta=None):
         http_dir = os.path.join(out_dir, "http")
         os.makedirs(http_dir, exist_ok=True)
 
-        # GUI.for.SingBox 订阅格式：{"outbounds": [...]}
+        # 纯节点数组（GUI.for.SingBox 手动导入 / NekoBox / Karing）
         plain = [o for o in (to_singbox_plain(p) for p in http_nodes) if o]
         with open(os.path.join(http_dir, "singbox.json"), "w", encoding="utf-8") as f:
-            json.dump({"outbounds": plain}, f, ensure_ascii=False, indent=2)
-
-        # 纯数组（NekoBox / Karing）
-        with open(os.path.join(http_dir, "singbox-array.json"), "w", encoding="utf-8") as f:
             json.dump(plain, f, ensure_ascii=False, indent=2)
 
         # Clash proxies 片段（proxies 列表，可直接贴进 clash 配置）
@@ -446,6 +439,14 @@ def build_all(ok, out_dir, meta=None):
             for p in http_nodes:
                 f.write(f"{p['name']}\t{p['server']}:{p['port']}\t"
                         f"{'TLS' if p.get('tls') else '明文'}\t{p['_delay']}ms\n")
+
+    # ---------------- 测速结果专档（只放真测过速度的节点，避免"白测"）
+    sped = [p for p in ok if p.get("_kbps")]
+    if sped and not out_dir.endswith("speedtest"):
+        sped.sort(key=lambda p: -(p.get("_kbps") or 0))
+        sub = os.path.join(out_dir, "speedtest")
+        os.makedirs(sub, exist_ok=True)
+        build_all(sped, sub, meta={"at": meta.get("at", "") + " (测速结果)"})
 
     # ---------------- 元信息
     info = {
