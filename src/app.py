@@ -154,6 +154,7 @@ class MainWindow(QMainWindow):
 
         combo = QComboBox()
         combo.addItem("综合 — singbox.json (GUI.for.SingBox 订阅)", "singbox.json")
+        combo.addItem("综合 — singbox-array.json (纯数组 NekoBox/Karing)", "singbox-array.json")
         combo.addItem("综合 — singbox-full.json (完整配置)", "singbox-full.json")
         combo.addItem("综合 — clash.yaml", "clash.yaml")
         combo.addItem("综合 — v2ray.txt (base64)", "v2ray.txt")

@@ -234,6 +234,17 @@ def build_all(ok, out_dir, meta=None):
     for p, n in zip(ok, names):
         p["name"] = n
 
+    # 安全网：缺 server 的废节点剔除；给 sing-box 强制 TLS 的协议补 TLS
+    # （必须在 _public 之前，否则 clash 配置漏 TLS）
+    ok = [p for p in ok if p.get("server")]
+    for p in ok:
+        if p.get("type") in ("trojan", "hysteria2", "tuic", "naive", "hysteria"):
+            p.setdefault("tls", True)
+            if not p.get("sni") and not p.get("server-name"):
+                p["sni"] = p.get("server", "")
+            if p.get("sni") and not p.get("server-name"):
+                p["server-name"] = p["sni"]
+
     pub = [_public(p) for p in ok]
 
     # ---------------- Clash / mihomo
@@ -281,40 +292,81 @@ def build_all(ok, out_dir, meta=None):
     # ---------------- sing-box（扁平节点数组，GUI.for.SingBox 等客户端直接导入）
     # 注意：GUI.for.SingBox 的"订阅"导入的是纯节点数组，不是完整配置。
     # outbounds 放全部协议；http 节点的 type 统一写成 "http"。
+    # sing-box 对 trojan/hysteria2/tuic/naive/hysteria 强制要求显式 TLS 块，
+    # 缺失会 "TLS required" 整个启动失败 —— TLS 在下面循环里统一补
+    # 先给这些协议的 proxy 本体补 TLS（mihomo 也要用，_public 会带上）
+    for p in ok:
+        if p.get("type") in ("trojan", "hysteria2", "tuic", "naive", "hysteria"):
+            p.setdefault("tls", True)
+            if not p.get("sni") and not p.get("server-name"):
+                p["sni"] = p.get("server", "")
+            if p.get("sni") and not p.get("server-name"):
+                p["server-name"] = p["sni"]
+
     outbounds = []
     for p in ok:
         t = p.get("type")
         ob = {"tag": p["name"], "type": "http" if t in ("http", "socks5") else t,
-              "server": p["server"], "server_port": p["port"]}
+              "server": p["server"], "server_port": int(p["port"])}
+        # ---- sing-box 对部分协议强制要求显式 TLS（否则 "TLS required" 启动失败）
+        if t in ("trojan", "hysteria2", "tuic", "naive", "hysteria"):
+            tls = {"enabled": True}
+            if p.get("sni"):
+                tls["server_name"] = p["sni"]
+            elif p.get("server-name"):
+                tls["server_name"] = p["server-name"]
+            if p.get("skip-cert-verify"):
+                tls["insecure"] = True
+            ob["tls"] = tls
+        elif t == "vless":
+            # vless：只有原始链接声明了 tls/reality 才补
+            if p.get("tls"):
+                tls = {"enabled": True}
+                if p.get("sni") or p.get("server-name"):
+                    tls["server_name"] = p.get("sni") or p.get("server-name")
+                if p.get("skip-cert-verify"):
+                    tls["insecure"] = True
+                if p.get("flow"):
+                    ob["flow"] = p["flow"]
+                ob["tls"] = tls
+            elif p.get("flow"):
+                ob["flow"] = p["flow"]
+        if t in ("trojan", "hysteria2", "tuic", "naive"):
+            # 这些协议 mihomo 默认开 TLS，显式声明避免老版本/严格模式报错
+            p.setdefault("tls", True)
+            if p.get("sni") and not p.get("server-name"):
+                p["server-name"] = p["sni"]
         if t in ("http", "socks5") and p.get("username"):
             ob["username"] = p["username"]
             ob["password"] = p.get("password", "")
-        if p.get("tls"):
-            ob["tls"] = {"enabled": True,
-                         "server_name": p.get("servername") or p.get("sni") or p["server"],
-                         "insecure": True}
         if t == "ss":
             ob = {"tag": p["name"], "type": "shadowsocks",
                   "server": p["server"], "server_port": p["port"],
                   "method": p["cipher"], "password": p["password"]}
-        if t in ("trojan", "hysteria2"):
-            ob["password"] = p.get("password", "")
-            if p.get("sni"):
-                ob["tls"] = {"enabled": True, "server_name": p["sni"], "insecure": True}
-        if t in ("vless", "vmess"):
+        # ---- 凭证字段（sing-box 要求 uuid/password，缺了直接启动失败）
+        if t in ("vless", "vmess", "tuic"):
             ob["uuid"] = p.get("uuid", "")
-            if t == "vmess":
-                ob["alter_id"] = int(p.get("alterId", 0) or 0)
-                if p.get("cipher"):
-                    ob["security"] = p["cipher"]
+        if t in ("trojan", "hysteria2", "tuic"):
+            ob["password"] = p.get("password", "")
+        if t == "vmess":
+            ob["alter_id"] = int(p.get("alterId", 0) or 0)
+            if p.get("cipher"):
+                ob["security"] = p["cipher"]
+        if t == "tuic":
+            ob["congestion_control"] = p.get("congestion-controller") or "bbr"
         if t == "vless" and p.get("flow"):
             ob["flow"] = p["flow"]
         outbounds.append(ob)
 
     tags = [o["tag"] for o in outbounds]
 
-    # 顶层 singbox.json = 可直接导入的节点数组（GUI.for.SingBox 订阅格式）
+    # 顶层 singbox.json = GUI.for.SingBox 订阅格式：{"outbounds": [...节点...]}
+    # 它的 isValidSubJson 只认 .outbounds；纯数组会被当成 base64 报"需装节点转换插件"
     with open(os.path.join(out_dir, "singbox.json"), "w", encoding="utf-8") as f:
+        json.dump({"outbounds": outbounds}, f, ensure_ascii=False, indent=2)
+
+    # singbox-array.json = 纯节点数组（NekoBox / Karing 等其它客户端）
+    with open(os.path.join(out_dir, "singbox-array.json"), "w", encoding="utf-8") as f:
         json.dump(outbounds, f, ensure_ascii=False, indent=2)
 
     # singbox-full.json = 带 inbounds/route 的完整配置（进阶用户自用）
@@ -336,7 +388,7 @@ def build_all(ok, out_dir, meta=None):
         ],
         "route": {
             "rules": [
-                {"is_private": True, "outbound": "direct"},
+                {"ip_is_private": True, "outbound": "direct"},
                 {"geosite": ["cn"], "outbound": "direct"},
                 {"geoip": ["cn", "private"], "outbound": "direct"},
                 {"geosite": ["openai"], "outbound": "🚀 节点选择"},
@@ -367,9 +419,13 @@ def build_all(ok, out_dir, meta=None):
         http_dir = os.path.join(out_dir, "http")
         os.makedirs(http_dir, exist_ok=True)
 
-        # 扁平数组：NekoBox / Karing 直接导入
+        # GUI.for.SingBox 订阅格式：{"outbounds": [...]}
         plain = [o for o in (to_singbox_plain(p) for p in http_nodes) if o]
         with open(os.path.join(http_dir, "singbox.json"), "w", encoding="utf-8") as f:
+            json.dump({"outbounds": plain}, f, ensure_ascii=False, indent=2)
+
+        # 纯数组（NekoBox / Karing）
+        with open(os.path.join(http_dir, "singbox-array.json"), "w", encoding="utf-8") as f:
             json.dump(plain, f, ensure_ascii=False, indent=2)
 
         # Clash proxies 片段（proxies 列表，可直接贴进 clash 配置）
