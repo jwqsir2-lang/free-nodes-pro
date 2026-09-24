@@ -68,9 +68,9 @@ class MainWindow(QMainWindow):
         top = QGroupBox("搜索并测试节点")
         tl = QVBoxLayout(top)
         row = QHBoxLayout()
-        self.btn_run = QPushButton("▶  搜索 + 测试")
-        self.btn_run.setFont(QFont("", 12, QFont.Bold))
-        self.btn_run.setMinimumHeight(40)
+        self.btn_run = QPushButton("▶  搜索节点")
+        self.btn_run.setFont(QFont("", 9, QFont.Bold))
+        self.btn_run.setMinimumHeight(28)
         self.btn_run.clicked.connect(self.start_run)
         self.btn_open = QPushButton("打开输出目录")
         self.btn_open.clicked.connect(lambda: self.out_dir and _open(self.out_dir))
@@ -86,7 +86,7 @@ class MainWindow(QMainWindow):
         self.bar.setRange(0, 0)   # 忙碌动画
         self.bar.setVisible(False)
         tl.addWidget(self.bar)
-        self.lbl_status = QLabel("点「搜索 + 测试」开始。整个过程几分钟，不影响电脑。")
+        self.lbl_status = QLabel("点「搜索节点」开始。整个过程几分钟，不影响电脑。")
         tl.addWidget(self.lbl_status)
 
         # ---- 标签页 ----

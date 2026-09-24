@@ -89,7 +89,8 @@ def version(p=None):
     if not p:
         return ""
     try:
-        r = subprocess.run([p, "-v"], capture_output=True, text=True, timeout=15)
+        r = subprocess.run([p, "-v"], capture_output=True, text=True, timeout=15,
+                           creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0) if os.name == "nt" else 0)
         return (r.stdout or r.stderr).split("\n")[0].strip()
     except Exception:
         return ""

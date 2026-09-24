@@ -14,6 +14,9 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+# Windows 上 subprocess 默认弹控制台黑窗，搜索/测速时会闪出来；关掉
+NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0) if os.name == "nt" else 0
+
 # 大陆公网出口被墙的目标，能通就说明这条隧道真的能用
 DELAY_URL = "https://www.gstatic.com/generate_204"
 
@@ -122,7 +125,8 @@ class Mihomo:
         self._write(proxies, path)
         r = subprocess.run([self.bin, "-f", path, "-d", self.workdir, "-t"],
                            capture_output=True, text=True, timeout=900,
-                           encoding="utf-8", errors="replace", env=CLEAN_ENV)
+                           encoding="utf-8", errors="replace", env=CLEAN_ENV,
+                           creationflags=NO_WINDOW)
         out = (r.stdout or "") + (r.stderr or "")
         import re
         if "test is successful" in out or "configuration file" in out and "successful" in out:
@@ -197,7 +201,7 @@ class Mihomo:
         self.proc = subprocess.Popen(
             [self.bin, "-f", path, "-d", self.workdir],
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-            cwd=self.workdir, env=CLEAN_ENV)
+            cwd=self.workdir, env=CLEAN_ENV, creationflags=NO_WINDOW)
         for _ in range(60):
             try:
                 self._get("/version")

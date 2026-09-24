@@ -18,9 +18,9 @@ from parsers import (clean, dedupe, parse_base64_sub, parse_clash_yaml,
 from tester import Mihomo, TLS_LIKELY_PORTS, udp_egress_ok
 
 # ---- 预算上限（保证轻量、不打扰电脑）------------------------------------
-MAX_CANDIDATES = 2000     # 总候选上限
-HTTP_MAX = 400            # HTTP 代理上限（国内可用率极低，测多了浪费）
-CONCURRENCY = 64          # 并发延迟测试线程（第一轮筛选要快）
+MAX_CANDIDATES = 2600     # 总候选上限
+HTTP_MAX = 1500           # HTTP 代理上限（用户要 http 节点，多留点）
+CONCURRENCY = 128         # 并发延迟测试线程（第一轮筛选要快）
 SPEED_TOPN = 30           # 只有延迟最低的 N 个才进入真测速 + 解锁
 
 
