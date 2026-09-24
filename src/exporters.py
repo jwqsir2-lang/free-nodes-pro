@@ -248,7 +248,9 @@ def to_singbox_outbound(p):
         w = p["ws-opts"]
         tr = {"type": "ws"}
         if w.get("path"):
-            tr["path"] = w["path"]
+            # clash 的 path 偶尔是列表（多路径），sing-box 只收字符串，取第一个
+            pw = w["path"]
+            tr["path"] = pw[0] if isinstance(pw, list) and pw else pw
         if w.get("headers"):
             tr["headers"] = dict(w["headers"])
         if w.get("max-early-data") is not None:
@@ -265,12 +267,14 @@ def to_singbox_outbound(p):
         if h.get("host"):
             tr["host"] = h["host"] if isinstance(h["host"], list) else [h["host"]]
         if h.get("path"):
-            tr["path"] = h["path"]
+            ph = h["path"]
+            tr["path"] = ph[0] if isinstance(ph, list) and ph else ph
     elif net == "http" or p.get("http-opts"):
         h = p.get("http-opts") or {}
         tr = {"type": "http"}
         if h.get("path"):
-            tr["path"] = h["path"]
+            ph = h["path"]
+            tr["path"] = ph[0] if isinstance(ph, list) and ph else ph
         if h.get("headers"):
             tr["headers"] = dict(h["headers"])
     if tr:
@@ -304,7 +308,8 @@ def to_singbox_outbound(p):
         if p.get("down") is not None:
             ob["down_mbps"] = p["down"]
     if p.get("flow"):
-        ob["flow"] = p["flow"]
+        # xtls-rprx-vision-udp443 是 xray 专属值，sing-box 不收（它自动处理 udp/443）
+        ob["flow"] = "xtls-rprx-vision" if p["flow"] == "xtls-rprx-vision-udp443" else p["flow"]
     if p.get("client-fingerprint"):
         fp = p["client-fingerprint"]
         ob["tls"] = ob.get("tls", {})
@@ -318,16 +323,24 @@ def is_http(p):
 
 
 def build_all(ok, out_dir, meta=None):
-    """ok: 已排序的节点列表（含 _delay/_kbps/_unlock）。写全套订阅。"""
+    """ok: 已排序的节点列表（含 _delay/_kbps/_unlock）。写全套订阅。
+
+    节点名（tag）保持抓到时的原样，不重命名、不加国旗不加速度后缀。
+    只在重名时加序号去重（sing-box 重名会崩）。
+    """
     os.makedirs(out_dir, exist_ok=True)
     meta = meta or {}
-    names = [_fmt_name(p, i) for i, p in enumerate(ok)]
+    seen = {}
+    for p in ok:
+        base = p.get("name") or f"{p.get('server')}:{p.get('port')}"
+        n = seen.get(base, 0)
+        seen[base] = n + 1
+        if n:
+            p["name"] = f"{base}#{n + 1}"
 
-    # 给每个节点赋最终名字（导出链接要用）
-    for p, n in zip(ok, names):
-        p["name"] = n
+    # clash 代理组用的名字列表（= 节点原始名）
+    names = [p["name"] for p in ok]
 
-    # 安全网：缺 server 的废节点剔除；给 sing-box 强制 TLS 的协议补 TLS
     # （必须在 _public 之前，否则 clash 配置漏 TLS）
     ok = [p for p in ok if p.get("server")]
     for p in ok:
