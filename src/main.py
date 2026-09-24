@@ -2,8 +2,8 @@
 """抓取 + 清洗 + 三级漏斗的主流程。可单独跑（CLI），也被 GUI 调用。"""
 
 import datetime
-import json
 import os
+import re
 import sys
 import time
 import urllib.request
@@ -55,16 +55,18 @@ def expand_variants(proxies):
 
 
 def fetch_text(url, timeout=25):
-    """raw.githubusercontent.com 在国内不稳，先走镜像再回源。"""
+    """raw.githubusercontent.com 在国内不稳，先走 jsdelivr 镜像再回源。
+
+    jsdelivr 镜像把 /branch/ 换成 @branch：user/repo@branch/path。
+    main / master / 其他分支名都要处理，否则 master 分支的源镜像拼成空串被跳过。
+    """
+    m = re.match(r"https://raw\.githubusercontent\.com/([^/]+/[^/]+)/([^/]+)/(.*)", url)
     mirrors = []
-    if "raw.githubusercontent.com" in url:
-        path = url.split("raw.githubusercontent.com", 1)[1].lstrip("/")
-        mirrors.append(f"https://cdn.jsdelivr.net/gh/{path.replace('/main/', '@main/')}"
-                       if "/main/" in path else "")
-        mirrors = [m for m in mirrors if m]
+    if m:
+        repo, branch, rest = m.groups()
+        for host in ("cdn.jsdelivr.net", "fastly.jsdelivr.net", "testingcf.jsdelivr.net"):
+            mirrors.append(f"https://{host}/gh/{repo}@{branch}/{rest}")
     for u in mirrors + [url]:
-        if not u:
-            continue
         try:
             req = urllib.request.Request(u, headers={
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
