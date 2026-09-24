@@ -45,6 +45,7 @@ jobs:
       - name: PyInstaller 打包成单文件 exe
         run: |
           pyinstaller --noconfirm --clean --windowed `
+            --onefile `
             --name FreeNodesPro `
             --add-data "kernel/mihomo.exe;kernel" `
             --hidden-import PySide6 `
@@ -53,11 +54,9 @@ jobs:
       - name: 打包结果
         shell: bash
         run: |
-          ls -la dist/ || true
-          # PyInstaller 用 src/app.py 打包时，产物在 src/dist/ 下
-          if [ -f src/dist/FreeNodesPro.exe ] && [ ! -f dist/FreeNodesPro.exe ]; then
-            mkdir -p dist
-            cp src/dist/FreeNodesPro.exe dist/FreeNodesPro.exe
+          # 兜底：无论产物落在 dist/ 还是 dist/FreeNodesPro/，都归一到 dist/FreeNodesPro.exe
+          if [ ! -f dist/FreeNodesPro.exe ] && [ -f dist/FreeNodesPro/FreeNodesPro.exe ]; then
+            cp dist/FreeNodesPro/FreeNodesPro.exe dist/FreeNodesPro.exe
           fi
           ls -la dist/FreeNodesPro.exe
 
