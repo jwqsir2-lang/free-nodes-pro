@@ -220,7 +220,7 @@ def to_singbox_outbound(p):
         sni = p.get("sni") or p.get("servername") or p.get("server-name")
         if sni:
             tls["server_name"] = sni
-        if p.get("skip-cert-verify"):
+        if p.get("skip-cert-verify") or p.get("skip_cert_verify"):
             tls["insecure"] = True
         alpn = p.get("alpn")
         if alpn:
