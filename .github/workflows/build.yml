@@ -1,0 +1,70 @@
+name: Build Windows EXE
+
+on:
+  # 手动触发：在仓库 Actions 页面点 Run workflow
+  workflow_dispatch:
+  # 打 tag（如 v1.0）时自动构建并发 Release
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller PySide6
+          # 打包内核需要 PyYAML 解析 clash 配置
+          pip install pyyaml
+
+      # 内核：下载 mihomo 并放进打包目录
+      # （跟软件里 find_kernel() 逻辑一致，用户就不用自己下了）
+      - name: 下载 mihomo 内核
+        shell: bash
+        run: |
+          mkdir -p kernel
+          curl -sL -o mihomo.zip https://github.com/MetaCubeX/mihomo/releases/download/v1.19.31/mihomo-windows-amd64-v1.19.31.zip
+          python -c "import zipfile; zipfile.ZipFile('mihomo.zip').extractall('kernel')"
+          mv kernel/mihomo-windows-amd64*.exe kernel/mihomo.exe 2>/dev/null || true
+          ls -la kernel/
+
+      # --add-data 把内核一起打进去，用户不需要单独下 mihomo
+      # --windowed: 双击运行不弹黑框（GUI 程序）
+      - name: PyInstaller 打包成单文件 exe
+        run: |
+          pyinstaller --noconfirm --clean --windowed `
+            --name FreeNodesPro `
+            --add-data "kernel/mihomo.exe;kernel" `
+            --hidden-import PySide6 `
+            src/app.py
+
+      - name: 上传构建产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: FreeNodesPro-exe
+          path: dist/FreeNodesPro.exe
+
+      - name: 发 Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/FreeNodesPro.exe
+          name: FreeNodesPro ${{ github.ref_name }}
+          body: |
+            双击即可运行的免费节点搜索订阅工具。
+
+            - 自动搜索公开节点源（匿名抓取，不需要登录）
+            - 本机实测延迟 / 下载速度 / 解锁（GPT、YouTube、Google）
+            - 导出 Clash / sing-box / base64 三种格式
+            - 源管理是活的：失效自动降级、GitHub 搜索补位、界面手动加源
+
+            首次运行会自动释放内置的 mihomo 内核。
