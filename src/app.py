@@ -122,7 +122,9 @@ class MainWindow(QMainWindow):
         b4 = QPushButton("复制节点名")
         b5 = QPushButton("👁 查看导出节点")
         b6 = QPushButton("⚡ 手动测速 Top30")
-        for b in (b1, b2, b3, b4, b5, b6):
+        b7 = QPushButton("⏹ 停止")
+        b7.setStyleSheet("color: #c0392b;")
+        for b in (b1, b2, b3, b4, b5, b6, b7):
             b.setEnabled(False)
         b1.clicked.connect(lambda: self._export("clash"))
         b2.clicked.connect(lambda: self._export("singbox"))
@@ -130,11 +132,13 @@ class MainWindow(QMainWindow):
         b4.clicked.connect(self._copy_names)
         b5.clicked.connect(self._show_export_viewer)
         b6.clicked.connect(self._speed_test)
+        b7.clicked.connect(self._stop_speed_test)
         self.export_btns = [b1, b2, b3, b4, b5]
         self.btn_speed = b6
+        self.btn_stop = b7
         row.addWidget(b1); row.addWidget(b2); row.addWidget(b3); row.addWidget(b5)
         row.addStretch()
-        row.addWidget(b6); row.addWidget(b4)
+        row.addWidget(b7); row.addWidget(b6); row.addWidget(b4)
         l.addLayout(row)
         return w
 
@@ -149,8 +153,9 @@ class MainWindow(QMainWindow):
         dl = QVBoxLayout(dlg)
 
         combo = QComboBox()
+        combo.addItem("综合 — singbox.json (GUI.for.SingBox 订阅)", "singbox.json")
+        combo.addItem("综合 — singbox-full.json (完整配置)", "singbox-full.json")
         combo.addItem("综合 — clash.yaml", "clash.yaml")
-        combo.addItem("综合 — singbox.json", "singbox.json")
         combo.addItem("综合 — v2ray.txt (base64)", "v2ray.txt")
         combo.addItem("综合 — nodes.txt (明文)", "nodes.txt")
         combo.addItem("纯 HTTP — singbox.json (NekoBox/Karing)", "http/singbox.json")
@@ -196,11 +201,14 @@ class MainWindow(QMainWindow):
             QMessageBox.information(self, "手动测速", "先跑一次「搜索 + 测试」")
             return
         self.btn_speed.setEnabled(False)
+        self.btn_speed.setText("测速中…")
+        self.btn_stop.setEnabled(True)
         self.btn_run.setEnabled(False)
         self.bar.setVisible(True)
         self._set_status("手动测速中（只测最快的 30 个，较慢）…")
 
         nodes = self.last_info["nodes_raw"]
+        self._stop_flag = False
 
         def on_log(m):
             self.bridge.line.emit(m)
@@ -217,7 +225,19 @@ class MainWindow(QMainWindow):
                 if not k:
                     raise RuntimeError("内核不见了，重新跑一次搜索")
                 final = main_mod.speed_test(nodes, workdir, k,
-                                            on_log=on_log, on_progress=on_prog)
+                                            on_log=on_log, on_progress=on_prog,
+                                            stop_flag=lambda: self._stop_flag)
+                if self._stop_flag:
+                    self.bridge.done.emit(None, "测速已停止（已完成的保留在结果里）")
+                    # 停止时也把已测的写出去，不白测
+                    try:
+                        info = build_all(final, self.out_dir, meta={
+                            "at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
+                        info["nodes_raw"] = final
+                        self.bridge.line.emit(f"已把 {len(final)} 个节点写入 {self.out_dir}")
+                    except Exception as e:
+                        self.bridge.line.emit(f"写入失败：{e}")
+                    return
                 info = build_all(final, self.out_dir, meta={
                     "at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
                 info["nodes_raw"] = final
@@ -227,6 +247,11 @@ class MainWindow(QMainWindow):
 
         self.worker = threading.Thread(target=work, daemon=True)
         self.worker.start()
+
+    def _stop_speed_test(self):
+        self._stop_flag = True
+        self._set_status("正在停止测速（等当前这一个测完）…")
+        self.btn_stop.setEnabled(False)
 
     # ---- 源管理页 ----
     def _tab_sources(self):
@@ -329,6 +354,9 @@ class MainWindow(QMainWindow):
     def _on_done(self, info, out_dir_or_err):
         self.btn_run.setEnabled(True)
         self.bar.setVisible(False)
+        self.btn_speed.setEnabled(True)
+        self.btn_speed.setText("⚡ 手动测速 Top30")
+        self.btn_stop.setEnabled(False)
         if info is None:
             self._set_status(out_dir_or_err)
             self._log(out_dir_or_err)
@@ -377,6 +405,8 @@ class MainWindow(QMainWindow):
         _open(os.path.join(out, {"clash": "clash.yaml",
                                  "singbox": "singbox.json",
                                  "base64": "v2ray.txt"}[kind]))
+        # 测速完立即刷新界面数据 + 重新导出（避免"白测"）
+        self._fill_nodes(self.last_info)
 
     def _copy_names(self):
         rows = {i.row() for i in self.tbl.selectedIndexes()}

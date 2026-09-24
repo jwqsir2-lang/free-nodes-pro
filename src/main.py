@@ -136,9 +136,11 @@ def collect(on_log=log):
     return allp
 
 
-def speed_test(final, workdir, kernel_path, topn=None, on_log=log, on_progress=None):
+def speed_test(final, workdir, kernel_path, topn=None, on_log=log, on_progress=None,
+               stop_flag=None):
     """下载测速 + 流媒体解锁（GUI 的「手动测速」按钮调用）。
-    final 必须是按延迟排好的列表，只测最快的 topn 个；返回按速度重排后的列表。"""
+    final 必须是按延迟排好的列表，只测最快的 topn 个；返回按速度重排后的列表。
+    stop_flag: 传入一个返回 bool 的函数，返回 True 就在当前节点测完后停止。"""
     if not final:
         raise RuntimeError("没有可测速的节点")
     topn = topn or SPEED_TOPN
@@ -148,6 +150,9 @@ def speed_test(final, workdir, kernel_path, topn=None, on_log=log, on_progress=N
     try:
         m2.start(kernel_path)
         for i, p in enumerate(top, 1):
+            if stop_flag and stop_flag():
+                on_log(f"收到停止信号，已完成 {i - 1}/{len(top)}")
+                break
             p["_kbps"] = m2.measure_speed(p["name"])
             p["_unlock"] = m2.measure_unlock(p["name"])
             on_progress and on_progress(f"测速 {i}/{len(top)}")

@@ -278,7 +278,9 @@ def build_all(ok, out_dir, meta=None):
                 f"# 生成时间：{meta.get('at','')} | 节点：{len(ok)}\n"
                 + yaml.safe_dump(clash, allow_unicode=True, sort_keys=False, width=10000))
 
-    # ---------------- sing-box
+    # ---------------- sing-box（扁平节点数组，GUI.for.SingBox 等客户端直接导入）
+    # 注意：GUI.for.SingBox 的"订阅"导入的是纯节点数组，不是完整配置。
+    # outbounds 放全部协议；http 节点的 type 统一写成 "http"。
     outbounds = []
     for p in ok:
         t = p.get("type")
@@ -310,6 +312,12 @@ def build_all(ok, out_dir, meta=None):
         outbounds.append(ob)
 
     tags = [o["tag"] for o in outbounds]
+
+    # 顶层 singbox.json = 可直接导入的节点数组（GUI.for.SingBox 订阅格式）
+    with open(os.path.join(out_dir, "singbox.json"), "w", encoding="utf-8") as f:
+        json.dump(outbounds, f, ensure_ascii=False, indent=2)
+
+    # singbox-full.json = 带 inbounds/route 的完整配置（进阶用户自用）
     sb = {
         "log": {"level": "warn", "timestamp": True},
         "inbounds": [{"type": "mixed", "tag": "mixed-in",
@@ -337,7 +345,7 @@ def build_all(ok, out_dir, meta=None):
             "final": "🚀 节点选择",
         },
     }
-    with open(os.path.join(out_dir, "singbox.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(out_dir, "singbox-full.json"), "w", encoding="utf-8") as f:
         json.dump(sb, f, ensure_ascii=False, indent=2)
 
     # ---------------- base64 订阅（v2rayN / Karing / Shadowrocket）
