@@ -11,6 +11,9 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    # 发 Release 需要 contents: write 权限
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -46,6 +49,17 @@ jobs:
             --add-data "kernel/mihomo.exe;kernel" `
             --hidden-import PySide6 `
             src/app.py
+
+      - name: 打包结果
+        shell: bash
+        run: |
+          ls -la dist/ || true
+          # PyInstaller 用 src/app.py 打包时，产物在 src/dist/ 下
+          if [ -f src/dist/FreeNodesPro.exe ] && [ ! -f dist/FreeNodesPro.exe ]; then
+            mkdir -p dist
+            cp src/dist/FreeNodesPro.exe dist/FreeNodesPro.exe
+          fi
+          ls -la dist/FreeNodesPro.exe
 
       - name: 上传构建产物
         uses: actions/upload-artifact@v4
