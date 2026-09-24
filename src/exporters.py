@@ -11,6 +11,7 @@ import urllib.parse
 import yaml
 
 from parsers import to_share_link
+from version import SIGNATURE
 
 # 国家/地区旗标
 FLAG = {
@@ -452,7 +453,8 @@ def build_all(ok, out_dir, meta=None):
         json.dump(sb, f, ensure_ascii=False, indent=2)
 
     # ---------------- base64 订阅（v2rayN / Karing / Shadowrocket）
-    links = [l for l in (to_share_link(p) for p in ok if p.get("type") != "http") if l]
+    # 综合订阅包含全部类型（http 走 http(s)://user:pass@host:port 链接）
+    links = [l for l in (to_share_link(p) for p in ok) if l]
     with open(os.path.join(out_dir, "v2ray.txt"), "w", encoding="utf-8") as f:
         f.write(base64.b64encode("\n".join(links).encode()).decode() if links else "")
 
@@ -491,6 +493,7 @@ def build_all(ok, out_dir, meta=None):
 
     # ---------------- 元信息
     info = {
+        "app": SIGNATURE,
         "at": meta.get("at", ""),
         "total": len(ok),
         "with_speed": sum(1 for p in ok if p.get("_kbps")),

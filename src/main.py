@@ -18,9 +18,9 @@ from parsers import (clean, dedupe, parse_base64_sub, parse_clash_yaml,
 from tester import Mihomo, TLS_LIKELY_PORTS, udp_egress_ok
 
 # ---- 预算上限（保证轻量、不打扰电脑）------------------------------------
-MAX_CANDIDATES = 2600     # 总候选上限
-HTTP_MAX = 1500           # HTTP 代理上限（国内可用率低，但用户要 http 节点，多留点）
-CONCURRENCY = 128         # 并发延迟测试线程（第一轮筛选要快）
+MAX_CANDIDATES = 2000     # 总候选上限
+HTTP_MAX = 400            # HTTP 代理上限（国内可用率极低，测多了浪费）
+CONCURRENCY = 64          # 并发延迟测试线程（第一轮筛选要快）
 SPEED_TOPN = 30           # 只有延迟最低的 N 个才进入真测速 + 解锁
 
 
@@ -215,6 +215,13 @@ def run(on_log=log, on_progress=None, workdir=None, kernel_path=None, quick=True
     #     公开列表不会告诉你这个 http 代理是不是 TLS 包起来的，
     #     443/8443 等端口优先试 TLS，其余优先试明文，两个都真测一遍
     cands = expand_variants(cands)
+    if len(cands) > MAX_CANDIDATES:
+        # 变体展开会让总量翻倍，这里按类型比例再限一次，保证不超预算
+        _http = [p for p in cands if p.get("type") == "http"]
+        _other = [p for p in cands if p.get("type") != "http"]
+        _n_other = max(1, round(MAX_CANDIDATES * len(_other) / max(len(cands), 1)))
+        _n_http = max(1, MAX_CANDIDATES - _n_other)
+        cands = _other[:_n_other] + _http[:_n_http]
     on_log(f"展开 HTTP 变体后 {len(cands)} 个待测")
     m = Mihomo(cands, workdir, concurrency=CONCURRENCY)
     try:

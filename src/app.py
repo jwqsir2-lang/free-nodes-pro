@@ -26,6 +26,7 @@ from PySide6.QtWidgets import (
 
 import kernel as kernel_mod
 import sources as sources_mod
+from version import TITLE, VERSION, AUTHOR, SIGNATURE
 from main import run as pipeline_run
 from exporters import build_all
 
@@ -52,8 +53,9 @@ def _open(path):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("FreeNodesPro — 免费节点搜索订阅")
+        self.setWindowTitle(TITLE)
         self.resize(900, 640)
+        self.statusBar().showMessage(f"FreeNodesPro v{VERSION}  作者：{AUTHOR}")
         self.worker = None
         self.out_dir = None
         self.last_info = None

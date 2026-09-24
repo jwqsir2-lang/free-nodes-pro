@@ -273,6 +273,13 @@ def to_share_link(p):
             return (f"hysteria2://{urllib.parse.quote(str(p.get('password','')))}"
                     f"@{p['server']}:{p['port']}?sni={p.get('sni') or p['server']}"
                     f"&insecure=1#{urllib.parse.quote(p.get('name',''))}")
+        if t in ("http", "socks5"):
+            scheme = "https" if p.get("tls") else "http"
+            user = urllib.parse.quote(str(p.get("username", "")), safe="")
+            pw = urllib.parse.quote(str(p.get("password", "")), safe="")
+            auth = f"{user}:{pw}@" if (user or pw) else ""
+            return (f"{scheme}://{auth}{p['server']}:{p['port']}"
+                    f"#{urllib.parse.quote(p.get('name', ''))}")
     except Exception:
         return None
     return None
