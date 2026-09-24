@@ -80,6 +80,7 @@ def current_sources():
 
     第一次运行会把内置源播种进状态文件；之后内置源的更新会自动并入
     （按 url 匹配，用户对某个内置源的 启停/删除 会被保留）。
+    被用户删除的源保留 removed 标记（墓碑），不会被重新播种。
     """
     st = load_state()
     by_url = {s["url"]: s for s in st["sources"]}
@@ -87,19 +88,18 @@ def current_sources():
 
     # 内置源：状态里没有就补进去（保留用户对已有源的修改）
     for n, u, k in BUILTIN:
-        if u not in by_url:
+        s = by_url.get(u)
+        if s is None:
             st["sources"].append({
                 "name": n, "url": u, "kind": k, "builtin": True,
                 "enabled": True, "streak": 0, "ok": 0, "fail": 0,
                 "last_check": 0, "last_good": 0, "history": [],
             })
             changed = True
-        else:
-            s = by_url[u]
+        elif not s.get("removed") and s.get("kind") != k:
             # 内置源的名字/类型以代码里的为准（方便我们更新链接）
-            if s.get("kind") != k:
-                s["kind"] = k
-                changed = True
+            s["kind"] = k
+            changed = True
 
     if changed:
         save_state(st)
@@ -107,9 +107,9 @@ def current_sources():
 
 
 def list_sources():
-    """给 GUI 用的完整列表（按内置在前、名字排序）。"""
+    """给 GUI 用的完整列表（按内置在前、名字排序）。已删除的不出现。"""
     st = current_sources()
-    srcs = st["sources"]
+    srcs = [s for s in st["sources"] if not s.get("removed")]
     srcs.sort(key=lambda s: (not s.get("builtin", False), s["name"]))
     return srcs
 
@@ -127,6 +127,8 @@ def active_sources():
     now = int(time.time())
     out = []
     for s in st["sources"]:
+        if s.get("removed"):
+            continue
         if s.get("enabled", True) or _can_retry(s, now):
             out.append(s)
     return out
@@ -176,13 +178,15 @@ def add_source(name, url, kind):
 
 
 def remove_source(url):
-    """GUI 删除源：从状态文件里真删，列表立即消失。
-    内置源也删（下次 current_sources() 会重新播种回来，想用再启用即可）。"""
-    st = current_sources()
-    before = len(st["sources"])
-    st["sources"] = [x for x in st["sources"] if x["url"] != url]
-    if len(st["sources"]) == before:
+    """GUI 删除源：标记 removed，列表立即消失。
+    不能真删——current_sources() 每次会把内置源重新播种回来，
+    只有用 removed 标记才能让删掉的内置源不再出现。"""
+    st = load_state()
+    s = next((x for x in st["sources"] if x["url"] == url), None)
+    if not s:
         return False, "没有这个源"
+    s["removed"] = True
+    s["enabled"] = False
     save_state(st)
     return True, "已删除"
 

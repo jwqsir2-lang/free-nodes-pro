@@ -195,29 +195,122 @@ def _rid():
     return "ID_" + "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
 
 
-def to_singbox_plain(p):
-    """proxy dict -> 扁平对象（NekoBox / Karing 直接导入的节点格式）。
-    返回 None 表示该协议不适合平铺。"""
+def to_singbox_outbound(p):
+    """clash 格式的 proxy -> sing-box outbound。
+
+    原则：抓到什么字段就带什么字段过去，只做字段名翻译，不猜测、不补值。
+    传输层（ws-opts/grpc-opts/h2-opts/reality-opts）必须完整带过去，
+    少了它们节点必死（GUI.for.SingBox 里表现为延迟 -1）。
+    返回 None 表示这个协议导不了。
+    """
     t = p.get("type")
-    if t not in SINGBOX_PLAIN_OK:
+    if t not in ("http", "socks5", "vmess", "vless", "trojan", "ss",
+                 "hysteria2", "tuic", "hysteria", "naive"):
         return None
-    obj = {"__id_in_gui": _rid(),
-           "type": t,
-           "tag": p.get("name", ""),
-           "server": p.get("server"),
-           "server_port": p.get("port")}
-    if p.get("username"):
-        obj["username"] = p["username"]
+    ob = {"tag": p["name"],
+          "type": "shadowsocks" if t == "ss" else
+                  ("http" if t in ("http", "socks5") else t),
+          "server": p["server"],
+          "server_port": int(p["port"])}
+
+    # ---- TLS：有 tls 标记或强 TLS 协议才写，且只写抓到的字段
+    needs_tls = t in ("trojan", "hysteria2", "tuic", "hysteria", "naive")
+    if p.get("tls") or needs_tls:
+        tls = {"enabled": True}
+        sni = p.get("sni") or p.get("servername") or p.get("server-name")
+        if sni:
+            tls["server_name"] = sni
+        if p.get("skip-cert-verify"):
+            tls["insecure"] = True
+        alpn = p.get("alpn")
+        if alpn:
+            tls["alpn"] = alpn if isinstance(alpn, list) else [alpn]
+        ob["tls"] = tls
+
+    # ---- reality（vless/xray）：原样搬
+    ro = p.get("reality-opts")
+    if isinstance(ro, dict):
+        r = {}
+        if ro.get("public-key"):
+            r["public_key"] = ro["public-key"]
+        if ro.get("short-id"):
+            r["short_id"] = ro["short-id"]
+        if r:
+            ob["tls"] = ob.get("tls", {})
+            ob["tls"].update({"enabled": True, "reality": r})
+            if ro.get("spider-x"):
+                ob["tls"]["reality"]["spider_x"] = ro["spider-x"]
+
+    # ---- 传输层：clash 用 *-opts，sing-box 用 transport
+    tr = None
+    net = p.get("network")
+    if p.get("ws-opts"):
+        w = p["ws-opts"]
+        tr = {"type": "ws"}
+        if w.get("path"):
+            tr["path"] = w["path"]
+        if w.get("headers"):
+            tr["headers"] = dict(w["headers"])
+        if w.get("max-early-data") is not None:
+            tr["max_early_data"] = w["max-early-data"]
+        if w.get("early-data-header-name"):
+            tr["early_data_header_name"] = w["early-data-header-name"]
+    elif p.get("grpc-opts"):
+        tr = {"type": "grpc", "service_name": p["grpc-opts"].get("grpc-service-name", "")}
+        if p["grpc-opts"].get("grpc-mode") == "multi":
+            tr["stream_multiplexing"] = True
+    elif p.get("h2-opts"):
+        h = p["h2-opts"]
+        tr = {"type": "h2"}
+        if h.get("host"):
+            tr["host"] = h["host"] if isinstance(h["host"], list) else [h["host"]]
+        if h.get("path"):
+            tr["path"] = h["path"]
+    elif net == "http" or p.get("http-opts"):
+        h = p.get("http-opts") or {}
+        tr = {"type": "http"}
+        if h.get("path"):
+            tr["path"] = h["path"]
+        if h.get("headers"):
+            tr["headers"] = dict(h["headers"])
+    if tr:
+        ob["transport"] = tr
+
+    # ---- 凭证（只在有值时写，不写空串）
+    if p.get("uuid"):
+        ob["uuid"] = p["uuid"]
     if p.get("password"):
-        obj["password"] = p["password"]
-    if p.get("tls"):
-        obj["tls"] = {
-            "enabled": True,
-            "server_name": p.get("servername") or p.get("sni") or p.get("server"),
-            "insecure": bool(p.get("skip-cert-verify", False)),
-        }
-    obj["tcp_fast_open"] = False
-    return obj
+        ob["password"] = p["password"]
+    if p.get("username"):
+        ob["username"] = p["username"]
+    if t == "ss":
+        if p.get("cipher"):
+            ob["method"] = p["cipher"]
+    if t == "vmess":
+        ob["alter_id"] = int(p.get("alterId", 0) or 0)
+        if p.get("cipher"):
+            ob["security"] = p["cipher"]
+    if t == "tuic":
+        cc = p.get("congestion-controller") or p.get("congestion_control")
+        if cc:
+            ob["congestion_control"] = cc
+        if p.get("udp-relay-mode"):
+            ob["udp_relay_mode"] = p["udp-relay-mode"]
+    if t in ("hysteria2", "hysteria"):
+        if p.get("obfs") == "salamander" and p.get("obfs-password"):
+            ob["obfs"] = {"type": "salamander", "password": p["obfs-password"]}
+        if p.get("up") is not None:
+            ob["up_mbps"] = p["up"]
+        if p.get("down") is not None:
+            ob["down_mbps"] = p["down"]
+    if p.get("flow"):
+        ob["flow"] = p["flow"]
+    if p.get("client-fingerprint"):
+        fp = p["client-fingerprint"]
+        ob["tls"] = ob.get("tls", {})
+        ob["tls"].setdefault("enabled", True)
+        ob["tls"]["utls"] = {"enabled": True, "fingerprint": fp}
+    return ob
 
 
 def is_http(p):
@@ -303,60 +396,8 @@ def build_all(ok, out_dir, meta=None):
             if p.get("sni") and not p.get("server-name"):
                 p["server-name"] = p["sni"]
 
-    outbounds = []
-    for p in ok:
-        t = p.get("type")
-        ob = {"tag": p["name"], "type": "http" if t in ("http", "socks5") else t,
-              "server": p["server"], "server_port": int(p["port"])}
-        # ---- sing-box 对部分协议强制要求显式 TLS（否则 "TLS required" 启动失败）
-        if t in ("trojan", "hysteria2", "tuic", "naive", "hysteria"):
-            tls = {"enabled": True}
-            if p.get("sni"):
-                tls["server_name"] = p["sni"]
-            elif p.get("server-name"):
-                tls["server_name"] = p["server-name"]
-            if p.get("skip-cert-verify"):
-                tls["insecure"] = True
-            ob["tls"] = tls
-        elif t == "vless":
-            # vless：只有原始链接声明了 tls/reality 才补
-            if p.get("tls"):
-                tls = {"enabled": True}
-                if p.get("sni") or p.get("server-name"):
-                    tls["server_name"] = p.get("sni") or p.get("server-name")
-                if p.get("skip-cert-verify"):
-                    tls["insecure"] = True
-                if p.get("flow"):
-                    ob["flow"] = p["flow"]
-                ob["tls"] = tls
-            elif p.get("flow"):
-                ob["flow"] = p["flow"]
-        if t in ("trojan", "hysteria2", "tuic", "naive"):
-            # 这些协议 mihomo 默认开 TLS，显式声明避免老版本/严格模式报错
-            p.setdefault("tls", True)
-            if p.get("sni") and not p.get("server-name"):
-                p["server-name"] = p["sni"]
-        if t in ("http", "socks5") and p.get("username"):
-            ob["username"] = p["username"]
-            ob["password"] = p.get("password", "")
-        if t == "ss":
-            ob = {"tag": p["name"], "type": "shadowsocks",
-                  "server": p["server"], "server_port": p["port"],
-                  "method": p["cipher"], "password": p["password"]}
-        # ---- 凭证字段（sing-box 要求 uuid/password，缺了直接启动失败）
-        if t in ("vless", "vmess", "tuic"):
-            ob["uuid"] = p.get("uuid", "")
-        if t in ("trojan", "hysteria2", "tuic"):
-            ob["password"] = p.get("password", "")
-        if t == "vmess":
-            ob["alter_id"] = int(p.get("alterId", 0) or 0)
-            if p.get("cipher"):
-                ob["security"] = p["cipher"]
-        if t == "tuic":
-            ob["congestion_control"] = p.get("congestion-controller") or "bbr"
-        if t == "vless" and p.get("flow"):
-            ob["flow"] = p["flow"]
-        outbounds.append(ob)
+    outbounds = [to_singbox_outbound(p) for p in ok]
+    outbounds = [o for o in outbounds if o]
 
     tags = [o["tag"] for o in outbounds]
 
@@ -402,14 +443,6 @@ def build_all(ok, out_dir, meta=None):
     with open(os.path.join(out_dir, "v2ray.txt"), "w", encoding="utf-8") as f:
         f.write(base64.b64encode("\n".join(links).encode()).decode() if links else "")
 
-    # ---------------- 明文列表（方便人眼看）
-    with open(os.path.join(out_dir, "nodes.txt"), "w", encoding="utf-8") as f:
-        for p in ok:
-            u = p.get("_unlock") or {}
-            flags = "".join(k for k in ("GPT", "YT", "GM") if u.get(k))
-            f.write(f"{p['name']}\t{p['_delay']}ms\t"
-                    f"{p.get('_kbps') or 0:.0f}KB/s\t{flags}\n")
-
     # ---------------- 纯 HTTP 分类（对应不同客户端）
     http_nodes = [p for p in ok if is_http(p)]
     if http_nodes:
@@ -417,7 +450,7 @@ def build_all(ok, out_dir, meta=None):
         os.makedirs(http_dir, exist_ok=True)
 
         # 纯节点数组（GUI.for.SingBox 手动导入 / NekoBox / Karing）
-        plain = [o for o in (to_singbox_plain(p) for p in http_nodes) if o]
+        plain = [o for o in (to_singbox_outbound(p) for p in http_nodes) if o]
         with open(os.path.join(http_dir, "singbox.json"), "w", encoding="utf-8") as f:
             json.dump(plain, f, ensure_ascii=False, indent=2)
 
@@ -434,11 +467,6 @@ def build_all(ok, out_dir, meta=None):
             links.append(f"{scheme}://{auth}{p['server']}:{p['port']}")
         with open(os.path.join(http_dir, "base64.txt"), "w", encoding="utf-8") as f:
             f.write(base64.b64encode("\n".join(links).encode()).decode() if links else "")
-
-        with open(os.path.join(http_dir, "nodes.txt"), "w", encoding="utf-8") as f:
-            for p in http_nodes:
-                f.write(f"{p['name']}\t{p['server']}:{p['port']}\t"
-                        f"{'TLS' if p.get('tls') else '明文'}\t{p['_delay']}ms\n")
 
     # ---------------- 测速结果专档（只放真测过速度的节点，避免"白测"）
     sped = [p for p in ok if p.get("_kbps")]
