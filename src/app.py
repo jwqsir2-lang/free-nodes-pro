@@ -21,7 +21,7 @@ from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
     QLabel, QProgressBar, QTabWidget, QTableWidget, QTableWidgetItem, QCheckBox,
     QLineEdit, QComboBox, QGroupBox, QFormLayout, QMessageBox, QHeaderView,
-    QFileDialog, QPlainTextEdit,
+    QFileDialog, QPlainTextEdit, QDialog,
 )
 
 import kernel as kernel_mod
@@ -120,17 +120,113 @@ class MainWindow(QMainWindow):
         b2 = QPushButton("导出 sing-box")
         b3 = QPushButton("导出 base64")
         b4 = QPushButton("复制节点名")
-        for b in (b1, b2, b3, b4):
+        b5 = QPushButton("👁 查看导出节点")
+        b6 = QPushButton("⚡ 手动测速 Top30")
+        for b in (b1, b2, b3, b4, b5, b6):
             b.setEnabled(False)
         b1.clicked.connect(lambda: self._export("clash"))
         b2.clicked.connect(lambda: self._export("singbox"))
         b3.clicked.connect(lambda: self._export("base64"))
         b4.clicked.connect(self._copy_names)
-        self.export_btns = [b1, b2, b3, b4]
-        row.addWidget(b1); row.addWidget(b2); row.addWidget(b3); row.addStretch()
-        row.addWidget(b4)
+        b5.clicked.connect(self._show_export_viewer)
+        b6.clicked.connect(self._speed_test)
+        self.export_btns = [b1, b2, b3, b4, b5]
+        self.btn_speed = b6
+        row.addWidget(b1); row.addWidget(b2); row.addWidget(b3); row.addWidget(b5)
+        row.addStretch()
+        row.addWidget(b6); row.addWidget(b4)
         l.addLayout(row)
         return w
+
+    # ---- 查看导出节点（直接复制源码）----
+    def _show_export_viewer(self):
+        """读取 out 目录下的导出文件，在弹窗里展示源码，可直接复制。"""
+        if not self.out_dir:
+            return
+        dlg = QDialog(self)
+        dlg.setWindowTitle("导出的节点文件（可直接复制）")
+        dlg.resize(820, 560)
+        dl = QVBoxLayout(dlg)
+
+        combo = QComboBox()
+        combo.addItem("综合 — clash.yaml", "clash.yaml")
+        combo.addItem("综合 — singbox.json", "singbox.json")
+        combo.addItem("综合 — v2ray.txt (base64)", "v2ray.txt")
+        combo.addItem("综合 — nodes.txt (明文)", "nodes.txt")
+        combo.addItem("纯 HTTP — singbox.json (NekoBox/Karing)", "http/singbox.json")
+        combo.addItem("纯 HTTP — clash.yaml", "http/clash.yaml")
+        combo.addItem("纯 HTTP — base64.txt", "http/base64.txt")
+        combo.addItem("纯 HTTP — nodes.txt", "http/nodes.txt")
+        dl.addWidget(QLabel("选择要查看的文件："))
+        dl.addWidget(combo)
+
+        view = QPlainTextEdit()
+        view.setReadOnly(True)
+        view.setFont(QFont("Consolas", 9))
+        view.setLineWrapMode(QPlainTextEdit.NoWrap)
+        dl.addWidget(view, 1)
+
+        row = QHBoxLayout()
+        b_copy = QPushButton("复制全部内容")
+        b_copy.clicked.connect(lambda: QApplication.clipboard().setText(view.toPlainText()))
+        b_open = QPushButton("在资源管理器打开")
+        b_open.clicked.connect(lambda: _open(os.path.join(self.out_dir, combo.currentData())))
+        b_close = QPushButton("关闭")
+        b_close.clicked.connect(dlg.accept)
+        row.addStretch(); row.addWidget(b_copy); row.addWidget(b_open); row.addWidget(b_close)
+        dl.addLayout(row)
+
+        def load(_=None):
+            path = os.path.join(self.out_dir, combo.currentData())
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    txt = f.read()
+            except Exception as e:
+                txt = f"（读不到这个文件：{e}）"
+            view.setPlainText(txt or "（空文件）")
+        combo.currentIndexChanged.connect(load)
+        load()
+        dlg.exec()
+
+    # ---- 手动测速（对当前结果里最快的 30 个真测速 + 解锁）----
+    def _speed_test(self):
+        if self.worker and self.worker.is_alive():
+            return
+        if not self.last_info or not self.last_info.get("nodes_raw"):
+            QMessageBox.information(self, "手动测速", "先跑一次「搜索 + 测试」")
+            return
+        self.btn_speed.setEnabled(False)
+        self.btn_run.setEnabled(False)
+        self.bar.setVisible(True)
+        self._set_status("手动测速中（只测最快的 30 个，较慢）…")
+
+        nodes = self.last_info["nodes_raw"]
+
+        def on_log(m):
+            self.bridge.line.emit(m)
+
+        def on_prog(m):
+            self.bridge.progress.emit(m)
+
+        def work():
+            try:
+                import main as main_mod
+                base = os.environ.get("LOCALAPPDATA") or os.path.expanduser("~")
+                workdir = os.path.join(base, "FreeNodesPro", "work")
+                k = kernel_mod.find_kernel()
+                if not k:
+                    raise RuntimeError("内核不见了，重新跑一次搜索")
+                final = main_mod.speed_test(nodes, workdir, k,
+                                            on_log=on_log, on_progress=on_prog)
+                info = build_all(final, self.out_dir, meta={
+                    "at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
+                info["nodes_raw"] = final
+                self.bridge.done.emit(info, self.out_dir)
+            except Exception as e:
+                self.bridge.done.emit(None, f"测速失败：{e}")
+
+        self.worker = threading.Thread(target=work, daemon=True)
+        self.worker.start()
 
     # ---- 源管理页 ----
     def _tab_sources(self):
@@ -242,6 +338,7 @@ class MainWindow(QMainWindow):
         self.btn_open.setEnabled(True)
         for b in self.export_btns:
             b.setEnabled(True)
+        self.btn_speed.setEnabled(True)
         n = info.get("total", 0)
         self._set_status(f"完成：{n} 个节点已写入 {out_dir_or_err}")
         self._fill_nodes(info)

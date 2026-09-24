@@ -4,6 +4,8 @@
 import base64
 import json
 import os
+import random
+import string
 import urllib.parse
 
 import yaml
@@ -186,6 +188,42 @@ def guess_region_ip(server):
     return ""
 
 
+SINGBOX_PLAIN_OK = {"http", "socks5", "vmess", "vless", "trojan", "shadowsocks", "hysteria2"}
+
+
+def _rid():
+    return "ID_" + "".join(random.choices(string.ascii_lowercase + string.digits, k=8))
+
+
+def to_singbox_plain(p):
+    """proxy dict -> 扁平对象（NekoBox / Karing 直接导入的节点格式）。
+    返回 None 表示该协议不适合平铺。"""
+    t = p.get("type")
+    if t not in SINGBOX_PLAIN_OK:
+        return None
+    obj = {"__id_in_gui": _rid(),
+           "type": t,
+           "tag": p.get("name", ""),
+           "server": p.get("server"),
+           "server_port": p.get("port")}
+    if p.get("username"):
+        obj["username"] = p["username"]
+    if p.get("password"):
+        obj["password"] = p["password"]
+    if p.get("tls"):
+        obj["tls"] = {
+            "enabled": True,
+            "server_name": p.get("servername") or p.get("sni") or p.get("server"),
+            "insecure": bool(p.get("skip-cert-verify", False)),
+        }
+    obj["tcp_fast_open"] = False
+    return obj
+
+
+def is_http(p):
+    return p.get("type") == "http"
+
+
 def build_all(ok, out_dir, meta=None):
     """ok: 已排序的节点列表（含 _delay/_kbps/_unlock）。写全套订阅。"""
     os.makedirs(out_dir, exist_ok=True)
@@ -314,6 +352,36 @@ def build_all(ok, out_dir, meta=None):
             flags = "".join(k for k in ("GPT", "YT", "GM") if u.get(k))
             f.write(f"{p['name']}\t{p['_delay']}ms\t"
                     f"{p.get('_kbps') or 0:.0f}KB/s\t{flags}\n")
+
+    # ---------------- 纯 HTTP 分类（对应不同客户端）
+    http_nodes = [p for p in ok if is_http(p)]
+    if http_nodes:
+        http_dir = os.path.join(out_dir, "http")
+        os.makedirs(http_dir, exist_ok=True)
+
+        # 扁平数组：NekoBox / Karing 直接导入
+        plain = [o for o in (to_singbox_plain(p) for p in http_nodes) if o]
+        with open(os.path.join(http_dir, "singbox.json"), "w", encoding="utf-8") as f:
+            json.dump(plain, f, ensure_ascii=False, indent=2)
+
+        # Clash proxies 片段（proxies 列表，可直接贴进 clash 配置）
+        with open(os.path.join(http_dir, "clash.yaml"), "w", encoding="utf-8") as f:
+            f.write(yaml.safe_dump({"proxies": [_public(p) for p in http_nodes]},
+                                   allow_unicode=True, sort_keys=False, width=10000))
+
+        # base64 订阅：http(s)://user:pass@host:port
+        links = []
+        for p in http_nodes:
+            scheme = "https" if p.get("tls") else "http"
+            auth = f"{p['username']}:{p.get('password','')}@" if p.get("username") else ""
+            links.append(f"{scheme}://{auth}{p['server']}:{p['port']}")
+        with open(os.path.join(http_dir, "base64.txt"), "w", encoding="utf-8") as f:
+            f.write(base64.b64encode("\n".join(links).encode()).decode() if links else "")
+
+        with open(os.path.join(http_dir, "nodes.txt"), "w", encoding="utf-8") as f:
+            for p in http_nodes:
+                f.write(f"{p['name']}\t{p['server']}:{p['port']}\t"
+                        f"{'TLS' if p.get('tls') else '明文'}\t{p['_delay']}ms\n")
 
     # ---------------- 元信息
     info = {

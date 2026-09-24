@@ -136,8 +136,35 @@ def collect(on_log=log):
     return allp
 
 
-def run(on_log=log, on_progress=None, workdir=None, kernel_path=None):
-    """完整流程：搜集 -> 延迟 -> 速度 -> 解锁 -> 导出。"""
+def speed_test(final, workdir, kernel_path, topn=None, on_log=log, on_progress=None):
+    """下载测速 + 流媒体解锁（GUI 的「手动测速」按钮调用）。
+    final 必须是按延迟排好的列表，只测最快的 topn 个；返回按速度重排后的列表。"""
+    if not final:
+        raise RuntimeError("没有可测速的节点")
+    topn = topn or SPEED_TOPN
+    top = final[:topn]
+    on_log(f"对最快的 {len(top)} 个测下载速度 + 解锁…")
+    m2 = Mihomo(top, workdir, concurrency=8)
+    try:
+        m2.start(kernel_path)
+        for i, p in enumerate(top, 1):
+            p["_kbps"] = m2.measure_speed(p["name"])
+            p["_unlock"] = m2.measure_unlock(p["name"])
+            on_progress and on_progress(f"测速 {i}/{len(top)}")
+            on_log(f"  {p['name'][:40]:40} {p['_delay']:4}ms "
+                   f"{p['_kbps']:7.0f}KB/s "
+                   f"{''.join(k for k, v in p['_unlock'].items() if v)}")
+    finally:
+        m2.stop()
+    # 有实测速度的排前面，同档按速度/延迟
+    top.sort(key=lambda p: (-(p.get("_kbps") or 0), p["_delay"]))
+    return top + [p for p in final if p not in top]
+
+
+def run(on_log=log, on_progress=None, workdir=None, kernel_path=None, quick=True):
+    """完整流程：搜集 -> 延迟筛选 -> 导出。
+    quick=True（默认）：只做延迟筛选，立刻可导出。
+    quick=False：额外对最快的 N 个真测速 + 解锁（慢，一般用界面里的手动测速按钮）。"""
     t0 = time.time()
     base = os.environ.get("LOCALAPPDATA") or os.path.expanduser("~")
     data_dir = os.path.join(base, "FreeNodesPro")
@@ -197,29 +224,14 @@ def run(on_log=log, on_progress=None, workdir=None, kernel_path=None):
     if not alive:
         raise RuntimeError("没有任何节点通过延迟测试")
 
-    # 4. 真测速 + 解锁（只测最快的 N 个）
-    top = alive[:SPEED_TOPN]
-    on_log(f"对最快的 {len(top)} 个测下载速度 + 解锁…")
-    m2 = Mihomo(top, workdir, concurrency=8)
-    try:
-        m2.start(k)
-        for i, p in enumerate(top, 1):
-            p["_kbps"] = m2.measure_speed(p["name"])
-            p["_unlock"] = m2.measure_unlock(p["name"])
-            on_progress and on_progress(f"测速 {i}/{len(top)}")
-            on_log(f"  {p['name'][:40]:40} {p['_delay']:4}ms "
-                   f"{p['_kbps']:7.0f}KB/s "
-                   f"{''.join(k for k, v in p['_unlock'].items() if v)}")
-    finally:
-        m2.stop()
-
-    # 5. 排序 + 导出
-    # 优先级：有实测速度的 > 只有延迟的；同档按速度/延迟排
-    top.sort(key=lambda p: (-(p.get("_kbps") or 0), p["_delay"]))
-    final = top + [p for p in alive if p not in top]
-    for p in final:
-        p.setdefault("_kbps", None)
-        p.setdefault("_unlock", {})
+    # 4. 真测速 + 解锁（默认跳过，用 speed_test() 手动触发）
+    if not quick:
+        final = speed_test(alive, workdir, k, on_log=on_log, on_progress=on_progress)
+    else:
+        final = alive
+        for p in final:
+            p.setdefault("_kbps", None)
+            p.setdefault("_unlock", {})
 
     info = build_all(final, out_dir, meta={
         "at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")})
