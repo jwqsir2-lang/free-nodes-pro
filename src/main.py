@@ -18,8 +18,8 @@ from parsers import (clean, dedupe, parse_base64_sub, parse_clash_yaml,
 from tester import Mihomo, TLS_LIKELY_PORTS, udp_egress_ok
 
 # ---- 预算上限（保证轻量、不打扰电脑）------------------------------------
-MAX_CANDIDATES = 2000     # 总候选上限
-HTTP_MAX = 400            # HTTP 代理上限（国内可用率极低，测多了浪费）
+MAX_CANDIDATES = 2600     # 总候选上限
+HTTP_MAX = 1500           # HTTP 代理上限（国内可用率低，但用户要 http 节点，多留点）
 CONCURRENCY = 128         # 并发延迟测试线程（第一轮筛选要快）
 SPEED_TOPN = 30           # 只有延迟最低的 N 个才进入真测速 + 解锁
 
@@ -133,7 +133,13 @@ def collect(on_log=log):
         http = http[:HTTP_MAX]
     allp = other + http
     if len(allp) > MAX_CANDIDATES:
-        allp = allp[:MAX_CANDIDATES]
+        # 按类型比例分配名额，避免 other 挤占导致 http 被砍光
+        # （之前 other+http 直接从前面截，http 排最后被整段砍掉）
+        n_other = max(1, round(MAX_CANDIDATES * len(other) / max(len(allp), 1)))
+        n_http = max(1, MAX_CANDIDATES - n_other)
+        other = other[:n_other]
+        http = http[:n_http]
+        allp = other + http
     on_log(f"去重后候选：{len(allp)} 个（http {len(http)} / 其他 {len(other)}）")
     return allp
 
