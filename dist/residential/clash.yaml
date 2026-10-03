@@ -4,6 +4,16 @@ log-level: warning
 external-controller: 127.0.0.1:9090
 ipv6: false
 proxies:
+- name: 🇲🇽 MX http-200.52.72.14:443|T
+  type: http
+  server: 200.52.72.14
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 200.52.72.14
+  iptype: jk
+  country_code: MX
 - name: 🇩🇪 DE http-217.237.171.227:443|T
   type: http
   server: 217.237.171.227
@@ -24,36 +34,6 @@ proxies:
   servername: 81.34.67.170
   iptype: jk
   country_code: ES
-- name: 🇲🇽 MX http-200.52.72.14:443|T
-  type: http
-  server: 200.52.72.14
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 200.52.72.14
-  iptype: jk
-  country_code: MX
-- name: 🇱🇻 LV http-37.203.37.112:443|T
-  type: http
-  server: 37.203.37.112
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 37.203.37.112
-  iptype: jk
-  country_code: LV
-- name: 🇿🇦 ZA http-198.54.223.176:443|T
-  type: http
-  server: 198.54.223.176
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 198.54.223.176
-  iptype: jk
-  country_code: ZA
 - name: 🇭🇰 HK http-221.120.177.43:443|T
   type: http
   server: 221.120.177.43
@@ -64,6 +44,16 @@ proxies:
   servername: 221.120.177.43
   iptype: jk
   country_code: HK
+- name: 🇿🇦 ZA http-198.54.223.176:443|T
+  type: http
+  server: 198.54.223.176
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 198.54.223.176
+  iptype: jk
+  country_code: ZA
 - name: 🇮🇳 IN http-122.165.229.173:443|T
   type: http
   server: 122.165.229.173
@@ -81,12 +71,11 @@ proxy-groups:
   - ⚡ 精选速度
   - ♻️ 自动测速
   - DIRECT
+  - 🇲🇽 MX http-200.52.72.14:443|T
   - 🇩🇪 DE http-217.237.171.227:443|T
   - 🇪🇸 ES http-81.34.67.170:443|T
-  - 🇲🇽 MX http-200.52.72.14:443|T
-  - 🇱🇻 LV http-37.203.37.112:443|T
-  - 🇿🇦 ZA http-198.54.223.176:443|T
   - 🇭🇰 HK http-221.120.177.43:443|T
+  - 🇿🇦 ZA http-198.54.223.176:443|T
   - 🇮🇳 IN http-122.165.229.173:443|T
 - name: ⚡ 精选速度
   type: url-test
@@ -94,12 +83,11 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
+  - 🇲🇽 MX http-200.52.72.14:443|T
   - 🇩🇪 DE http-217.237.171.227:443|T
   - 🇪🇸 ES http-81.34.67.170:443|T
-  - 🇲🇽 MX http-200.52.72.14:443|T
-  - 🇱🇻 LV http-37.203.37.112:443|T
-  - 🇿🇦 ZA http-198.54.223.176:443|T
   - 🇭🇰 HK http-221.120.177.43:443|T
+  - 🇿🇦 ZA http-198.54.223.176:443|T
   - 🇮🇳 IN http-122.165.229.173:443|T
 - name: ♻️ 自动测速
   type: url-test
@@ -107,12 +95,11 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
+  - 🇲🇽 MX http-200.52.72.14:443|T
   - 🇩🇪 DE http-217.237.171.227:443|T
   - 🇪🇸 ES http-81.34.67.170:443|T
-  - 🇲🇽 MX http-200.52.72.14:443|T
-  - 🇱🇻 LV http-37.203.37.112:443|T
-  - 🇿🇦 ZA http-198.54.223.176:443|T
   - 🇭🇰 HK http-221.120.177.43:443|T
+  - 🇿🇦 ZA http-198.54.223.176:443|T
   - 🇮🇳 IN http-122.165.229.173:443|T
 - name: 🤖 ChatGPT
   type: select
