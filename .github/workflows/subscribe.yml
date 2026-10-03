@@ -1,0 +1,141 @@
+name: 每日更新订阅
+
+# 定时搜集免费节点 -> 延迟测试 -> IP 类型检测 -> 把专档订阅提交回仓库
+# sing-box / GUI.for.SingBox 客户端直接订阅 raw 链接即可自动更新：
+#   https://raw.githubusercontent.com/<owner>/<repo>/main/dist/residential/singbox.json
+
+on:
+  schedule:
+    # UTC 02:00 = 北京时间 10:00（每天一次，免费节点失效快，一天一更新够用）
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "全量测速（慢，对最快 30 个真测速+解锁）"
+        required: false
+        default: "false"
+
+# 提交回仓库需要 contents: write
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 安装依赖
+        run: pip install pyyaml requests
+
+      # GitHub Actions 跑在境外，raw.githubusercontent 直连即可，不需要镜像
+      - name: 搜集 + 延迟测试 + IP 类型检测
+        env:
+          LOCALAPPDATA: ${{ github.workspace }}
+        run: |
+          python - <<'PY'
+          import sys, os
+          sys.path.insert(0, os.path.join(os.getcwd(), "src"))
+          import main
+          info, out_dir = main.run(
+              on_log=lambda m: print(m, flush=True),
+              on_progress=lambda m: print("  " + m, flush=True),
+              quick=os.environ.get("INPUT_FULL", "false") != "true",
+              iptype_enabled=True,
+          )
+          print(f"\n存活 {info['total']} 个，IP 类型：{info.get('iptype')}")
+          print(f"输出目录：{out_dir}")
+          PY
+
+      - name: 产物搬到 dist/
+        shell: bash
+        run: |
+          # out_dir 在 $HOME/FreeNodesPro/out（Linux 无 LOCALAPPDATA）
+          SRC="$HOME/FreeNodesPro/out"
+          if [ ! -d "$SRC" ]; then
+            # 兜底：全盘找
+            SRC="$(find / -type d -path '*/FreeNodesPro/out' 2>/dev/null | head -1 || true)"
+          fi
+          if [ -z "${SRC:-}" ] || [ ! -d "$SRC" ]; then
+            echo "错误：找不到产物目录，跳过搬运"
+            exit 0
+          fi
+          echo "产物目录：$SRC"
+          ls -la "$SRC"
+          mkdir -p dist
+          # 主订阅
+          cp -f "$SRC/clash.yaml"      dist/clash.yaml      || true
+          cp -f "$SRC/singbox.json"    dist/singbox.json    || true
+          cp -f "$SRC/singbox-full.json" dist/singbox-full.json || true
+          cp -f "$SRC/v2ray.txt"       dist/v2ray.txt       || true
+          cp -f "$SRC/info.json"       dist/info.json       || true
+          # 专档订阅（核心产物）
+          if [ -d "$SRC/residential" ]; then
+            mkdir -p dist/residential
+            cp -rf "$SRC"/residential/* dist/residential/ || true
+            # sing-box 客户端的「订阅」功能要完整配置（带 inbounds/outbounds/route），
+            # 顶层 singbox.json 是纯节点数组（GUI.for.SingBox 手动导入用），订阅不认。
+            # 专档订阅直接用 singbox-full.json 的内容覆盖 singbox.json。
+            if [ -f "$SRC/residential/singbox-full.json" ]; then
+              cp -f "$SRC/residential/singbox-full.json" dist/residential/singbox.json
+              echo "已把专档订阅的 singbox.json 换成完整配置格式"
+            fi
+            echo "==== 专档订阅 ===="
+            ls -la dist/residential/
+          else
+            echo "警告：专档目录未生成"
+          fi
+          ls -la dist/
+
+      - name: 补 Clash Verge 订阅必需的 geodata 配置
+        shell: python
+        run: |
+          # Clash Verge / mihomo 订阅用 GEOSITE/GEOIP 规则集，
+          # 必须开 geodata-mode 并给 geox-url，否则首次启动报 missing geodata、规则全失效
+          import os, yaml
+          p = "dist/residential/clash.yaml"
+          if not os.path.isfile(p):
+              print("没有专档 clash.yaml，跳过")
+              raise SystemExit
+          with open(p, encoding="utf-8") as f:
+              d = yaml.safe_load(f)
+          d["geodata-mode"] = True
+          d["geo-auto-update"] = True
+          d["geox-url"] = {
+              "geoip": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat",
+              "geosite": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat",
+              "mmdb": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb",
+              "asn": "https://cdn.jsdelivr.net/gh/xishang0128/bgp@latest/IP2ASN/IP2ASN.yaml",
+          }
+          with open(p, "w", encoding="utf-8") as f:
+              yaml.dump(d, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+          print("已补 geodata-mode / geox-url（Clash Verge 订阅必需）")
+
+      - name: 刷新 jsDelivr 缓存
+        shell: bash
+        run: |
+          # jsdelivr 对 @master 有缓存，订阅客户端默认每次都从 CDN 边缘节点取旧文件，
+          # purge 一下边缘缓存，客户端下次更新就能拿到当天新节点。
+          for f in clash.yaml singbox.json v2ray.txt; do
+            curl -sSL --fail-with-body \
+              "https://purge.jsdelivr.net/gh/${{ github.repository }}@master/dist/residential/$f" \
+              -o /tmp/purge.json && echo "purge $f: $(grep -o '"status":"[^"]*"' /tmp/purge.json | head -1)"
+          done
+      - name: 提交回仓库
+        shell: bash
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dist/ || true
+          if git diff --cached --quiet; then
+            echo "没有变化，跳过提交"
+          else
+            # 用上次提交时间做提交信息，方便看新鲜度
+            git commit -m "chore: 更新节点订阅 $(date -u -d '+8 hours' '+%Y-%m-%d %H:%M') 北京时间"
+            git push
+          fi

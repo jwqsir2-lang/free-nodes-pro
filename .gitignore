@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+build/
+*.spec
+# dist/ 是 GitHub Actions 产出的订阅产物，必须提交到仓库供客户端订阅
+# （build/ 仍忽略，那是 PyInstaller 打包用的本地目录）
+kernel/*.exe
+FreeNodesPro/
