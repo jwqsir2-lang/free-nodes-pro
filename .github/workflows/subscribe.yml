@@ -90,6 +90,16 @@ jobs:
           else
             echo "警告：专档目录未生成"
           fi
+          # 全量档（不过滤，手动挑节点用）
+          if [ -d "$SRC/residential-all" ]; then
+            mkdir -p dist/residential-all
+            cp -rf "$SRC"/residential-all/* dist/residential-all/ || true
+            if [ -f "$SRC/residential-all/singbox-full.json" ]; then
+              cp -f "$SRC/residential-all/singbox-full.json" dist/residential-all/singbox.json
+            fi
+            echo "==== 全量档 ===="
+            ls -la dist/residential-all/
+          fi
           ls -la dist/
 
       - name: 补 Clash Verge 订阅必需的 geodata 配置
@@ -98,33 +108,37 @@ jobs:
           # Clash Verge / mihomo 订阅用 GEOSITE/GEOIP 规则集，
           # 必须开 geodata-mode 并给 geox-url，否则首次启动报 missing geodata、规则全失效
           import os, yaml
-          p = "dist/residential/clash.yaml"
-          if not os.path.isfile(p):
-              print("没有专档 clash.yaml，跳过")
-              raise SystemExit
-          with open(p, encoding="utf-8") as f:
-              d = yaml.safe_load(f)
-          d["geodata-mode"] = True
-          d["geo-auto-update"] = True
-          d["geox-url"] = {
-              "geoip": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat",
-              "geosite": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat",
-              "mmdb": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb",
-              "asn": "https://cdn.jsdelivr.net/gh/xishang0128/bgp@latest/IP2ASN/IP2ASN.yaml",
-          }
-          with open(p, "w", encoding="utf-8") as f:
-              yaml.dump(d, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
-          print("已补 geodata-mode / geox-url（Clash Verge 订阅必需）")
+          def patch_geodata(p):
+              if not os.path.isfile(p):
+                  print(f"没有 {p}，跳过")
+                  return
+              with open(p, encoding="utf-8") as f:
+                  d = yaml.safe_load(f)
+              d["geodata-mode"] = True
+              d["geo-auto-update"] = True
+              d["geox-url"] = {
+                  "geoip": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat",
+                  "geosite": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat",
+                  "mmdb": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb",
+                  "asn": "https://cdn.jsdelivr.net/gh/xishang0128/bgp@latest/IP2ASN/IP2ASN.yaml",
+              }
+              with open(p, "w", encoding="utf-8") as f:
+                  yaml.dump(d, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+              print(f"已补 geodata-mode / geox-url：{p}")
+          patch_geodata("dist/residential/clash.yaml")
+          patch_geodata("dist/residential-all/clash.yaml")
 
       - name: 刷新 jsDelivr 缓存
         shell: bash
         run: |
           # jsdelivr 对 @master 有缓存，订阅客户端默认每次都从 CDN 边缘节点取旧文件，
           # purge 一下边缘缓存，客户端下次更新就能拿到当天新节点。
-          for f in clash.yaml singbox.json v2ray.txt; do
-            curl -sSL --fail-with-body \
-              "https://purge.jsdelivr.net/gh/${{ github.repository }}@master/dist/residential/$f" \
-              -o /tmp/purge.json && echo "purge $f: $(grep -o '"status":"[^"]*"' /tmp/purge.json | head -1)"
+          for sub in residential residential-all; do
+            for f in clash.yaml singbox.json v2ray.txt; do
+              curl -sSL --fail-with-body \
+                "https://purge.jsdelivr.net/gh/${{ github.repository }}@master/dist/$sub/$f" \
+                -o /tmp/purge.json && echo "purge $sub/$f: $(grep -o '"status":"[^"]*"' /tmp/purge.json | head -1)"
+            done
           done
       - name: 提交回仓库
         shell: bash

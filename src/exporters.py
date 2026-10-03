@@ -554,6 +554,19 @@ def build_all(ok, out_dir, meta=None, on_residential=None, allow_subdirs=True):
                           allow_subdirs=False)
                 on_residential and on_residential(len(res))
 
+    # ---------------- jk 节点全量档（不过滤，自己手测）
+    # 过滤太狠时美国节点可能一个不剩，这份把全部 jk 节点都放出来，
+    # 手动逐个试，好用的再挑进本地配置。
+    if allow_subdirs:
+        res_all = [p for p in ok if p.get("iptype") == "jk"]
+        if res_all:
+            res_all = [_tag_residential_name(p) for p in res_all]
+            sub = os.path.join(out_dir, "residential-all")
+            os.makedirs(sub, exist_ok=True)
+            build_all(res_all, sub, meta={"at": meta.get("at", "") + " (jk 全量)"},
+                      allow_subdirs=False)
+            on_residential and on_residential(len(res_all))
+
     # ---------------- 测速结果专档（只放真测过速度的节点，避免"白测"）
     if allow_subdirs:
         sped = [p for p in ok if p.get("_kbps")]
