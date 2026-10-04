@@ -37,13 +37,13 @@
   ],
   "outbounds": [
     {
-      "tag": "🇲🇽 MX http-200.52.72.14:443|T",
+      "tag": "🇺🇸 US http-24.121.152.67:443|T",
       "type": "http",
-      "server": "200.52.72.14",
+      "server": "24.121.152.67",
       "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "200.52.72.14",
+        "server_name": "24.121.152.67",
         "insecure": true
       }
     },
@@ -59,24 +59,35 @@
       }
     },
     {
-      "tag": "🇪🇸 ES http-81.34.67.170:443|T",
-      "type": "http",
-      "server": "81.34.67.170",
-      "server_port": 443,
+      "tag": "🇧🇾 BY 白俄罗斯 001",
+      "type": "vless",
+      "server": "95.130.84.36",
+      "server_port": 8443,
       "tls": {
         "enabled": true,
-        "server_name": "81.34.67.170",
-        "insecure": true
-      }
+        "server_name": "aio.eth0.dpdns.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "unsafe"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/aioproxybot/94.23.144.99-2053",
+        "headers": {
+          "Host": "aio.eth0.dpdns.org"
+        }
+      },
+      "uuid": "8d42d29a-ed53-4684-a9ff-6b33826149de"
     },
     {
-      "tag": "🇭🇰 HK http-221.120.177.43:443|T",
+      "tag": "🇱🇻 LV http-89.111.30.183:443|T",
       "type": "http",
-      "server": "221.120.177.43",
+      "server": "89.111.30.183",
       "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "221.120.177.43",
+        "server_name": "89.111.30.183",
         "insecure": true
       }
     },
@@ -92,6 +103,17 @@
       }
     },
     {
+      "tag": "🇭🇰 HK http-221.120.177.43:443|T",
+      "type": "http",
+      "server": "221.120.177.43",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "221.120.177.43",
+        "insecure": true
+      }
+    },
+    {
       "tag": "🇮🇳 IN http-122.165.229.173:443|T",
       "type": "http",
       "server": "122.165.229.173",
@@ -103,18 +125,43 @@
       }
     },
     {
+      "tag": "🇱🇻 LV http-89.111.31.247:443|T",
+      "type": "http",
+      "server": "89.111.31.247",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "89.111.31.247",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇱🇻 LV http-37.203.37.112:443|T",
+      "type": "http",
+      "server": "37.203.37.112",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "37.203.37.112",
+        "insecure": true
+      }
+    },
+    {
       "type": "selector",
       "tag": "🚀 节点选择",
       "outbounds": [
         "⚡ 精选速度",
         "♻️ 自动测速",
         "direct",
-        "🇲🇽 MX http-200.52.72.14:443|T",
+        "🇺🇸 US http-24.121.152.67:443|T",
         "🇩🇪 DE http-217.237.171.227:443|T",
-        "🇪🇸 ES http-81.34.67.170:443|T",
-        "🇭🇰 HK http-221.120.177.43:443|T",
+        "🇧🇾 BY 白俄罗斯 001",
+        "🇱🇻 LV http-89.111.30.183:443|T",
         "🇿🇦 ZA http-198.54.223.176:443|T",
-        "🇮🇳 IN http-122.165.229.173:443|T"
+        "🇭🇰 HK http-221.120.177.43:443|T",
+        "🇮🇳 IN http-122.165.229.173:443|T",
+        "🇱🇻 LV http-89.111.31.247:443|T",
+        "🇱🇻 LV http-37.203.37.112:443|T"
       ],
       "default": "⚡ 精选速度"
     },
@@ -122,12 +169,15 @@
       "type": "urltest",
       "tag": "⚡ 精选速度",
       "outbounds": [
-        "🇲🇽 MX http-200.52.72.14:443|T",
+        "🇺🇸 US http-24.121.152.67:443|T",
         "🇩🇪 DE http-217.237.171.227:443|T",
-        "🇪🇸 ES http-81.34.67.170:443|T",
-        "🇭🇰 HK http-221.120.177.43:443|T",
+        "🇧🇾 BY 白俄罗斯 001",
+        "🇱🇻 LV http-89.111.30.183:443|T",
         "🇿🇦 ZA http-198.54.223.176:443|T",
-        "🇮🇳 IN http-122.165.229.173:443|T"
+        "🇭🇰 HK http-221.120.177.43:443|T",
+        "🇮🇳 IN http-122.165.229.173:443|T",
+        "🇱🇻 LV http-89.111.31.247:443|T",
+        "🇱🇻 LV http-37.203.37.112:443|T"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
@@ -136,12 +186,15 @@
       "type": "urltest",
       "tag": "♻️ 自动测速",
       "outbounds": [
-        "🇲🇽 MX http-200.52.72.14:443|T",
+        "🇺🇸 US http-24.121.152.67:443|T",
         "🇩🇪 DE http-217.237.171.227:443|T",
-        "🇪🇸 ES http-81.34.67.170:443|T",
-        "🇭🇰 HK http-221.120.177.43:443|T",
+        "🇧🇾 BY 白俄罗斯 001",
+        "🇱🇻 LV http-89.111.30.183:443|T",
         "🇿🇦 ZA http-198.54.223.176:443|T",
-        "🇮🇳 IN http-122.165.229.173:443|T"
+        "🇭🇰 HK http-221.120.177.43:443|T",
+        "🇮🇳 IN http-122.165.229.173:443|T",
+        "🇱🇻 LV http-89.111.31.247:443|T",
+        "🇱🇻 LV http-37.203.37.112:443|T"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
