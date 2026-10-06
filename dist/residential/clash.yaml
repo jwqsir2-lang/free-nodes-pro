@@ -4,16 +4,16 @@ log-level: warning
 external-controller: 127.0.0.1:9090
 ipv6: false
 proxies:
-- name: 🇮🇹 IT http-188.219.81.246:443|T
+- name: 🇺🇸 US http-66.210.50.131:443|T
   type: http
-  server: 188.219.81.246
+  server: 66.210.50.131
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 188.219.81.246
+  servername: 66.210.50.131
   iptype: jk
-  country_code: IT
+  country_code: US
 - name: 🇩🇪 DE http-217.237.171.227:443|T
   type: http
   server: 217.237.171.227
@@ -24,6 +24,16 @@ proxies:
   servername: 217.237.171.227
   iptype: jk
   country_code: DE
+- name: 🇮🇹 IT http-83.224.155.229:443|T
+  type: http
+  server: 83.224.155.229
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 83.224.155.229
+  iptype: jk
+  country_code: IT
 - name: 🇭🇰 HK http-221.120.177.43:443|T
   type: http
   server: 221.120.177.43
@@ -34,16 +44,6 @@ proxies:
   servername: 221.120.177.43
   iptype: jk
   country_code: HK
-- name: 🇱🇻 LV http-37.203.37.92:443|T
-  type: http
-  server: 37.203.37.92
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 37.203.37.92
-  iptype: jk
-  country_code: LV
 - name: 🇮🇳 IN http-122.165.229.173:443|T
   type: http
   server: 122.165.229.173
@@ -71,10 +71,10 @@ proxy-groups:
   - ⚡ 精选速度
   - ♻️ 自动测速
   - DIRECT
-  - 🇮🇹 IT http-188.219.81.246:443|T
+  - 🇺🇸 US http-66.210.50.131:443|T
   - 🇩🇪 DE http-217.237.171.227:443|T
+  - 🇮🇹 IT http-83.224.155.229:443|T
   - 🇭🇰 HK http-221.120.177.43:443|T
-  - 🇱🇻 LV http-37.203.37.92:443|T
   - 🇮🇳 IN http-122.165.229.173:443|T
   - 🇿🇦 ZA http-198.54.223.176:443|T
 - name: ⚡ 精选速度
@@ -83,10 +83,10 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
-  - 🇮🇹 IT http-188.219.81.246:443|T
+  - 🇺🇸 US http-66.210.50.131:443|T
   - 🇩🇪 DE http-217.237.171.227:443|T
+  - 🇮🇹 IT http-83.224.155.229:443|T
   - 🇭🇰 HK http-221.120.177.43:443|T
-  - 🇱🇻 LV http-37.203.37.92:443|T
   - 🇮🇳 IN http-122.165.229.173:443|T
   - 🇿🇦 ZA http-198.54.223.176:443|T
 - name: ♻️ 自动测速
@@ -95,10 +95,10 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
-  - 🇮🇹 IT http-188.219.81.246:443|T
+  - 🇺🇸 US http-66.210.50.131:443|T
   - 🇩🇪 DE http-217.237.171.227:443|T
+  - 🇮🇹 IT http-83.224.155.229:443|T
   - 🇭🇰 HK http-221.120.177.43:443|T
-  - 🇱🇻 LV http-37.203.37.92:443|T
   - 🇮🇳 IN http-122.165.229.173:443|T
   - 🇿🇦 ZA http-198.54.223.176:443|T
 - name: 🤖 ChatGPT
