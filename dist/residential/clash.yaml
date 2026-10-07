@@ -4,6 +4,16 @@ log-level: warning
 external-controller: 127.0.0.1:9090
 ipv6: false
 proxies:
+- name: 🇨🇦 CA http-69.70.52.198:443|T
+  type: http
+  server: 69.70.52.198
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 69.70.52.198
+  iptype: jk
+  country_code: CA
 - name: 🇺🇸 US http-66.210.50.131:443|T
   type: http
   server: 66.210.50.131
@@ -12,6 +22,16 @@ proxies:
   tls: true
   skip_cert_verify: true
   servername: 66.210.50.131
+  iptype: jk
+  country_code: US
+- name: 🇺🇸 US http-24.121.152.67:443|T
+  type: http
+  server: 24.121.152.67
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 24.121.152.67
   iptype: jk
   country_code: US
 - name: 🇩🇪 DE http-217.237.171.227:443|T
@@ -34,6 +54,16 @@ proxies:
   servername: 83.224.155.229
   iptype: jk
   country_code: IT
+- name: 🇵🇱 PL http-46.170.93.122:443|T
+  type: http
+  server: 46.170.93.122
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 46.170.93.122
+  iptype: jk
+  country_code: PL
 - name: 🇭🇰 HK http-221.120.177.43:443|T
   type: http
   server: 221.120.177.43
@@ -54,16 +84,16 @@ proxies:
   servername: 122.165.229.173
   iptype: jk
   country_code: IN
-- name: 🇿🇦 ZA http-198.54.223.176:443|T
+- name: 🇱🇻 LV http-89.111.30.183:443|T
   type: http
-  server: 198.54.223.176
+  server: 89.111.30.183
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 198.54.223.176
+  servername: 89.111.30.183
   iptype: jk
-  country_code: ZA
+  country_code: LV
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -71,36 +101,45 @@ proxy-groups:
   - ⚡ 精选速度
   - ♻️ 自动测速
   - DIRECT
+  - 🇨🇦 CA http-69.70.52.198:443|T
   - 🇺🇸 US http-66.210.50.131:443|T
+  - 🇺🇸 US http-24.121.152.67:443|T
   - 🇩🇪 DE http-217.237.171.227:443|T
   - 🇮🇹 IT http-83.224.155.229:443|T
+  - 🇵🇱 PL http-46.170.93.122:443|T
   - 🇭🇰 HK http-221.120.177.43:443|T
   - 🇮🇳 IN http-122.165.229.173:443|T
-  - 🇿🇦 ZA http-198.54.223.176:443|T
+  - 🇱🇻 LV http-89.111.30.183:443|T
 - name: ⚡ 精选速度
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
+  - 🇨🇦 CA http-69.70.52.198:443|T
   - 🇺🇸 US http-66.210.50.131:443|T
+  - 🇺🇸 US http-24.121.152.67:443|T
   - 🇩🇪 DE http-217.237.171.227:443|T
   - 🇮🇹 IT http-83.224.155.229:443|T
+  - 🇵🇱 PL http-46.170.93.122:443|T
   - 🇭🇰 HK http-221.120.177.43:443|T
   - 🇮🇳 IN http-122.165.229.173:443|T
-  - 🇿🇦 ZA http-198.54.223.176:443|T
+  - 🇱🇻 LV http-89.111.30.183:443|T
 - name: ♻️ 自动测速
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
+  - 🇨🇦 CA http-69.70.52.198:443|T
   - 🇺🇸 US http-66.210.50.131:443|T
+  - 🇺🇸 US http-24.121.152.67:443|T
   - 🇩🇪 DE http-217.237.171.227:443|T
   - 🇮🇹 IT http-83.224.155.229:443|T
+  - 🇵🇱 PL http-46.170.93.122:443|T
   - 🇭🇰 HK http-221.120.177.43:443|T
   - 🇮🇳 IN http-122.165.229.173:443|T
-  - 🇿🇦 ZA http-198.54.223.176:443|T
+  - 🇱🇻 LV http-89.111.30.183:443|T
 - name: 🤖 ChatGPT
   type: select
   proxies:

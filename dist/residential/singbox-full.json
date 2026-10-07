@@ -37,6 +37,17 @@
   ],
   "outbounds": [
     {
+      "tag": "🇨🇦 CA http-69.70.52.198:443|T",
+      "type": "http",
+      "server": "69.70.52.198",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "69.70.52.198",
+        "insecure": true
+      }
+    },
+    {
       "tag": "🇺🇸 US http-66.210.50.131:443|T",
       "type": "http",
       "server": "66.210.50.131",
@@ -44,6 +55,17 @@
       "tls": {
         "enabled": true,
         "server_name": "66.210.50.131",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇺🇸 US http-24.121.152.67:443|T",
+      "type": "http",
+      "server": "24.121.152.67",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "24.121.152.67",
         "insecure": true
       }
     },
@@ -70,6 +92,17 @@
       }
     },
     {
+      "tag": "🇵🇱 PL http-46.170.93.122:443|T",
+      "type": "http",
+      "server": "46.170.93.122",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "46.170.93.122",
+        "insecure": true
+      }
+    },
+    {
       "tag": "🇭🇰 HK http-221.120.177.43:443|T",
       "type": "http",
       "server": "221.120.177.43",
@@ -92,13 +125,13 @@
       }
     },
     {
-      "tag": "🇿🇦 ZA http-198.54.223.176:443|T",
+      "tag": "🇱🇻 LV http-89.111.30.183:443|T",
       "type": "http",
-      "server": "198.54.223.176",
+      "server": "89.111.30.183",
       "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "198.54.223.176",
+        "server_name": "89.111.30.183",
         "insecure": true
       }
     },
@@ -109,12 +142,15 @@
         "⚡ 精选速度",
         "♻️ 自动测速",
         "direct",
+        "🇨🇦 CA http-69.70.52.198:443|T",
         "🇺🇸 US http-66.210.50.131:443|T",
+        "🇺🇸 US http-24.121.152.67:443|T",
         "🇩🇪 DE http-217.237.171.227:443|T",
         "🇮🇹 IT http-83.224.155.229:443|T",
+        "🇵🇱 PL http-46.170.93.122:443|T",
         "🇭🇰 HK http-221.120.177.43:443|T",
         "🇮🇳 IN http-122.165.229.173:443|T",
-        "🇿🇦 ZA http-198.54.223.176:443|T"
+        "🇱🇻 LV http-89.111.30.183:443|T"
       ],
       "default": "⚡ 精选速度"
     },
@@ -122,12 +158,15 @@
       "type": "urltest",
       "tag": "⚡ 精选速度",
       "outbounds": [
+        "🇨🇦 CA http-69.70.52.198:443|T",
         "🇺🇸 US http-66.210.50.131:443|T",
+        "🇺🇸 US http-24.121.152.67:443|T",
         "🇩🇪 DE http-217.237.171.227:443|T",
         "🇮🇹 IT http-83.224.155.229:443|T",
+        "🇵🇱 PL http-46.170.93.122:443|T",
         "🇭🇰 HK http-221.120.177.43:443|T",
         "🇮🇳 IN http-122.165.229.173:443|T",
-        "🇿🇦 ZA http-198.54.223.176:443|T"
+        "🇱🇻 LV http-89.111.30.183:443|T"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
@@ -136,12 +175,15 @@
       "type": "urltest",
       "tag": "♻️ 自动测速",
       "outbounds": [
+        "🇨🇦 CA http-69.70.52.198:443|T",
         "🇺🇸 US http-66.210.50.131:443|T",
+        "🇺🇸 US http-24.121.152.67:443|T",
         "🇩🇪 DE http-217.237.171.227:443|T",
         "🇮🇹 IT http-83.224.155.229:443|T",
+        "🇵🇱 PL http-46.170.93.122:443|T",
         "🇭🇰 HK http-221.120.177.43:443|T",
         "🇮🇳 IN http-122.165.229.173:443|T",
-        "🇿🇦 ZA http-198.54.223.176:443|T"
+        "🇱🇻 LV http-89.111.30.183:443|T"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
