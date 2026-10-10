@@ -11,24 +11,13 @@
     }
   },
   {
-    "tag": "🇺🇸 US http-173.13.157.60:443|T",
+    "tag": "🇨🇦 CA http-69.70.52.198:443|T",
     "type": "http",
-    "server": "173.13.157.60",
+    "server": "69.70.52.198",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "173.13.157.60",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇺🇸 US http-66.210.50.131:443|T",
-    "type": "http",
-    "server": "66.210.50.131",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "66.210.50.131",
+      "server_name": "69.70.52.198",
       "insecure": true
     }
   },
@@ -44,90 +33,13 @@
     }
   },
   {
-    "tag": "🇺🇸 US http-74.103.66.18:443|T",
+    "tag": "🇨🇦 CA http-132.208.244.66:443|T",
     "type": "http",
-    "server": "74.103.66.18",
+    "server": "132.208.244.66",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "74.103.66.18",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇺🇸 US http-24.142.229.178:8090|T",
-    "type": "http",
-    "server": "24.142.229.178",
-    "server_port": 8090,
-    "tls": {
-      "enabled": true,
-      "server_name": "24.142.229.178",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇺🇸 US http-173.42.49.102:8090|T",
-    "type": "http",
-    "server": "173.42.49.102",
-    "server_port": 8090,
-    "tls": {
-      "enabled": true,
-      "server_name": "173.42.49.102",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇺🇸 US http-71.43.26.234:443|T",
-    "type": "http",
-    "server": "71.43.26.234",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "71.43.26.234",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇨🇷 CR http-190.113.112.147:4443|T",
-    "type": "http",
-    "server": "190.113.112.147",
-    "server_port": 4443,
-    "tls": {
-      "enabled": true,
-      "server_name": "190.113.112.147",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇨🇷 CR http-190.113.112.147:443|T",
-    "type": "http",
-    "server": "190.113.112.147",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "190.113.112.147",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇫🇷 FR http-82.65.162.76:443|T",
-    "type": "http",
-    "server": "82.65.162.76",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "82.65.162.76",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇱🇻 LV http-37.203.37.9:443|T",
-    "type": "http",
-    "server": "37.203.37.9",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "37.203.37.9",
+      "server_name": "132.208.244.66",
       "insecure": true
     }
   },
@@ -143,61 +55,6 @@
     }
   },
   {
-    "tag": "🇱🇻 LV http-37.203.37.191:443|T",
-    "type": "http",
-    "server": "37.203.37.191",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "37.203.37.191",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇺🇸 US http-98.101.229.212:8090|T",
-    "type": "http",
-    "server": "98.101.229.212",
-    "server_port": 8090,
-    "tls": {
-      "enabled": true,
-      "server_name": "98.101.229.212",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇱🇻 LV http-37.203.37.87:443|T",
-    "type": "http",
-    "server": "37.203.37.87",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "37.203.37.87",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇫🇷 FR http-82.64.255.151:443|T",
-    "type": "http",
-    "server": "82.64.255.151",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "82.64.255.151",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇱🇻 LV http-37.203.37.105:443|T",
-    "type": "http",
-    "server": "37.203.37.105",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "37.203.37.105",
-      "insecure": true
-    }
-  },
-  {
     "tag": "🇱🇻 LV http-37.203.37.99:443|T",
     "type": "http",
     "server": "37.203.37.99",
@@ -209,35 +66,24 @@
     }
   },
   {
-    "tag": "🇱🇻 LV http-37.203.37.88:443|T",
+    "tag": "🇫🇷 FR http-82.65.162.76:443|T",
     "type": "http",
-    "server": "37.203.37.88",
+    "server": "82.65.162.76",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "37.203.37.88",
+      "server_name": "82.65.162.76",
       "insecure": true
     }
   },
   {
-    "tag": "🇫🇷 FR http-82.66.235.221:443|T",
+    "tag": "🇱🇻 LV http-37.203.37.191:443|T",
     "type": "http",
-    "server": "82.66.235.221",
+    "server": "37.203.37.191",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "82.66.235.221",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇫🇷 FR http-130.180.211.56:443|T",
-    "type": "http",
-    "server": "130.180.211.56",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "130.180.211.56",
+      "server_name": "37.203.37.191",
       "insecure": true
     }
   },
@@ -253,6 +99,28 @@
     }
   },
   {
+    "tag": "🇱🇻 LV http-37.203.37.105:443|T",
+    "type": "http",
+    "server": "37.203.37.105",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "37.203.37.105",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇺🇸 US http-71.43.26.234:443|T",
+    "type": "http",
+    "server": "71.43.26.234",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "71.43.26.234",
+      "insecure": true
+    }
+  },
+  {
     "tag": "🇩🇪 DE http-80.155.33.20:443|T",
     "type": "http",
     "server": "80.155.33.20",
@@ -264,13 +132,57 @@
     }
   },
   {
-    "tag": "🇹🇼 TW http-114.33.6.158:443|T",
+    "tag": "🇱🇻 LV http-37.203.37.9:443|T",
     "type": "http",
-    "server": "114.33.6.158",
+    "server": "37.203.37.9",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "114.33.6.158",
+      "server_name": "37.203.37.9",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇨🇿 CZ http-185.68.28.79:443|T",
+    "type": "http",
+    "server": "185.68.28.79",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "185.68.28.79",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇫🇷 FR http-82.66.235.221:443|T",
+    "type": "http",
+    "server": "82.66.235.221",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "82.66.235.221",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇨🇷 CR http-190.113.112.147:443|T",
+    "type": "http",
+    "server": "190.113.112.147",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "190.113.112.147",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇫🇷 FR http-82.64.255.151:443|T",
+    "type": "http",
+    "server": "82.64.255.151",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "82.64.255.151",
       "insecure": true
     }
   },
@@ -297,90 +209,13 @@
     }
   },
   {
-    "tag": "🇫🇷 FR http-82.96.128.175:8090|T",
+    "tag": "🇩🇪 DE http-176.94.74.21:443|T",
     "type": "http",
-    "server": "82.96.128.175",
-    "server_port": 8090,
-    "tls": {
-      "enabled": true,
-      "server_name": "82.96.128.175",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇫🇷 FR http-31.32.19.111:8081|T",
-    "type": "http",
-    "server": "31.32.19.111",
-    "server_port": 8081,
-    "tls": {
-      "enabled": true,
-      "server_name": "31.32.19.111",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇩🇪 DE http-193.203.16.6:443|T",
-    "type": "http",
-    "server": "193.203.16.6",
+    "server": "176.94.74.21",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "193.203.16.6",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇨🇷 CR http-138.118.81.189:443|T",
-    "type": "http",
-    "server": "138.118.81.189",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "138.118.81.189",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇺🇸 US http-50.184.176.222:8090|T",
-    "type": "http",
-    "server": "50.184.176.222",
-    "server_port": 8090,
-    "tls": {
-      "enabled": true,
-      "server_name": "50.184.176.222",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇺🇸 US http-50.76.211.251:8090|T",
-    "type": "http",
-    "server": "50.76.211.251",
-    "server_port": 8090,
-    "tls": {
-      "enabled": true,
-      "server_name": "50.76.211.251",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇫🇷 FR http-82.64.46.151:8007|T",
-    "type": "http",
-    "server": "82.64.46.151",
-    "server_port": 8007,
-    "tls": {
-      "enabled": true,
-      "server_name": "82.64.46.151",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇫🇷 FR http-80.124.109.22:8090|T",
-    "type": "http",
-    "server": "80.124.109.22",
-    "server_port": 8090,
-    "tls": {
-      "enabled": true,
-      "server_name": "80.124.109.22",
+      "server_name": "176.94.74.21",
       "insecure": true
     }
   },
@@ -396,13 +231,13 @@
     }
   },
   {
-    "tag": "🇭🇰 HK http-221.126.247.53:22|T",
+    "tag": "🇮🇹 IT http-195.231.110.164:443|T",
     "type": "http",
-    "server": "221.126.247.53",
-    "server_port": 22,
+    "server": "195.231.110.164",
+    "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "221.126.247.53",
+      "server_name": "195.231.110.164",
       "insecure": true
     }
   },
@@ -418,46 +253,13 @@
     }
   },
   {
-    "tag": "🇩🇰 DK http-87.238.253.66:443|T",
+    "tag": "🇱🇻 LV http-89.111.27.215:443|T",
     "type": "http",
-    "server": "87.238.253.66",
+    "server": "89.111.27.215",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "87.238.253.66",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇫🇷 FR http-83.172.143.53:4443|T",
-    "type": "http",
-    "server": "83.172.143.53",
-    "server_port": 4443,
-    "tls": {
-      "enabled": true,
-      "server_name": "83.172.143.53",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇱🇻 LV http-37.203.37.94:443|T",
-    "type": "http",
-    "server": "37.203.37.94",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "37.203.37.94",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇩🇪 DE http-176.94.74.21:443|T",
-    "type": "http",
-    "server": "176.94.74.21",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "176.94.74.21",
+      "server_name": "89.111.27.215",
       "insecure": true
     }
   },
@@ -473,39 +275,6 @@
     }
   },
   {
-    "tag": "🇸🇮 SI http-193.77.81.97:443|T",
-    "type": "http",
-    "server": "193.77.81.97",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "193.77.81.97",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇮🇹 IT http-195.231.110.164:443|T",
-    "type": "http",
-    "server": "195.231.110.164",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "195.231.110.164",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇩🇪 DE http-217.92.132.233:443|T",
-    "type": "http",
-    "server": "217.92.132.233",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "217.92.132.233",
-      "insecure": true
-    }
-  },
-  {
     "tag": "🇪🇸 ES http-188.77.69.184:443|T",
     "type": "http",
     "server": "188.77.69.184",
@@ -517,68 +286,46 @@
     }
   },
   {
-    "tag": "🇷🇴 RO http-81.180.222.73:443|T",
+    "tag": "🇨🇷 CR http-138.118.81.189:443|T",
     "type": "http",
-    "server": "81.180.222.73",
+    "server": "138.118.81.189",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "81.180.222.73",
+      "server_name": "138.118.81.189",
       "insecure": true
     }
   },
   {
-    "tag": "🇱🇻 LV http-89.111.31.249:443|T",
+    "tag": "🇩🇰 DK http-87.238.253.66:443|T",
     "type": "http",
-    "server": "89.111.31.249",
+    "server": "87.238.253.66",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "89.111.31.249",
+      "server_name": "87.238.253.66",
       "insecure": true
     }
   },
   {
-    "tag": "🇱🇻 LV http-89.111.31.105:443|T",
+    "tag": "🇱🇻 LV http-89.111.27.221:443|T",
     "type": "http",
-    "server": "89.111.31.105",
+    "server": "89.111.27.221",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "89.111.31.105",
+      "server_name": "89.111.27.221",
       "insecure": true
     }
   },
   {
-    "tag": "🇩🇪 DE http-91.64.164.126:443|T",
+    "tag": "🇱🇻 LV http-185.219.157.125:443|T",
     "type": "http",
-    "server": "91.64.164.126",
+    "server": "185.219.157.125",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "91.64.164.126",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇱🇻 LV http-185.219.159.16:443|T",
-    "type": "http",
-    "server": "185.219.159.16",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "185.219.159.16",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇱🇻 LV http-185.219.159.15:443|T",
-    "type": "http",
-    "server": "185.219.159.15",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "185.219.159.15",
+      "server_name": "185.219.157.125",
       "insecure": true
     }
   },
@@ -594,6 +341,61 @@
     }
   },
   {
+    "tag": "🇱🇻 LV http-89.111.30.89:443|T",
+    "type": "http",
+    "server": "89.111.30.89",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "89.111.30.89",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-185.219.159.15:443|T",
+    "type": "http",
+    "server": "185.219.159.15",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "185.219.159.15",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-89.111.31.249:443|T",
+    "type": "http",
+    "server": "89.111.31.249",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "89.111.31.249",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇩🇪 DE http-91.64.164.126:443|T",
+    "type": "http",
+    "server": "91.64.164.126",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "91.64.164.126",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-89.111.31.105:443|T",
+    "type": "http",
+    "server": "89.111.31.105",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "89.111.31.105",
+      "insecure": true
+    }
+  },
+  {
     "tag": "🇱🇻 LV http-89.111.28.77:443|T",
     "type": "http",
     "server": "89.111.28.77",
@@ -601,6 +403,39 @@
     "tls": {
       "enabled": true,
       "server_name": "89.111.28.77",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇸🇮 SI http-193.77.81.97:443|T",
+    "type": "http",
+    "server": "193.77.81.97",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "193.77.81.97",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-89.111.30.251:443|T",
+    "type": "http",
+    "server": "89.111.30.251",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "89.111.30.251",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-185.219.159.16:443|T",
+    "type": "http",
+    "server": "185.219.159.16",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "185.219.159.16",
       "insecure": true
     }
   },
@@ -616,68 +451,35 @@
     }
   },
   {
-    "tag": "🇱🇻 LV http-89.111.27.214:443|T",
+    "tag": "🇷🇴 RO http-81.180.222.73:443|T",
     "type": "http",
-    "server": "89.111.27.214",
+    "server": "81.180.222.73",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "89.111.27.214",
+      "server_name": "81.180.222.73",
       "insecure": true
     }
   },
   {
-    "tag": "🇱🇻 LV http-89.111.30.89:443|T",
+    "tag": "🇱🇻 LV http-89.111.30.182:443|T",
     "type": "http",
-    "server": "89.111.30.89",
+    "server": "89.111.30.182",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "89.111.30.89",
+      "server_name": "89.111.30.182",
       "insecure": true
     }
   },
   {
-    "tag": "🇱🇻 LV http-185.219.157.127:443|T",
+    "tag": "🇹🇼 TW http-114.33.6.158:443|T",
     "type": "http",
-    "server": "185.219.157.127",
+    "server": "114.33.6.158",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "185.219.157.127",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇱🇻 LV http-89.111.27.213:443|T",
-    "type": "http",
-    "server": "89.111.27.213",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "89.111.27.213",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇮🇩 ID http-178.248.73.58:443|T",
-    "type": "http",
-    "server": "178.248.73.58",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "178.248.73.58",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇭🇰 HK http-38.76.140.254:8443|T",
-    "type": "http",
-    "server": "38.76.140.254",
-    "server_port": 8443,
-    "tls": {
-      "enabled": true,
-      "server_name": "38.76.140.254",
+      "server_name": "114.33.6.158",
       "insecure": true
     }
   },
@@ -693,24 +495,24 @@
     }
   },
   {
-    "tag": "🇸🇰 SK http-213.81.148.228:443|T",
+    "tag": "🇩🇪 DE http-217.92.132.233:443|T",
     "type": "http",
-    "server": "213.81.148.228",
+    "server": "217.92.132.233",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "213.81.148.228",
+      "server_name": "217.92.132.233",
       "insecure": true
     }
   },
   {
-    "tag": "🇧🇷 BR http-200.210.103.211:443|T",
+    "tag": "🇮🇹 IT http-93.63.43.131:443|T",
     "type": "http",
-    "server": "200.210.103.211",
+    "server": "93.63.43.131",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "200.210.103.211",
+      "server_name": "93.63.43.131",
       "insecure": true
     }
   },
@@ -726,13 +528,24 @@
     }
   },
   {
-    "tag": "🇮🇹 IT http-93.63.43.131:443|T",
+    "tag": "🇭🇰 HK http-38.76.140.254:8443|T",
     "type": "http",
-    "server": "93.63.43.131",
+    "server": "38.76.140.254",
+    "server_port": 8443,
+    "tls": {
+      "enabled": true,
+      "server_name": "38.76.140.254",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇸🇰 SK http-213.81.148.228:443|T",
+    "type": "http",
+    "server": "213.81.148.228",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "93.63.43.131",
+      "server_name": "213.81.148.228",
       "insecure": true
     }
   },
@@ -759,68 +572,24 @@
     }
   },
   {
-    "tag": "🇹🇼 TW http-211.72.236.159:443|T",
+    "tag": "🇧🇷 BR http-200.210.103.211:443|T",
     "type": "http",
-    "server": "211.72.236.159",
+    "server": "200.210.103.211",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "211.72.236.159",
+      "server_name": "200.210.103.211",
       "insecure": true
     }
   },
   {
-    "tag": "🇵🇾 PY http-181.126.49.38:443|T",
+    "tag": "🇱🇻 LV http-89.111.27.213:443|T",
     "type": "http",
-    "server": "181.126.49.38",
+    "server": "89.111.27.213",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "181.126.49.38",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇭🇰 HK http-221.120.177.43:443|T",
-    "type": "http",
-    "server": "221.120.177.43",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "221.120.177.43",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇵🇱 PL http-79.188.239.47:8443|T",
-    "type": "http",
-    "server": "79.188.239.47",
-    "server_port": 8443,
-    "tls": {
-      "enabled": true,
-      "server_name": "79.188.239.47",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇵🇱 PL http-79.188.239.46:8443|T",
-    "type": "http",
-    "server": "79.188.239.46",
-    "server_port": 8443,
-    "tls": {
-      "enabled": true,
-      "server_name": "79.188.239.46",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇹🇬 TG http-156.38.64.51:443|T",
-    "type": "http",
-    "server": "156.38.64.51",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "156.38.64.51",
+      "server_name": "89.111.27.213",
       "insecure": true
     }
   },
@@ -836,68 +605,189 @@
     }
   },
   {
-    "tag": "🇺🇸 US http-74.103.66.15:443|T",
+    "tag": "🇱🇻 LV http-37.203.37.112:443|T",
     "type": "http",
-    "server": "74.103.66.15",
+    "server": "37.203.37.112",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "74.103.66.15",
+      "server_name": "37.203.37.112",
       "insecure": true
     }
   },
   {
-    "tag": "🇱🇻 LV http-89.111.30.252:443|T",
+    "tag": "🇱🇻 LV http-37.203.37.95:443|T",
     "type": "http",
-    "server": "89.111.30.252",
+    "server": "37.203.37.95",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "89.111.30.252",
+      "server_name": "37.203.37.95",
       "insecure": true
     }
   },
   {
-    "tag": "🇱🇻 LV http-37.203.37.80:443|T",
+    "tag": "🇱🇻 LV http-37.203.37.7:443|T",
     "type": "http",
-    "server": "37.203.37.80",
+    "server": "37.203.37.7",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "37.203.37.80",
+      "server_name": "37.203.37.7",
       "insecure": true
     }
   },
   {
-    "tag": "🇱🇻 LV http-37.203.37.108:443|T",
+    "tag": "🇵🇾 PY http-181.126.49.38:443|T",
     "type": "http",
-    "server": "37.203.37.108",
+    "server": "181.126.49.38",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "37.203.37.108",
+      "server_name": "181.126.49.38",
       "insecure": true
     }
   },
   {
-    "tag": "🇿🇦 ZA http-196.21.109.82:443|T",
+    "tag": "🇨🇳 CN http-117.82.138.100:1080|T",
     "type": "http",
-    "server": "196.21.109.82",
-    "server_port": 443,
+    "server": "117.82.138.100",
+    "server_port": 1080,
     "tls": {
       "enabled": true,
-      "server_name": "196.21.109.82",
+      "server_name": "117.82.138.100",
       "insecure": true
     }
   },
   {
-    "tag": "🇿🇦 ZA http-196.21.60.44:443|T",
+    "tag": "🇱🇻 LV http-37.203.37.94:443|T",
     "type": "http",
-    "server": "196.21.60.44",
+    "server": "37.203.37.94",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "196.21.60.44",
+      "server_name": "37.203.37.94",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇹🇬 TG http-156.38.64.51:443|T",
+    "type": "http",
+    "server": "156.38.64.51",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "156.38.64.51",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-185.219.157.127:443|T",
+    "type": "http",
+    "server": "185.219.157.127",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "185.219.157.127",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇭🇰 HK http-221.120.177.43:443|T",
+    "type": "http",
+    "server": "221.120.177.43",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "221.120.177.43",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-37.203.37.82:443|T",
+    "type": "http",
+    "server": "37.203.37.82",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "37.203.37.82",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇹🇼 TW http-211.72.236.159:443|T",
+    "type": "http",
+    "server": "211.72.236.159",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "211.72.236.159",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇿🇦 ZA http-196.21.187.115:443|T",
+    "type": "http",
+    "server": "196.21.187.115",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "196.21.187.115",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-89.111.28.78:443|T",
+    "type": "http",
+    "server": "89.111.28.78",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "89.111.28.78",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-89.111.28.75:443|T",
+    "type": "http",
+    "server": "89.111.28.75",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "89.111.28.75",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-37.203.37.93:443|T",
+    "type": "http",
+    "server": "37.203.37.93",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "37.203.37.93",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇵🇱 PL http-79.188.239.46:8443|T",
+    "type": "http",
+    "server": "79.188.239.46",
+    "server_port": 8443,
+    "tls": {
+      "enabled": true,
+      "server_name": "79.188.239.46",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-37.203.37.86:443|T",
+    "type": "http",
+    "server": "37.203.37.86",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "37.203.37.86",
       "insecure": true
     }
   },
@@ -913,6 +803,28 @@
     }
   },
   {
+    "tag": "🇱🇻 LV http-37.203.37.80:443|T",
+    "type": "http",
+    "server": "37.203.37.80",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "37.203.37.80",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇿🇦 ZA http-196.21.109.82:443|T",
+    "type": "http",
+    "server": "196.21.109.82",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "196.21.109.82",
+      "insecure": true
+    }
+  },
+  {
     "tag": "🇫🇷 FR http-217.108.6.203:443|T",
     "type": "http",
     "server": "217.108.6.203",
@@ -924,24 +836,68 @@
     }
   },
   {
-    "tag": "🇱🇻 LV http-37.203.37.189:443|T",
+    "tag": "🇱🇻 LV http-37.203.37.88:443|T",
     "type": "http",
-    "server": "37.203.37.189",
+    "server": "37.203.37.88",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "37.203.37.189",
+      "server_name": "37.203.37.88",
       "insecure": true
     }
   },
   {
-    "tag": "🇱🇻 LV http-185.219.157.125:443|T",
+    "tag": "🇱🇻 LV http-37.203.37.92:443|T",
     "type": "http",
-    "server": "185.219.157.125",
+    "server": "37.203.37.92",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "185.219.157.125",
+      "server_name": "37.203.37.92",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-89.111.30.183:443|T",
+    "type": "http",
+    "server": "89.111.30.183",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "89.111.30.183",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-89.111.30.85:443|T",
+    "type": "http",
+    "server": "89.111.30.85",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "89.111.30.85",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-37.203.37.97:443|T",
+    "type": "http",
+    "server": "37.203.37.97",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "37.203.37.97",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV http-89.111.30.252:443|T",
+    "type": "http",
+    "server": "89.111.30.252",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "89.111.30.252",
       "insecure": true
     }
   }

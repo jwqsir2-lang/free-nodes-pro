@@ -9,26 +9,16 @@ proxies:
   servername: 47.149.9.211
   iptype: jk
   country_code: US
-- name: 🇺🇸 US http-173.13.157.60:443|T
+- name: 🇨🇦 CA http-69.70.52.198:443|T
   type: http
-  server: 173.13.157.60
+  server: 69.70.52.198
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 173.13.157.60
+  servername: 69.70.52.198
   iptype: jk
-  country_code: US
-- name: 🇺🇸 US http-66.210.50.131:443|T
-  type: http
-  server: 66.210.50.131
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 66.210.50.131
-  iptype: jk
-  country_code: US
+  country_code: CA
 - name: 🇺🇸 US http-24.121.152.67:443|T
   type: http
   server: 24.121.152.67
@@ -39,86 +29,16 @@ proxies:
   servername: 24.121.152.67
   iptype: jk
   country_code: US
-- name: 🇺🇸 US http-74.103.66.18:443|T
+- name: 🇨🇦 CA http-132.208.244.66:443|T
   type: http
-  server: 74.103.66.18
+  server: 132.208.244.66
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 74.103.66.18
+  servername: 132.208.244.66
   iptype: jk
-  country_code: US
-- name: 🇺🇸 US http-24.142.229.178:8090|T
-  type: http
-  server: 24.142.229.178
-  port: 8090
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 24.142.229.178
-  iptype: jk
-  country_code: US
-- name: 🇺🇸 US http-173.42.49.102:8090|T
-  type: http
-  server: 173.42.49.102
-  port: 8090
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 173.42.49.102
-  iptype: jk
-  country_code: US
-- name: 🇺🇸 US http-71.43.26.234:443|T
-  type: http
-  server: 71.43.26.234
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 71.43.26.234
-  iptype: jk
-  country_code: US
-- name: 🇨🇷 CR http-190.113.112.147:4443|T
-  type: http
-  server: 190.113.112.147
-  port: 4443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 190.113.112.147
-  iptype: jk
-  country_code: CR
-- name: 🇨🇷 CR http-190.113.112.147:443|T
-  type: http
-  server: 190.113.112.147
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 190.113.112.147
-  iptype: jk
-  country_code: CR
-- name: 🇫🇷 FR http-82.65.162.76:443|T
-  type: http
-  server: 82.65.162.76
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 82.65.162.76
-  iptype: jk
-  country_code: FR
-- name: 🇱🇻 LV http-37.203.37.9:443|T
-  type: http
-  server: 37.203.37.9
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 37.203.37.9
-  iptype: jk
-  country_code: LV
+  country_code: CA
 - name: 🇱🇻 LV http-37.203.37.187:443|T
   type: http
   server: 37.203.37.187
@@ -127,56 +47,6 @@ proxies:
   tls: true
   skip_cert_verify: true
   servername: 37.203.37.187
-  iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV http-37.203.37.191:443|T
-  type: http
-  server: 37.203.37.191
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 37.203.37.191
-  iptype: jk
-  country_code: LV
-- name: 🇺🇸 US http-98.101.229.212:8090|T
-  type: http
-  server: 98.101.229.212
-  port: 8090
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 98.101.229.212
-  iptype: jk
-  country_code: US
-- name: 🇱🇻 LV http-37.203.37.87:443|T
-  type: http
-  server: 37.203.37.87
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 37.203.37.87
-  iptype: jk
-  country_code: LV
-- name: 🇫🇷 FR http-82.64.255.151:443|T
-  type: http
-  server: 82.64.255.151
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 82.64.255.151
-  iptype: jk
-  country_code: FR
-- name: 🇱🇻 LV http-37.203.37.105:443|T
-  type: http
-  server: 37.203.37.105
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 37.203.37.105
   iptype: jk
   country_code: LV
 - name: 🇱🇻 LV http-37.203.37.99:443|T
@@ -189,36 +59,26 @@ proxies:
   servername: 37.203.37.99
   iptype: jk
   country_code: LV
-- name: 🇱🇻 LV http-37.203.37.88:443|T
+- name: 🇫🇷 FR http-82.65.162.76:443|T
   type: http
-  server: 37.203.37.88
+  server: 82.65.162.76
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 37.203.37.88
+  servername: 82.65.162.76
+  iptype: jk
+  country_code: FR
+- name: 🇱🇻 LV http-37.203.37.191:443|T
+  type: http
+  server: 37.203.37.191
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 37.203.37.191
   iptype: jk
   country_code: LV
-- name: 🇫🇷 FR http-82.66.235.221:443|T
-  type: http
-  server: 82.66.235.221
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 82.66.235.221
-  iptype: jk
-  country_code: FR
-- name: 🇫🇷 FR http-130.180.211.56:443|T
-  type: http
-  server: 130.180.211.56
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 130.180.211.56
-  iptype: jk
-  country_code: FR
 - name: 🇩🇰 DK http-185.15.75.140:443|T
   type: http
   server: 185.15.75.140
@@ -229,6 +89,26 @@ proxies:
   servername: 185.15.75.140
   iptype: jk
   country_code: DK
+- name: 🇱🇻 LV http-37.203.37.105:443|T
+  type: http
+  server: 37.203.37.105
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 37.203.37.105
+  iptype: jk
+  country_code: LV
+- name: 🇺🇸 US http-71.43.26.234:443|T
+  type: http
+  server: 71.43.26.234
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 71.43.26.234
+  iptype: jk
+  country_code: US
 - name: 🇩🇪 DE http-80.155.33.20:443|T
   type: http
   server: 80.155.33.20
@@ -239,16 +119,56 @@ proxies:
   servername: 80.155.33.20
   iptype: jk
   country_code: DE
-- name: 🇹🇼 TW http-114.33.6.158:443|T
+- name: 🇱🇻 LV http-37.203.37.9:443|T
   type: http
-  server: 114.33.6.158
+  server: 37.203.37.9
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 114.33.6.158
+  servername: 37.203.37.9
   iptype: jk
-  country_code: TW
+  country_code: LV
+- name: 🇨🇿 CZ http-185.68.28.79:443|T
+  type: http
+  server: 185.68.28.79
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 185.68.28.79
+  iptype: jk
+  country_code: CZ
+- name: 🇫🇷 FR http-82.66.235.221:443|T
+  type: http
+  server: 82.66.235.221
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 82.66.235.221
+  iptype: jk
+  country_code: FR
+- name: 🇨🇷 CR http-190.113.112.147:443|T
+  type: http
+  server: 190.113.112.147
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 190.113.112.147
+  iptype: jk
+  country_code: CR
+- name: 🇫🇷 FR http-82.64.255.151:443|T
+  type: http
+  server: 82.64.255.151
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 82.64.255.151
+  iptype: jk
+  country_code: FR
 - name: 🇩🇪 DE http-198.40.90.50:443|T
   type: http
   server: 198.40.90.50
@@ -269,146 +189,6 @@ proxies:
   servername: 217.237.171.227
   iptype: jk
   country_code: DE
-- name: 🇫🇷 FR http-82.96.128.175:8090|T
-  type: http
-  server: 82.96.128.175
-  port: 8090
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 82.96.128.175
-  iptype: jk
-  country_code: FR
-- name: 🇫🇷 FR http-31.32.19.111:8081|T
-  type: http
-  server: 31.32.19.111
-  port: 8081
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 31.32.19.111
-  iptype: jk
-  country_code: FR
-- name: 🇩🇪 DE http-193.203.16.6:443|T
-  type: http
-  server: 193.203.16.6
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 193.203.16.6
-  iptype: jk
-  country_code: DE
-- name: 🇨🇷 CR http-138.118.81.189:443|T
-  type: http
-  server: 138.118.81.189
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 138.118.81.189
-  iptype: jk
-  country_code: CR
-- name: 🇺🇸 US http-50.184.176.222:8090|T
-  type: http
-  server: 50.184.176.222
-  port: 8090
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 50.184.176.222
-  iptype: jk
-  country_code: US
-- name: 🇺🇸 US http-50.76.211.251:8090|T
-  type: http
-  server: 50.76.211.251
-  port: 8090
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 50.76.211.251
-  iptype: jk
-  country_code: US
-- name: 🇫🇷 FR http-82.64.46.151:8007|T
-  type: http
-  server: 82.64.46.151
-  port: 8007
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 82.64.46.151
-  iptype: jk
-  country_code: FR
-- name: 🇫🇷 FR http-80.124.109.22:8090|T
-  type: http
-  server: 80.124.109.22
-  port: 8090
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 80.124.109.22
-  iptype: jk
-  country_code: FR
-- name: 🇭🇺 HU http-193.226.205.54:443|T
-  type: http
-  server: 193.226.205.54
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 193.226.205.54
-  iptype: jk
-  country_code: HU
-- name: 🇭🇰 HK http-221.126.247.53:22|T
-  type: http
-  server: 221.126.247.53
-  port: 22
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 221.126.247.53
-  iptype: jk
-  country_code: HK
-- name: 🇸🇰 SK http-195.146.134.204:443|T
-  type: http
-  server: 195.146.134.204
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 195.146.134.204
-  iptype: jk
-  country_code: SK
-- name: 🇩🇰 DK http-87.238.253.66:443|T
-  type: http
-  server: 87.238.253.66
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 87.238.253.66
-  iptype: jk
-  country_code: DK
-- name: 🇫🇷 FR http-83.172.143.53:4443|T
-  type: http
-  server: 83.172.143.53
-  port: 4443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 83.172.143.53
-  iptype: jk
-  country_code: FR
-- name: 🇱🇻 LV http-37.203.37.94:443|T
-  type: http
-  server: 37.203.37.94
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 37.203.37.94
-  iptype: jk
-  country_code: LV
 - name: 🇩🇪 DE http-176.94.74.21:443|T
   type: http
   server: 176.94.74.21
@@ -419,26 +199,16 @@ proxies:
   servername: 176.94.74.21
   iptype: jk
   country_code: DE
-- name: 🇵🇹 PT http-193.136.192.57:443|T
+- name: 🇭🇺 HU http-193.226.205.54:443|T
   type: http
-  server: 193.136.192.57
+  server: 193.226.205.54
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 193.136.192.57
+  servername: 193.226.205.54
   iptype: jk
-  country_code: PT
-- name: 🇸🇮 SI http-193.77.81.97:443|T
-  type: http
-  server: 193.77.81.97
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 193.77.81.97
-  iptype: jk
-  country_code: SI
+  country_code: HU
 - name: 🇮🇹 IT http-195.231.110.164:443|T
   type: http
   server: 195.231.110.164
@@ -449,16 +219,36 @@ proxies:
   servername: 195.231.110.164
   iptype: jk
   country_code: IT
-- name: 🇩🇪 DE http-217.92.132.233:443|T
+- name: 🇸🇰 SK http-195.146.134.204:443|T
   type: http
-  server: 217.92.132.233
+  server: 195.146.134.204
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 217.92.132.233
+  servername: 195.146.134.204
   iptype: jk
-  country_code: DE
+  country_code: SK
+- name: 🇱🇻 LV http-89.111.27.215:443|T
+  type: http
+  server: 89.111.27.215
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.27.215
+  iptype: jk
+  country_code: LV
+- name: 🇵🇹 PT http-193.136.192.57:443|T
+  type: http
+  server: 193.136.192.57
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 193.136.192.57
+  iptype: jk
+  country_code: PT
 - name: 🇪🇸 ES http-188.77.69.184:443|T
   type: http
   server: 188.77.69.184
@@ -469,64 +259,44 @@ proxies:
   servername: 188.77.69.184
   iptype: jk
   country_code: ES
-- name: 🇷🇴 RO http-81.180.222.73:443|T
+- name: 🇨🇷 CR http-138.118.81.189:443|T
   type: http
-  server: 81.180.222.73
+  server: 138.118.81.189
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 81.180.222.73
+  servername: 138.118.81.189
   iptype: jk
-  country_code: RO
-- name: 🇱🇻 LV http-89.111.31.249:443|T
+  country_code: CR
+- name: 🇩🇰 DK http-87.238.253.66:443|T
   type: http
-  server: 89.111.31.249
+  server: 87.238.253.66
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.31.249
+  servername: 87.238.253.66
   iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV http-89.111.31.105:443|T
+  country_code: DK
+- name: 🇱🇻 LV http-89.111.27.221:443|T
   type: http
-  server: 89.111.31.105
+  server: 89.111.27.221
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.31.105
-  iptype: jk
-  country_code: LV
-- name: 🇩🇪 DE http-91.64.164.126:443|T
-  type: http
-  server: 91.64.164.126
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 91.64.164.126
-  iptype: jk
-  country_code: DE
-- name: 🇱🇻 LV http-185.219.159.16:443|T
-  type: http
-  server: 185.219.159.16
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 185.219.159.16
+  servername: 89.111.27.221
   iptype: jk
   country_code: LV
-- name: 🇱🇻 LV http-185.219.159.15:443|T
+- name: 🇱🇻 LV http-185.219.157.125:443|T
   type: http
-  server: 185.219.159.15
+  server: 185.219.157.125
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 185.219.159.15
+  servername: 185.219.157.125
   iptype: jk
   country_code: LV
 - name: 🇮🇹 IT http-83.103.36.213:443|T
@@ -539,6 +309,56 @@ proxies:
   servername: 83.103.36.213
   iptype: jk
   country_code: IT
+- name: 🇱🇻 LV http-89.111.30.89:443|T
+  type: http
+  server: 89.111.30.89
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.30.89
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV http-185.219.159.15:443|T
+  type: http
+  server: 185.219.159.15
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 185.219.159.15
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV http-89.111.31.249:443|T
+  type: http
+  server: 89.111.31.249
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.31.249
+  iptype: jk
+  country_code: LV
+- name: 🇩🇪 DE http-91.64.164.126:443|T
+  type: http
+  server: 91.64.164.126
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 91.64.164.126
+  iptype: jk
+  country_code: DE
+- name: 🇱🇻 LV http-89.111.31.105:443|T
+  type: http
+  server: 89.111.31.105
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.31.105
+  iptype: jk
+  country_code: LV
 - name: 🇱🇻 LV http-89.111.28.77:443|T
   type: http
   server: 89.111.28.77
@@ -547,6 +367,36 @@ proxies:
   tls: true
   skip_cert_verify: true
   servername: 89.111.28.77
+  iptype: jk
+  country_code: LV
+- name: 🇸🇮 SI http-193.77.81.97:443|T
+  type: http
+  server: 193.77.81.97
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 193.77.81.97
+  iptype: jk
+  country_code: SI
+- name: 🇱🇻 LV http-89.111.30.251:443|T
+  type: http
+  server: 89.111.30.251
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.30.251
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV http-185.219.159.16:443|T
+  type: http
+  server: 185.219.159.16
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 185.219.159.16
   iptype: jk
   country_code: LV
 - name: 🇱🇻 LV http-89.111.27.36:443|T
@@ -559,66 +409,36 @@ proxies:
   servername: 89.111.27.36
   iptype: jk
   country_code: LV
-- name: 🇱🇻 LV http-89.111.27.214:443|T
+- name: 🇷🇴 RO http-81.180.222.73:443|T
   type: http
-  server: 89.111.27.214
+  server: 81.180.222.73
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.27.214
+  servername: 81.180.222.73
+  iptype: jk
+  country_code: RO
+- name: 🇱🇻 LV http-89.111.30.182:443|T
+  type: http
+  server: 89.111.30.182
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.30.182
   iptype: jk
   country_code: LV
-- name: 🇱🇻 LV http-89.111.30.89:443|T
+- name: 🇹🇼 TW http-114.33.6.158:443|T
   type: http
-  server: 89.111.30.89
+  server: 114.33.6.158
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.30.89
+  servername: 114.33.6.158
   iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV http-185.219.157.127:443|T
-  type: http
-  server: 185.219.157.127
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 185.219.157.127
-  iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV http-89.111.27.213:443|T
-  type: http
-  server: 89.111.27.213
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 89.111.27.213
-  iptype: jk
-  country_code: LV
-- name: 🇮🇩 ID http-178.248.73.58:443|T
-  type: http
-  server: 178.248.73.58
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 178.248.73.58
-  iptype: jk
-  country_code: ID
-- name: 🇭🇰 HK http-38.76.140.254:8443|T
-  type: http
-  server: 38.76.140.254
-  port: 8443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 38.76.140.254
-  iptype: jk
-  country_code: HK
+  country_code: TW
 - name: 🇵🇱 PL http-213.241.124.228:443|T
   type: http
   server: 213.241.124.228
@@ -629,36 +449,16 @@ proxies:
   servername: 213.241.124.228
   iptype: jk
   country_code: PL
-- name: 🇸🇰 SK http-213.81.148.228:443|T
+- name: 🇩🇪 DE http-217.92.132.233:443|T
   type: http
-  server: 213.81.148.228
+  server: 217.92.132.233
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 213.81.148.228
+  servername: 217.92.132.233
   iptype: jk
-  country_code: SK
-- name: 🇧🇷 BR http-200.210.103.211:443|T
-  type: http
-  server: 200.210.103.211
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 200.210.103.211
-  iptype: jk
-  country_code: BR
-- name: 🇷🇸 RS http-212.200.119.174:443|T
-  type: http
-  server: 212.200.119.174
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 212.200.119.174
-  iptype: jk
-  country_code: RS
+  country_code: DE
 - name: 🇮🇹 IT http-93.63.43.131:443|T
   type: http
   server: 93.63.43.131
@@ -669,6 +469,36 @@ proxies:
   servername: 93.63.43.131
   iptype: jk
   country_code: IT
+- name: 🇷🇸 RS http-212.200.119.174:443|T
+  type: http
+  server: 212.200.119.174
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 212.200.119.174
+  iptype: jk
+  country_code: RS
+- name: 🇭🇰 HK http-38.76.140.254:8443|T
+  type: http
+  server: 38.76.140.254
+  port: 8443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 38.76.140.254
+  iptype: jk
+  country_code: HK
+- name: 🇸🇰 SK http-213.81.148.228:443|T
+  type: http
+  server: 213.81.148.228
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 213.81.148.228
+  iptype: jk
+  country_code: SK
 - name: 🇮🇹 IT http-109.116.41.154:443|T
   type: http
   server: 109.116.41.154
@@ -689,66 +519,26 @@ proxies:
   servername: 2.228.224.4
   iptype: jk
   country_code: IT
-- name: 🇹🇼 TW http-211.72.236.159:443|T
+- name: 🇧🇷 BR http-200.210.103.211:443|T
   type: http
-  server: 211.72.236.159
+  server: 200.210.103.211
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 211.72.236.159
+  servername: 200.210.103.211
   iptype: jk
-  country_code: TW
-- name: 🇵🇾 PY http-181.126.49.38:443|T
+  country_code: BR
+- name: 🇱🇻 LV http-89.111.27.213:443|T
   type: http
-  server: 181.126.49.38
+  server: 89.111.27.213
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 181.126.49.38
+  servername: 89.111.27.213
   iptype: jk
-  country_code: PY
-- name: 🇭🇰 HK http-221.120.177.43:443|T
-  type: http
-  server: 221.120.177.43
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 221.120.177.43
-  iptype: jk
-  country_code: HK
-- name: 🇵🇱 PL http-79.188.239.47:8443|T
-  type: http
-  server: 79.188.239.47
-  port: 8443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 79.188.239.47
-  iptype: jk
-  country_code: PL
-- name: 🇵🇱 PL http-79.188.239.46:8443|T
-  type: http
-  server: 79.188.239.46
-  port: 8443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 79.188.239.46
-  iptype: jk
-  country_code: PL
-- name: 🇹🇬 TG http-156.38.64.51:443|T
-  type: http
-  server: 156.38.64.51
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 156.38.64.51
-  iptype: jk
-  country_code: TG
+  country_code: LV
 - name: 🇱🇻 LV http-37.203.37.190:443|T
   type: http
   server: 37.203.37.190
@@ -759,26 +549,186 @@ proxies:
   servername: 37.203.37.190
   iptype: jk
   country_code: LV
-- name: 🇺🇸 US http-74.103.66.15:443|T
+- name: 🇱🇻 LV http-37.203.37.112:443|T
   type: http
-  server: 74.103.66.15
+  server: 37.203.37.112
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 74.103.66.15
-  iptype: jk
-  country_code: US
-- name: 🇱🇻 LV http-89.111.30.252:443|T
-  type: http
-  server: 89.111.30.252
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 89.111.30.252
+  servername: 37.203.37.112
   iptype: jk
   country_code: LV
+- name: 🇱🇻 LV http-37.203.37.95:443|T
+  type: http
+  server: 37.203.37.95
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 37.203.37.95
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV http-37.203.37.7:443|T
+  type: http
+  server: 37.203.37.7
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 37.203.37.7
+  iptype: jk
+  country_code: LV
+- name: 🇵🇾 PY http-181.126.49.38:443|T
+  type: http
+  server: 181.126.49.38
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 181.126.49.38
+  iptype: jk
+  country_code: PY
+- name: 🇨🇳 CN http-117.82.138.100:1080|T
+  type: http
+  server: 117.82.138.100
+  port: 1080
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 117.82.138.100
+  iptype: jk
+  country_code: CN
+- name: 🇱🇻 LV http-37.203.37.94:443|T
+  type: http
+  server: 37.203.37.94
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 37.203.37.94
+  iptype: jk
+  country_code: LV
+- name: 🇹🇬 TG http-156.38.64.51:443|T
+  type: http
+  server: 156.38.64.51
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 156.38.64.51
+  iptype: jk
+  country_code: TG
+- name: 🇱🇻 LV http-185.219.157.127:443|T
+  type: http
+  server: 185.219.157.127
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 185.219.157.127
+  iptype: jk
+  country_code: LV
+- name: 🇭🇰 HK http-221.120.177.43:443|T
+  type: http
+  server: 221.120.177.43
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 221.120.177.43
+  iptype: jk
+  country_code: HK
+- name: 🇱🇻 LV http-37.203.37.82:443|T
+  type: http
+  server: 37.203.37.82
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 37.203.37.82
+  iptype: jk
+  country_code: LV
+- name: 🇹🇼 TW http-211.72.236.159:443|T
+  type: http
+  server: 211.72.236.159
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 211.72.236.159
+  iptype: jk
+  country_code: TW
+- name: 🇿🇦 ZA http-196.21.187.115:443|T
+  type: http
+  server: 196.21.187.115
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 196.21.187.115
+  iptype: jk
+  country_code: ZA
+- name: 🇱🇻 LV http-89.111.28.78:443|T
+  type: http
+  server: 89.111.28.78
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.28.78
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV http-89.111.28.75:443|T
+  type: http
+  server: 89.111.28.75
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.28.75
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV http-37.203.37.93:443|T
+  type: http
+  server: 37.203.37.93
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 37.203.37.93
+  iptype: jk
+  country_code: LV
+- name: 🇵🇱 PL http-79.188.239.46:8443|T
+  type: http
+  server: 79.188.239.46
+  port: 8443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 79.188.239.46
+  iptype: jk
+  country_code: PL
+- name: 🇱🇻 LV http-37.203.37.86:443|T
+  type: http
+  server: 37.203.37.86
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 37.203.37.86
+  iptype: jk
+  country_code: LV
+- name: 🇵🇰 PK http-110.38.225.213:443|T
+  type: http
+  server: 110.38.225.213
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 110.38.225.213
+  iptype: jk
+  country_code: PK
 - name: 🇱🇻 LV http-37.203.37.80:443|T
   type: http
   server: 37.203.37.80
@@ -787,16 +737,6 @@ proxies:
   tls: true
   skip_cert_verify: true
   servername: 37.203.37.80
-  iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV http-37.203.37.108:443|T
-  type: http
-  server: 37.203.37.108
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 37.203.37.108
   iptype: jk
   country_code: LV
 - name: 🇿🇦 ZA http-196.21.109.82:443|T
@@ -809,26 +749,6 @@ proxies:
   servername: 196.21.109.82
   iptype: jk
   country_code: ZA
-- name: 🇿🇦 ZA http-196.21.60.44:443|T
-  type: http
-  server: 196.21.60.44
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 196.21.60.44
-  iptype: jk
-  country_code: ZA
-- name: 🇵🇰 PK http-110.38.225.213:443|T
-  type: http
-  server: 110.38.225.213
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 110.38.225.213
-  iptype: jk
-  country_code: PK
 - name: 🇫🇷 FR http-217.108.6.203:443|T
   type: http
   server: 217.108.6.203
@@ -839,23 +759,63 @@ proxies:
   servername: 217.108.6.203
   iptype: jk
   country_code: FR
-- name: 🇱🇻 LV http-37.203.37.189:443|T
+- name: 🇱🇻 LV http-37.203.37.88:443|T
   type: http
-  server: 37.203.37.189
+  server: 37.203.37.88
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 37.203.37.189
+  servername: 37.203.37.88
   iptype: jk
   country_code: LV
-- name: 🇱🇻 LV http-185.219.157.125:443|T
+- name: 🇱🇻 LV http-37.203.37.92:443|T
   type: http
-  server: 185.219.157.125
+  server: 37.203.37.92
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 185.219.157.125
+  servername: 37.203.37.92
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV http-89.111.30.183:443|T
+  type: http
+  server: 89.111.30.183
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.30.183
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV http-89.111.30.85:443|T
+  type: http
+  server: 89.111.30.85
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.30.85
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV http-37.203.37.97:443|T
+  type: http
+  server: 37.203.37.97
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 37.203.37.97
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV http-89.111.30.252:443|T
+  type: http
+  server: 89.111.30.252
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.30.252
   iptype: jk
   country_code: LV
