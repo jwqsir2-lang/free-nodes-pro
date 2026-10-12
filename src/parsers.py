@@ -209,7 +209,8 @@ def parse_iplist(text, tls_hint=False):
         m = IPPORT_RE.match(line)
         if not m:
             continue
-        out.append({"name": f"http-{m.group(1)}:{m.group(2)}",
+        out.append({"name": _auto_name({"server": m.group(1), "port": int(m.group(2))},
+                                      "https" if tls_hint else "http"),
                     "type": "http", "server": m.group(1),
                     "port": int(m.group(2)),
                     **({"_tls_hint": True} if tls_hint else {})})
@@ -286,6 +287,37 @@ def to_share_link(p):
 
 
 # ------------------------------------------------------------------ 清洗
+def _auto_name(p, typ):
+    """源头没给名字时的回退命名：国旗+国家码+类型+序号（比裸 IP 好认）。
+    国家来自 tag_proxies 写的 country_code；没有就按名字/IP 前缀猜。
+    序号按 server 的 /24 段编，同段递增，避免重名撞车。"""
+    server = str(p.get("server") or "")
+    cc = (p.get("country_code") or "").strip().upper()
+    try:
+        from exporters import guess_region
+        if not cc:
+            cc = (guess_region(p) or "").upper()
+    except Exception:
+        cc = ""
+    kind = "https" if (typ == "http" and p.get("tls")) else typ
+    if cc:
+        key = f"{cc}|{kind}|{server.rsplit('.', 1)[0] if '.' in server else server}"
+        seq = _NAME_SEQ.get(key, 0) + 1
+        _NAME_SEQ[key] = seq
+        return f"{_flag(cc)}{cc}-{kind}{seq}"
+    return f"{kind}-{server}:{p.get('port')}"
+
+
+def _flag(cc):
+    cc = (cc or "").strip().upper()
+    if len(cc) != 2 or not cc.isalpha():
+        return ""
+    return "".join(chr(0x1F1E6 + ord(c) - ord("A")) for c in cc)
+
+
+_NAME_SEQ = {}
+
+
 def clean(p):
     """丢弃结构性非法的节点；字段补默认值。返回 None 表示丢弃。"""
     if not isinstance(p, dict):
@@ -304,7 +336,7 @@ def clean(p):
     if not p["server"] or not (1 <= p["port"] <= 65535):
         return None
     if not p.get("name"):
-        p["name"] = f"{typ}-{p['server']}:{p['port']}"
+        p["name"] = _auto_name(p, typ)
     p["name"] = str(p["name"])[:60]
     if p.get("udp") not in (True, False):
         p["udp"] = False

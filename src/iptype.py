@@ -294,7 +294,60 @@ def tag_proxies(proxies, ipinfo, on_log=None):
         summary = "、".join(f"{k} {v}" for k, v in
                             sorted(kinds.items(), key=lambda kv: -kv[1]))
         on_log(f"IP 类型检测完成：{summary}")
+    # 拿到国家码了，给源头没名字的节点补一个「国旗+国家+类型+序号」的名字。
+    # 纯 IP 列表（TheSpeedX/proxifly）源头根本没名字，之前回退成裸 IP，
+    # 一长串列表全是 IP 完全没法认；这里用实测国家统一重命名。
+    rename_proxies(proxies, on_log=on_log)
     return proxies
+
+
+def rename_proxies(proxies, on_log=None):
+    """给空名/裸 IP 名的节点按实测国家重命名。节点数据一律不动，只改 name。"""
+    seq = {}
+    renamed = 0
+    for p in proxies:
+        old = p.get("name") or ""
+        # 已经有意义的名字（分享链接自带的）不动
+        if old and not _is_bare_ip_name(old):
+            continue
+        cc = (p.get("country_code") or "").strip().upper()
+        if not cc:
+            continue
+        typ = p.get("type") or "node"
+        kind = "https" if (typ == "http" and p.get("tls")) else typ
+        key = f"{cc}|{kind}"
+        n = seq.get(key, 0) + 1
+        seq[key] = n
+        p["name"] = f"{_FLAG.get(cc, '')}{cc}-{kind}{n}"
+        renamed += 1
+    if on_log and renamed:
+        on_log(f"节点重命名：{renamed} 个空名/裸 IP 节点已按国家标记")
+
+
+_FLAG = {
+    "HK": "🇭🇰", "TW": "🇹🇼", "JP": "🇯🇵", "SG": "🇸🇬", "US": "🇺🇸", "KR": "🇰🇷",
+    "DE": "🇩🇪", "GB": "🇬🇧", "FR": "🇫🇷", "CA": "🇨🇦", "AU": "🇦🇺", "TR": "🇹🇷",
+    "IN": "🇮🇳", "RU": "🇷🇺", "NL": "🇳🇱", "MY": "🇲🇾", "PH": "🇵🇭", "TH": "🇹🇭",
+    "VN": "🇻🇳", "ID": "🇮🇩", "ZA": "🇿🇦", "BR": "🇧🇷", "MX": "🇲🇽", "IT": "🇮🇹",
+    "ES": "🇪🇸", "CH": "🇨🇭", "SE": "🇸🇪", "NO": "🇳🇴", "FI": "🇫🇮", "PL": "🇵🇱",
+    "UA": "🇺🇦", "PT": "🇵🇹", "AR": "🇦🇷", "CL": "🇨🇱", "CO": "🇨🇴", "PE": "🇵🇪",
+    "NZ": "🇳🇿", "IE": "🇮🇪", "AT": "🇦🇹", "BE": "🇧🇪", "DK": "🇩🇰", "CZ": "🇨🇿",
+    "HU": "🇭🇺", "RO": "🇷🇴", "GR": "🇬🇷", "IL": "🇮🇱", "AE": "🇦🇪", "SA": "🇸🇦",
+    "EG": "🇪🇬", "KE": "🇰🇪", "NG": "🇳🇬", "PK": "🇵🇰", "BD": "🇧🇩", "LK": "🇱🇰",
+    "KH": "🇰🇭", "MM": "🇲🇲", "CN": "🇨🇳", "HK": "🇭🇰",
+}
+
+
+def _is_bare_ip_name(name):
+    """名字是不是「http-1.2.3.4:443」「vmess-1.2.3.4:443」这种回退出来的裸 IP。"""
+    n = str(name or "")
+    for typ in ("http-", "https-", "vmess-", "vless-", "trojan-", "ss-",
+                "hysteria2-", "hy2-", "tuic-", "naive-"):
+        if n.startswith(typ):
+            rest = n[len(typ):]
+            if rest.count(".") == 3 and rest.rsplit(":", 1)[0].replace(".", "").isdigit():
+                return True
+    return False
 
 
 def residential_only(proxies):
