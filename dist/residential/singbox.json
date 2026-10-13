@@ -37,7 +37,7 @@
   ],
   "outbounds": [
     {
-      "tag": "🇺🇸 US 🇺🇸US-https43",
+      "tag": "🇺🇸 US 🇺🇸US-https55",
       "type": "http",
       "server": "24.121.152.67",
       "server_port": 443,
@@ -48,34 +48,26 @@
       }
     },
     {
-      "tag": "🇨🇦 CA 🇺🇸US-https1|T#68",
+      "tag": "🇱🇻 LV LV-https9",
       "type": "http",
-      "server": "69.70.52.198",
+      "server": "37.203.37.92",
       "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "69.70.52.198",
+        "server_name": "37.203.37.92",
         "insecure": true
       }
     },
     {
-      "tag": "🇸🇪 SE 美国 014",
-      "type": "vless",
-      "server": "163.245.43.50",
+      "tag": "🇱🇻 LV LV-https19",
+      "type": "http",
+      "server": "37.203.37.112",
       "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "se-twitch.global-cdn.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "content.v1.Feed"
-      },
-      "uuid": "203d434a-2a92-45df-8973-ca80434ecf73"
+        "server_name": "37.203.37.112",
+        "insecure": true
+      }
     },
     {
       "tag": "🇪🇸 ES 🇪🇸ES-https1",
@@ -89,7 +81,7 @@
       }
     },
     {
-      "tag": "🇩🇪 DE 🇩🇪DE-https22",
+      "tag": "🇩🇪 DE 🇩🇪DE-https18",
       "type": "http",
       "server": "217.237.171.227",
       "server_port": 443,
@@ -111,7 +103,7 @@
       }
     },
     {
-      "tag": "🇷🇴 RO 🇷🇴RO-https1",
+      "tag": "🇷🇴 RO 🇷🇴RO-https5",
       "type": "http",
       "server": "81.180.222.73",
       "server_port": 443,
@@ -122,7 +114,7 @@
       }
     },
     {
-      "tag": "🇭🇰 HK 🇭🇰HK-https4",
+      "tag": "🇭🇰 HK 🇭🇰HK-https3",
       "type": "http",
       "server": "221.120.177.43",
       "server_port": 443,
@@ -133,32 +125,20 @@
       }
     },
     {
-      "tag": "🇵🇱 PL 🇺🇸US-https1|T#173",
-      "type": "http",
-      "server": "46.170.93.122",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "46.170.93.122",
-        "insecure": true
-      }
-    },
-    {
       "type": "selector",
       "tag": "🚀 节点选择",
       "outbounds": [
         "⚡ 精选速度",
         "♻️ 自动测速",
         "direct",
-        "🇺🇸 US 🇺🇸US-https43",
-        "🇨🇦 CA 🇺🇸US-https1|T#68",
-        "🇸🇪 SE 美国 014",
+        "🇺🇸 US 🇺🇸US-https55",
+        "🇱🇻 LV LV-https9",
+        "🇱🇻 LV LV-https19",
         "🇪🇸 ES 🇪🇸ES-https1",
-        "🇩🇪 DE 🇩🇪DE-https22",
+        "🇩🇪 DE 🇩🇪DE-https18",
         "🇮🇹 IT 🇮🇹IT-https2",
-        "🇷🇴 RO 🇷🇴RO-https1",
-        "🇭🇰 HK 🇭🇰HK-https4",
-        "🇵🇱 PL 🇺🇸US-https1|T#173"
+        "🇷🇴 RO 🇷🇴RO-https5",
+        "🇭🇰 HK 🇭🇰HK-https3"
       ],
       "default": "⚡ 精选速度"
     },
@@ -166,15 +146,14 @@
       "type": "urltest",
       "tag": "⚡ 精选速度",
       "outbounds": [
-        "🇺🇸 US 🇺🇸US-https43",
-        "🇨🇦 CA 🇺🇸US-https1|T#68",
-        "🇸🇪 SE 美国 014",
+        "🇺🇸 US 🇺🇸US-https55",
+        "🇱🇻 LV LV-https9",
+        "🇱🇻 LV LV-https19",
         "🇪🇸 ES 🇪🇸ES-https1",
-        "🇩🇪 DE 🇩🇪DE-https22",
+        "🇩🇪 DE 🇩🇪DE-https18",
         "🇮🇹 IT 🇮🇹IT-https2",
-        "🇷🇴 RO 🇷🇴RO-https1",
-        "🇭🇰 HK 🇭🇰HK-https4",
-        "🇵🇱 PL 🇺🇸US-https1|T#173"
+        "🇷🇴 RO 🇷🇴RO-https5",
+        "🇭🇰 HK 🇭🇰HK-https3"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
@@ -183,15 +162,14 @@
       "type": "urltest",
       "tag": "♻️ 自动测速",
       "outbounds": [
-        "🇺🇸 US 🇺🇸US-https43",
-        "🇨🇦 CA 🇺🇸US-https1|T#68",
-        "🇸🇪 SE 美国 014",
+        "🇺🇸 US 🇺🇸US-https55",
+        "🇱🇻 LV LV-https9",
+        "🇱🇻 LV LV-https19",
         "🇪🇸 ES 🇪🇸ES-https1",
-        "🇩🇪 DE 🇩🇪DE-https22",
+        "🇩🇪 DE 🇩🇪DE-https18",
         "🇮🇹 IT 🇮🇹IT-https2",
-        "🇷🇴 RO 🇷🇴RO-https1",
-        "🇭🇰 HK 🇭🇰HK-https4",
-        "🇵🇱 PL 🇺🇸US-https1|T#173"
+        "🇷🇴 RO 🇷🇴RO-https5",
+        "🇭🇰 HK 🇭🇰HK-https3"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
