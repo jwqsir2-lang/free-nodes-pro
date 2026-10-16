@@ -37,18 +37,18 @@
   ],
   "outbounds": [
     {
-      "tag": "🇱🇻 LV LV-https8",
+      "tag": "🇺🇸 US 🇺🇸US-https81",
       "type": "http",
-      "server": "37.203.37.112",
+      "server": "24.121.152.67",
       "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "37.203.37.112",
+        "server_name": "24.121.152.67",
         "insecure": true
       }
     },
     {
-      "tag": "🇱🇻 LV LV-https9",
+      "tag": "🇱🇻 LV LV-https7",
       "type": "http",
       "server": "37.203.37.92",
       "server_port": 443,
@@ -59,13 +59,35 @@
       }
     },
     {
-      "tag": "🇩🇪 DE 🇩🇪DE-https17",
+      "tag": "🇱🇻 LV LV-https21",
+      "type": "http",
+      "server": "37.203.37.112",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "37.203.37.112",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇩🇪 DE 🇩🇪DE-https16",
       "type": "http",
       "server": "217.237.171.227",
       "server_port": 443,
       "tls": {
         "enabled": true,
         "server_name": "217.237.171.227",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇫🇷 FR 🇫🇷FR-https15",
+      "type": "http",
+      "server": "31.32.19.111",
+      "server_port": 8081,
+      "tls": {
+        "enabled": true,
+        "server_name": "31.32.19.111",
         "insecure": true
       }
     },
@@ -81,39 +103,6 @@
       }
     },
     {
-      "tag": "🇱🇻 LV LV-https32",
-      "type": "http",
-      "server": "89.111.31.247",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "89.111.31.247",
-        "insecure": true
-      }
-    },
-    {
-      "tag": "🇧🇾 BY 白俄罗斯 001",
-      "type": "vless",
-      "server": "95.130.84.36",
-      "server_port": 8443,
-      "tls": {
-        "enabled": true,
-        "server_name": "aio.eth0.dpdns.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "unsafe"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/aioproxybot/94.23.144.99-2053",
-        "headers": {
-          "Host": "aio.eth0.dpdns.org"
-        }
-      },
-      "uuid": "8d42d29a-ed53-4684-a9ff-6b33826149de"
-    },
-    {
       "tag": "🇪🇸 ES 🇪🇸ES-https2",
       "type": "http",
       "server": "188.77.69.184",
@@ -125,7 +114,18 @@
       }
     },
     {
-      "tag": "🇷🇴 RO 🇷🇴RO-https2",
+      "tag": "🇱🇻 LV LV-https28",
+      "type": "http",
+      "server": "89.111.30.183",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "89.111.30.183",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇷🇴 RO 🇷🇴RO-https1",
       "type": "http",
       "server": "81.180.222.73",
       "server_port": 443,
@@ -136,18 +136,18 @@
       }
     },
     {
-      "tag": "🇺🇸 US 🇺🇸US-https72",
+      "tag": "🇱🇻 LV LV-https39",
       "type": "http",
-      "server": "24.121.152.67",
+      "server": "89.111.31.247",
       "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "24.121.152.67",
+        "server_name": "89.111.31.247",
         "insecure": true
       }
     },
     {
-      "tag": "🇭🇰 HK 🇭🇰HK-https4",
+      "tag": "🇭🇰 HK 🇭🇰HK-https11",
       "type": "http",
       "server": "221.120.177.43",
       "server_port": 443,
@@ -158,37 +158,23 @@
       }
     },
     {
-      "tag": "🇸🇪 SE 英国 002",
-      "type": "vless",
-      "server": "5.178.109.174",
-      "server_port": 14430,
-      "transport": {
-        "type": "ws",
-        "path": "/vless",
-        "headers": {
-          "Host": "5.178.109.174"
-        }
-      },
-      "uuid": "80de563a-cac8-40ea-8cb0-4cb082dd92f9"
-    },
-    {
       "type": "selector",
       "tag": "🚀 节点选择",
       "outbounds": [
         "⚡ 精选速度",
         "♻️ 自动测速",
         "direct",
-        "🇱🇻 LV LV-https8",
-        "🇱🇻 LV LV-https9",
-        "🇩🇪 DE 🇩🇪DE-https17",
+        "🇺🇸 US 🇺🇸US-https81",
+        "🇱🇻 LV LV-https7",
+        "🇱🇻 LV LV-https21",
+        "🇩🇪 DE 🇩🇪DE-https16",
+        "🇫🇷 FR 🇫🇷FR-https15",
         "🇮🇹 IT 🇮🇹IT-https2",
-        "🇱🇻 LV LV-https32",
-        "🇧🇾 BY 白俄罗斯 001",
         "🇪🇸 ES 🇪🇸ES-https2",
-        "🇷🇴 RO 🇷🇴RO-https2",
-        "🇺🇸 US 🇺🇸US-https72",
-        "🇭🇰 HK 🇭🇰HK-https4",
-        "🇸🇪 SE 英国 002"
+        "🇱🇻 LV LV-https28",
+        "🇷🇴 RO 🇷🇴RO-https1",
+        "🇱🇻 LV LV-https39",
+        "🇭🇰 HK 🇭🇰HK-https11"
       ],
       "default": "⚡ 精选速度"
     },
@@ -196,16 +182,16 @@
       "type": "urltest",
       "tag": "⚡ 精选速度",
       "outbounds": [
-        "🇱🇻 LV LV-https8",
-        "🇱🇻 LV LV-https9",
-        "🇩🇪 DE 🇩🇪DE-https17",
+        "🇺🇸 US 🇺🇸US-https81",
+        "🇱🇻 LV LV-https7",
+        "🇱🇻 LV LV-https21",
+        "🇩🇪 DE 🇩🇪DE-https16",
+        "🇫🇷 FR 🇫🇷FR-https15",
         "🇮🇹 IT 🇮🇹IT-https2",
-        "🇱🇻 LV LV-https32",
-        "🇧🇾 BY 白俄罗斯 001",
         "🇪🇸 ES 🇪🇸ES-https2",
-        "🇷🇴 RO 🇷🇴RO-https2",
-        "🇺🇸 US 🇺🇸US-https72",
-        "🇭🇰 HK 🇭🇰HK-https4"
+        "🇱🇻 LV LV-https28",
+        "🇷🇴 RO 🇷🇴RO-https1",
+        "🇱🇻 LV LV-https39"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
@@ -214,17 +200,17 @@
       "type": "urltest",
       "tag": "♻️ 自动测速",
       "outbounds": [
-        "🇱🇻 LV LV-https8",
-        "🇱🇻 LV LV-https9",
-        "🇩🇪 DE 🇩🇪DE-https17",
+        "🇺🇸 US 🇺🇸US-https81",
+        "🇱🇻 LV LV-https7",
+        "🇱🇻 LV LV-https21",
+        "🇩🇪 DE 🇩🇪DE-https16",
+        "🇫🇷 FR 🇫🇷FR-https15",
         "🇮🇹 IT 🇮🇹IT-https2",
-        "🇱🇻 LV LV-https32",
-        "🇧🇾 BY 白俄罗斯 001",
         "🇪🇸 ES 🇪🇸ES-https2",
-        "🇷🇴 RO 🇷🇴RO-https2",
-        "🇺🇸 US 🇺🇸US-https72",
-        "🇭🇰 HK 🇭🇰HK-https4",
-        "🇸🇪 SE 英国 002"
+        "🇱🇻 LV LV-https28",
+        "🇷🇴 RO 🇷🇴RO-https1",
+        "🇱🇻 LV LV-https39",
+        "🇭🇰 HK 🇭🇰HK-https11"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
