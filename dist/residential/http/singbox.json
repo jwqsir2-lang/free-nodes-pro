@@ -1,6 +1,6 @@
 [
   {
-    "tag": "🇺🇸 US 🇺🇸US-https81",
+    "tag": "🇺🇸 US 🇺🇸US-https46",
     "type": "http",
     "server": "24.121.152.67",
     "server_port": 443,
@@ -29,28 +29,6 @@
     "tls": {
       "enabled": true,
       "server_name": "37.203.37.112",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇩🇪 DE 🇩🇪DE-https16",
-    "type": "http",
-    "server": "217.237.171.227",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "217.237.171.227",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇫🇷 FR 🇫🇷FR-https15",
-    "type": "http",
-    "server": "31.32.19.111",
-    "server_port": 8081,
-    "tls": {
-      "enabled": true,
-      "server_name": "31.32.19.111",
       "insecure": true
     }
   },
@@ -88,18 +66,7 @@
     }
   },
   {
-    "tag": "🇷🇴 RO 🇷🇴RO-https1",
-    "type": "http",
-    "server": "81.180.222.73",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "81.180.222.73",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇱🇻 LV LV-https39",
+    "tag": "🇱🇻 LV LV-https35",
     "type": "http",
     "server": "89.111.31.247",
     "server_port": 443,
@@ -110,13 +77,46 @@
     }
   },
   {
-    "tag": "🇭🇰 HK 🇭🇰HK-https11",
+    "tag": "🇷🇴 RO 🇷🇴RO-https8",
+    "type": "http",
+    "server": "81.180.222.73",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "81.180.222.73",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇪🇸 ES 🇪🇸ES-https3",
+    "type": "http",
+    "server": "2.138.196.128",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "2.138.196.128",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇭🇰 HK 🇭🇰HK-https4",
     "type": "http",
     "server": "221.120.177.43",
     "server_port": 443,
     "tls": {
       "enabled": true,
       "server_name": "221.120.177.43",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇩🇪 DE 🇩🇪DE-https24",
+    "type": "http",
+    "server": "217.237.171.227",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "217.237.171.227",
       "insecure": true
     }
   }
