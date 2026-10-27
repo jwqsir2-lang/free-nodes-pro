@@ -1,10 +1,10 @@
 {
   "app": "FreeNodesPro v2.1 (author: 无情gg)",
-  "at": "2026-10-26 07:27:38 (jk)",
-  "total": 13,
+  "at": "2026-10-27 07:21:41 (jk)",
+  "total": 14,
   "with_speed": 0,
   "iptype": {
-    "jk": 13
+    "jk": 14
   },
   "unlock": {
     "GPT": 0,
@@ -12,138 +12,148 @@
     "GM": 0
   },
   "regions": {
-    "DE": 3,
+    "DE": 4,
     "其他": 7,
     "HK": 1,
     "US": 2
   },
   "nodes": [
     {
-      "name": "🇫🇷 FR 瑞士 001",
+      "name": "🇫🇷 FR 瑞士 002",
       "type": "vless",
       "server": "138.124.70.41",
       "port": 14430,
-      "delay": 506,
+      "delay": 590,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}
     },
     {
-      "name": "🇫🇮 FI 荷兰 004",
+      "name": "🇲🇽 MX 🇲🇽MX-https1",
+      "type": "http",
+      "server": "200.52.72.14",
+      "port": 443,
+      "delay": 601,
+      "kbps": 0,
+      "iptype": "jk",
+      "unlock": {}
+    },
+    {
+      "name": "🇫🇮 FI 荷兰 003",
       "type": "vless",
       "server": "45.144.234.157",
       "port": 14430,
-      "delay": 608,
+      "delay": 697,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}
     },
     {
-      "name": "🇮🇹 IT 🇮🇹IT-https1",
-      "type": "http",
-      "server": "188.219.81.243",
-      "port": 443,
-      "delay": 670,
+      "name": "🇸🇪 SE 英国 004",
+      "type": "vless",
+      "server": "5.178.109.174",
+      "port": 14430,
+      "delay": 728,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}
     },
     {
-      "name": "🇮🇹 IT 🇮🇹IT-https3",
-      "type": "http",
-      "server": "195.231.110.164",
-      "port": 443,
-      "delay": 685,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇨🇳 CN 中国 015",
-      "type": "vmess",
-      "server": "112.132.215.108",
-      "port": 50002,
-      "delay": 709,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇩🇪 DE 🇩🇪DE-https13",
-      "type": "http",
-      "server": "217.237.171.227",
-      "port": 443,
-      "delay": 710,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇱🇻 LV LV-https4",
-      "type": "http",
-      "server": "89.111.31.247",
-      "port": 443,
-      "delay": 773,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇷🇴 RO 🇷🇴RO-https20",
-      "type": "http",
-      "server": "81.180.222.73",
-      "port": 443,
-      "delay": 821,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇮🇹 IT 🇮🇹IT-https8",
-      "type": "http",
-      "server": "37.100.85.116",
-      "port": 443,
-      "delay": 873,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇪🇸 ES 🇪🇸ES-https3",
+      "name": "🇪🇸 ES 🇪🇸ES-https1",
       "type": "http",
       "server": "188.77.69.184",
       "port": 443,
-      "delay": 1102,
+      "delay": 792,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}
     },
     {
-      "name": "🇭🇰 HK 🇭🇰HK-https7",
+      "name": "🇩🇪 DE 🇩🇪DE-https14",
+      "type": "http",
+      "server": "217.237.171.227",
+      "port": 443,
+      "delay": 822,
+      "kbps": 0,
+      "iptype": "jk",
+      "unlock": {}
+    },
+    {
+      "name": "🇱🇻 LV LV-https3",
+      "type": "http",
+      "server": "89.111.31.247",
+      "port": 443,
+      "delay": 967,
+      "kbps": 0,
+      "iptype": "jk",
+      "unlock": {}
+    },
+    {
+      "name": "🇷🇴 RO 🇷🇴RO-https2",
+      "type": "http",
+      "server": "81.180.222.73",
+      "port": 443,
+      "delay": 1009,
+      "kbps": 0,
+      "iptype": "jk",
+      "unlock": {}
+    },
+    {
+      "name": "🇮🇹 IT 🇮🇹IT-https7",
+      "type": "http",
+      "server": "188.219.81.246",
+      "port": 443,
+      "delay": 1055,
+      "kbps": 0,
+      "iptype": "jk",
+      "unlock": {}
+    },
+    {
+      "name": "🇭🇰 HK 🇭🇰HK-https6",
       "type": "http",
       "server": "221.120.177.43",
       "port": 443,
-      "delay": 1309,
+      "delay": 1161,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}
     },
     {
-      "name": "🇿🇦 ZA 🇺🇸US-https1|T#183",
+      "name": "🇮🇹 IT 🇮🇹IT-https11",
+      "type": "http",
+      "server": "37.100.85.116",
+      "port": 443,
+      "delay": 1164,
+      "kbps": 0,
+      "iptype": "jk",
+      "unlock": {}
+    },
+    {
+      "name": "🇵🇱 PL 🇺🇸US-https1|T#142",
+      "type": "http",
+      "server": "46.170.93.122",
+      "port": 443,
+      "delay": 1320,
+      "kbps": 0,
+      "iptype": "jk",
+      "unlock": {}
+    },
+    {
+      "name": "🇱🇻 LV LV-https14",
+      "type": "http",
+      "server": "89.111.30.183",
+      "port": 443,
+      "delay": 1540,
+      "kbps": 0,
+      "iptype": "jk",
+      "unlock": {}
+    },
+    {
+      "name": "🇿🇦 ZA 🇺🇸US-https1|T#167",
       "type": "http",
       "server": "198.54.223.176",
       "port": 443,
-      "delay": 1581,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇮🇳 IN 🇺🇸US-https1|T#204",
-      "type": "http",
-      "server": "122.165.229.173",
-      "port": 443,
-      "delay": 1700,
+      "delay": 1754,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}

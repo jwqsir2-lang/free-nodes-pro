@@ -4,13 +4,15 @@ log-level: warning
 external-controller: 127.0.0.1:9090
 ipv6: false
 proxies:
-- name: 🇫🇷 FR 瑞士 001
+- name: 🇫🇷 FR 瑞士 002
   type: vless
   network: ws
   server: 138.124.70.41
   port: 14430
   uuid: 6cc745e3-4eb9-46c8-a4a1-85dee7b87edc
+  servername: 138.124.70.41
   tls: false
+  encryption: none
   ws-opts:
     headers:
       Host: 138.124.70.41
@@ -18,13 +20,22 @@ proxies:
   udp: false
   iptype: jk
   country_code: FR
-- name: 🇫🇮 FI 荷兰 004
+- name: 🇲🇽 MX 🇲🇽MX-https1
+  type: http
+  server: 200.52.72.14
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 200.52.72.14
+  iptype: jk
+  country_code: MX
+- name: 🇫🇮 FI 荷兰 003
   type: vless
   network: ws
   server: 45.144.234.157
   port: 14430
   uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
-  servername: 45.144.234.157
   tls: false
   ws-opts:
     headers:
@@ -33,81 +44,21 @@ proxies:
   udp: false
   iptype: jk
   country_code: FI
-- name: 🇮🇹 IT 🇮🇹IT-https1
-  type: http
-  server: 188.219.81.243
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 188.219.81.243
-  iptype: jk
-  country_code: IT
-- name: 🇮🇹 IT 🇮🇹IT-https3
-  type: http
-  server: 195.231.110.164
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 195.231.110.164
-  iptype: jk
-  country_code: IT
-- name: 🇨🇳 CN 中国 015
-  type: vmess
-  network: tcp
-  server: 112.132.215.108
-  port: 50002
-  uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-  servername: 112.132.215.108
-  skip-cert-verify: true
-  alterId: 64
-  cipher: auto
-  delay: 1119
+- name: 🇸🇪 SE 英国 004
+  type: vless
+  network: ws
+  server: 5.178.109.174
+  port: 14430
+  uuid: 80de563a-cac8-40ea-8cb0-4cb082dd92f9
+  tls: false
+  ws-opts:
+    headers:
+      Host: 5.178.109.174
+    path: /vless
   udp: false
   iptype: jk
-  country_code: CN
-- name: 🇩🇪 DE 🇩🇪DE-https13
-  type: http
-  server: 217.237.171.227
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 217.237.171.227
-  iptype: jk
-  country_code: DE
-- name: 🇱🇻 LV LV-https4
-  type: http
-  server: 89.111.31.247
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 89.111.31.247
-  iptype: jk
-  country_code: LV
-- name: 🇷🇴 RO 🇷🇴RO-https20
-  type: http
-  server: 81.180.222.73
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 81.180.222.73
-  iptype: jk
-  country_code: RO
-- name: 🇮🇹 IT 🇮🇹IT-https8
-  type: http
-  server: 37.100.85.116
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 37.100.85.116
-  iptype: jk
-  country_code: IT
-- name: 🇪🇸 ES 🇪🇸ES-https3
+  country_code: SE
+- name: 🇪🇸 ES 🇪🇸ES-https1
   type: http
   server: 188.77.69.184
   port: 443
@@ -117,7 +68,47 @@ proxies:
   servername: 188.77.69.184
   iptype: jk
   country_code: ES
-- name: 🇭🇰 HK 🇭🇰HK-https7
+- name: 🇩🇪 DE 🇩🇪DE-https14
+  type: http
+  server: 217.237.171.227
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 217.237.171.227
+  iptype: jk
+  country_code: DE
+- name: 🇱🇻 LV LV-https3
+  type: http
+  server: 89.111.31.247
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.31.247
+  iptype: jk
+  country_code: LV
+- name: 🇷🇴 RO 🇷🇴RO-https2
+  type: http
+  server: 81.180.222.73
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 81.180.222.73
+  iptype: jk
+  country_code: RO
+- name: 🇮🇹 IT 🇮🇹IT-https7
+  type: http
+  server: 188.219.81.246
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 188.219.81.246
+  iptype: jk
+  country_code: IT
+- name: 🇭🇰 HK 🇭🇰HK-https6
   type: http
   server: 221.120.177.43
   port: 443
@@ -127,7 +118,37 @@ proxies:
   servername: 221.120.177.43
   iptype: jk
   country_code: HK
-- name: 🇿🇦 ZA 🇺🇸US-https1|T#183
+- name: 🇮🇹 IT 🇮🇹IT-https11
+  type: http
+  server: 37.100.85.116
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 37.100.85.116
+  iptype: jk
+  country_code: IT
+- name: 🇵🇱 PL 🇺🇸US-https1|T#142
+  type: http
+  server: 46.170.93.122
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 46.170.93.122
+  iptype: jk
+  country_code: PL
+- name: 🇱🇻 LV LV-https14
+  type: http
+  server: 89.111.30.183
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.30.183
+  iptype: jk
+  country_code: LV
+- name: 🇿🇦 ZA 🇺🇸US-https1|T#167
   type: http
   server: 198.54.223.176
   port: 443
@@ -137,16 +158,6 @@ proxies:
   servername: 198.54.223.176
   iptype: jk
   country_code: ZA
-- name: 🇮🇳 IN 🇺🇸US-https1|T#204
-  type: http
-  server: 122.165.229.173
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 122.165.229.173
-  iptype: jk
-  country_code: IN
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -154,54 +165,56 @@ proxy-groups:
   - ⚡ 精选速度
   - ♻️ 自动测速
   - DIRECT
-  - 🇫🇷 FR 瑞士 001
-  - 🇫🇮 FI 荷兰 004
-  - 🇮🇹 IT 🇮🇹IT-https1
-  - 🇮🇹 IT 🇮🇹IT-https3
-  - 🇨🇳 CN 中国 015
-  - 🇩🇪 DE 🇩🇪DE-https13
-  - 🇱🇻 LV LV-https4
-  - 🇷🇴 RO 🇷🇴RO-https20
-  - 🇮🇹 IT 🇮🇹IT-https8
-  - 🇪🇸 ES 🇪🇸ES-https3
-  - 🇭🇰 HK 🇭🇰HK-https7
-  - 🇿🇦 ZA 🇺🇸US-https1|T#183
-  - 🇮🇳 IN 🇺🇸US-https1|T#204
+  - 🇫🇷 FR 瑞士 002
+  - 🇲🇽 MX 🇲🇽MX-https1
+  - 🇫🇮 FI 荷兰 003
+  - 🇸🇪 SE 英国 004
+  - 🇪🇸 ES 🇪🇸ES-https1
+  - 🇩🇪 DE 🇩🇪DE-https14
+  - 🇱🇻 LV LV-https3
+  - 🇷🇴 RO 🇷🇴RO-https2
+  - 🇮🇹 IT 🇮🇹IT-https7
+  - 🇭🇰 HK 🇭🇰HK-https6
+  - 🇮🇹 IT 🇮🇹IT-https11
+  - 🇵🇱 PL 🇺🇸US-https1|T#142
+  - 🇱🇻 LV LV-https14
+  - 🇿🇦 ZA 🇺🇸US-https1|T#167
 - name: ⚡ 精选速度
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
-  - 🇫🇷 FR 瑞士 001
-  - 🇫🇮 FI 荷兰 004
-  - 🇮🇹 IT 🇮🇹IT-https1
-  - 🇮🇹 IT 🇮🇹IT-https3
-  - 🇨🇳 CN 中国 015
-  - 🇩🇪 DE 🇩🇪DE-https13
-  - 🇱🇻 LV LV-https4
-  - 🇷🇴 RO 🇷🇴RO-https20
-  - 🇮🇹 IT 🇮🇹IT-https8
-  - 🇪🇸 ES 🇪🇸ES-https3
+  - 🇫🇷 FR 瑞士 002
+  - 🇲🇽 MX 🇲🇽MX-https1
+  - 🇫🇮 FI 荷兰 003
+  - 🇸🇪 SE 英国 004
+  - 🇪🇸 ES 🇪🇸ES-https1
+  - 🇩🇪 DE 🇩🇪DE-https14
+  - 🇱🇻 LV LV-https3
+  - 🇷🇴 RO 🇷🇴RO-https2
+  - 🇮🇹 IT 🇮🇹IT-https7
+  - 🇭🇰 HK 🇭🇰HK-https6
 - name: ♻️ 自动测速
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
-  - 🇫🇷 FR 瑞士 001
-  - 🇫🇮 FI 荷兰 004
-  - 🇮🇹 IT 🇮🇹IT-https1
-  - 🇮🇹 IT 🇮🇹IT-https3
-  - 🇨🇳 CN 中国 015
-  - 🇩🇪 DE 🇩🇪DE-https13
-  - 🇱🇻 LV LV-https4
-  - 🇷🇴 RO 🇷🇴RO-https20
-  - 🇮🇹 IT 🇮🇹IT-https8
-  - 🇪🇸 ES 🇪🇸ES-https3
-  - 🇭🇰 HK 🇭🇰HK-https7
-  - 🇿🇦 ZA 🇺🇸US-https1|T#183
-  - 🇮🇳 IN 🇺🇸US-https1|T#204
+  - 🇫🇷 FR 瑞士 002
+  - 🇲🇽 MX 🇲🇽MX-https1
+  - 🇫🇮 FI 荷兰 003
+  - 🇸🇪 SE 英国 004
+  - 🇪🇸 ES 🇪🇸ES-https1
+  - 🇩🇪 DE 🇩🇪DE-https14
+  - 🇱🇻 LV LV-https3
+  - 🇷🇴 RO 🇷🇴RO-https2
+  - 🇮🇹 IT 🇮🇹IT-https7
+  - 🇭🇰 HK 🇭🇰HK-https6
+  - 🇮🇹 IT 🇮🇹IT-https11
+  - 🇵🇱 PL 🇺🇸US-https1|T#142
+  - 🇱🇻 LV LV-https14
+  - 🇿🇦 ZA 🇺🇸US-https1|T#167
 - name: 🤖 ChatGPT
   type: select
   proxies:
