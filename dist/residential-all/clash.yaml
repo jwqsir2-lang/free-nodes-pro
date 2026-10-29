@@ -4,7 +4,7 @@ log-level: warning
 external-controller: 127.0.0.1:9090
 ipv6: false
 proxies:
-- name: 🇺🇸 US 🇺🇸US-https1|T#88
+- name: 🇺🇸 US 🇺🇸US-https1|T#87
   type: http
   server: 47.149.9.211
   port: 443
@@ -14,7 +14,17 @@ proxies:
   servername: 47.149.9.211
   iptype: jk
   country_code: US
-- name: 🇺🇸 US 🇺🇸US-https51
+- name: 🇺🇸 US 🇺🇸US-https52
+  type: http
+  server: 70.91.247.164
+  port: 8443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 70.91.247.164
+  iptype: jk
+  country_code: US
+- name: 🇺🇸 US 🇺🇸US-https59
   type: http
   server: 24.121.152.67
   port: 443
@@ -24,27 +34,71 @@ proxies:
   servername: 24.121.152.67
   iptype: jk
   country_code: US
-- name: 🇺🇸 US 🇺🇸US-https76
+- name: 🇺🇸 US 🇺🇸US-https1|T#189
   type: http
-  server: 74.103.66.18
-  port: 443
+  server: 50.76.211.251
+  port: 8090
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 74.103.66.18
+  servername: 50.76.211.251
   iptype: jk
   country_code: US
-- name: 🇲🇽 MX 🇲🇽MX-https1
+- name: 🇺🇸 US 🇺🇸US-https62
   type: http
-  server: 200.52.72.14
-  port: 443
+  server: 24.142.229.178
+  port: 8090
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 200.52.72.14
+  servername: 24.142.229.178
   iptype: jk
-  country_code: MX
-- name: 🇨🇷 CR CR-https2
+  country_code: US
+- name: 🇺🇸 US 🇺🇸US-https64
+  type: http
+  server: 173.42.49.102
+  port: 8090
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 173.42.49.102
+  iptype: jk
+  country_code: US
+- name: 🇫🇷 FR 瑞士 002
+  type: vless
+  network: ws
+  server: 138.124.70.41
+  port: 14430
+  uuid: 6cc745e3-4eb9-46c8-a4a1-85dee7b87edc
+  tls: false
+  ws-opts:
+    headers:
+      Host: 138.124.70.41
+    path: /vless
+  udp: false
+  iptype: jk
+  country_code: FR
+- name: 🇺🇸 US 🇺🇸US-https76
+  type: http
+  server: 184.188.139.2
+  port: 8090
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 184.188.139.2
+  iptype: jk
+  country_code: US
+- name: 🇨🇷 CR CR-https1
+  type: http
+  server: 190.113.112.147
+  port: 4443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 190.113.112.147
+  iptype: jk
+  country_code: CR
+- name: 🇨🇷 CR CR-https3
   type: http
   server: 190.113.112.147
   port: 443
@@ -54,7 +108,22 @@ proxies:
   servername: 190.113.112.147
   iptype: jk
   country_code: CR
-- name: 🇫🇷 FR 🇫🇷FR-https3
+- name: 🇫🇮 FI 荷兰 004
+  type: vless
+  network: ws
+  server: 45.144.234.157
+  port: 14430
+  uuid: 59b0d30e-9b29-4fda-a35c-b2901ec32db7
+  tls: false
+  encryption: none
+  ws-opts:
+    headers:
+      Host: 45.144.234.157
+    path: /vless
+  udp: false
+  iptype: jk
+  country_code: FI
+- name: 🇫🇷 FR 🇫🇷FR-https6
   type: http
   server: 82.65.162.76
   port: 443
@@ -64,6 +133,26 @@ proxies:
   servername: 82.65.162.76
   iptype: jk
   country_code: FR
+- name: 🇩🇪 DE 🇩🇪DE-https4
+  type: http
+  server: 193.203.16.6
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 193.203.16.6
+  iptype: jk
+  country_code: DE
+- name: 🇩🇪 DE 🇺🇸US-https1|T#32
+  type: http
+  server: 198.40.90.50
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 198.40.90.50
+  iptype: jk
+  country_code: DE
 - name: 🇪🇸 ES 🇪🇸ES-https1
   type: http
   server: 188.77.69.184
@@ -74,47 +163,7 @@ proxies:
   servername: 188.77.69.184
   iptype: jk
   country_code: ES
-- name: 🇯🇵 JP 🇺🇸US-https1|T#19
-  type: http
-  server: 175.134.18.237
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 175.134.18.237
-  iptype: jk
-  country_code: JP
-- name: 🇫🇷 FR 🇫🇷FR-https6
-  type: http
-  server: 82.66.235.221
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 82.66.235.221
-  iptype: jk
-  country_code: FR
-- name: 🇹🇼 TW 🇹🇼TW-https1
-  type: http
-  server: 114.33.6.158
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 114.33.6.158
-  iptype: jk
-  country_code: TW
-- name: 🇨🇷 CR CR-https3
-  type: http
-  server: 138.118.81.189
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 138.118.81.189
-  iptype: jk
-  country_code: CR
-- name: 🇫🇷 FR 🇫🇷FR-https12
+- name: 🇫🇷 FR 🇫🇷FR-https8
   type: http
   server: 130.180.211.56
   port: 443
@@ -124,27 +173,17 @@ proxies:
   servername: 130.180.211.56
   iptype: jk
   country_code: FR
-- name: 🇩🇪 DE 🇺🇸US-https1|T#33
+- name: 🇨🇷 CR CR-https4
   type: http
-  server: 198.40.90.50
+  server: 138.118.81.189
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 198.40.90.50
+  servername: 138.118.81.189
   iptype: jk
-  country_code: DE
-- name: 🇩🇪 DE 🇩🇪DE-https10
-  type: http
-  server: 217.237.171.227
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 217.237.171.227
-  iptype: jk
-  country_code: DE
-- name: 🇨🇿 CZ 🇺🇸US-https1|T#41
+  country_code: CR
+- name: 🇨🇿 CZ 🇺🇸US-https1|T#40
   type: http
   server: 185.68.28.79
   port: 443
@@ -154,6 +193,36 @@ proxies:
   servername: 185.68.28.79
   iptype: jk
   country_code: CZ
+- name: 🇫🇷 FR 🇫🇷FR-https11
+  type: http
+  server: 82.66.235.221
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 82.66.235.221
+  iptype: jk
+  country_code: FR
+- name: 🇫🇷 FR 🇫🇷FR-https12
+  type: http
+  server: 80.124.109.22
+  port: 8090
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 80.124.109.22
+  iptype: jk
+  country_code: FR
+- name: 🇩🇪 DE 🇩🇪DE-https19
+  type: http
+  server: 217.237.171.227
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 217.237.171.227
+  iptype: jk
+  country_code: DE
 - name: 🇸🇮 SI SI-https1
   type: http
   server: 193.77.81.97
@@ -164,26 +233,6 @@ proxies:
   servername: 193.77.81.97
   iptype: jk
   country_code: SI
-- name: 🇸🇰 SK SK-https2
-  type: http
-  server: 195.146.134.204
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 195.146.134.204
-  iptype: jk
-  country_code: SK
-- name: 🇭🇺 HU 🇭🇺HU-https4
-  type: http
-  server: 193.226.205.54
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 193.226.205.54
-  iptype: jk
-  country_code: HU
 - name: 🇩🇰 DK 🇺🇸US-https1|T#20
   type: http
   server: 87.238.253.66
@@ -194,17 +243,57 @@ proxies:
   servername: 87.238.253.66
   iptype: jk
   country_code: DK
-- name: 🇭🇰 HK 🇭🇰HK-https2
+- name: 🇯🇵 JP 🇺🇸US-https1|T#19
   type: http
-  server: 38.76.140.254
-  port: 8443
+  server: 175.134.18.237
+  port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 38.76.140.254
+  servername: 175.134.18.237
   iptype: jk
-  country_code: HK
-- name: 🇩🇪 DE 🇺🇸US-https1|T#91
+  country_code: JP
+- name: 🇹🇼 TW 🇹🇼TW-https1
+  type: http
+  server: 114.33.6.158
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 114.33.6.158
+  iptype: jk
+  country_code: TW
+- name: 🇸🇰 SK SK-https2
+  type: http
+  server: 195.146.134.204
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 195.146.134.204
+  iptype: jk
+  country_code: SK
+- name: 🇫🇷 FR 🇫🇷FR-https16
+  type: http
+  server: 82.64.46.151
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 82.64.46.151
+  iptype: jk
+  country_code: FR
+- name: 🇫🇷 FR 🇫🇷FR-https17
+  type: http
+  server: 83.172.143.53
+  port: 4443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 83.172.143.53
+  iptype: jk
+  country_code: FR
+- name: 🇩🇪 DE 🇺🇸US-https1|T#90
   type: http
   server: 176.94.74.21
   port: 443
@@ -214,17 +303,7 @@ proxies:
   servername: 176.94.74.21
   iptype: jk
   country_code: DE
-- name: 🇵🇹 PT 🇵🇹PT-https2
-  type: http
-  server: 193.136.192.57
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 193.136.192.57
-  iptype: jk
-  country_code: PT
-- name: 🇮🇹 IT 🇮🇹IT-https2
+- name: 🇮🇹 IT 🇮🇹IT-https3
   type: http
   server: 83.103.36.213
   port: 443
@@ -234,26 +313,22 @@ proxies:
   servername: 83.103.36.213
   iptype: jk
   country_code: IT
-- name: 🇩🇪 DE 🇩🇪DE-https21
-  type: http
-  server: 217.92.132.233
-  port: 443
-  udp: false
+- name: 🇧🇾 BY 白俄罗斯 004
+  type: vless
+  network: ws
+  server: 95.130.84.36
+  port: 8443
+  uuid: 8d42d29a-ed53-4684-a9ff-6b33826149de
+  servername: aio.eth0.dpdns.org
   tls: true
-  skip_cert_verify: true
-  servername: 217.92.132.233
-  iptype: jk
-  country_code: DE
-- name: 🇷🇴 RO 🇷🇴RO-https20
-  type: http
-  server: 81.180.222.73
-  port: 443
+  client-fingerprint: unsafe
+  ws-opts:
+    headers:
+      Host: aio.eth0.dpdns.org
+    path: /aioproxybot/94.23.144.99-2053
   udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 81.180.222.73
   iptype: jk
-  country_code: RO
+  country_code: BY
 - name: 🇱🇻 LV LV-https2
   type: http
   server: 89.111.31.247
@@ -264,27 +339,27 @@ proxies:
   servername: 89.111.31.247
   iptype: jk
   country_code: LV
-- name: 🇱🇻 LV LV-https3
+- name: 🇷🇴 RO 🇷🇴RO-https22
   type: http
-  server: 89.111.28.75
+  server: 81.180.222.73
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.28.75
+  servername: 81.180.222.73
   iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV LV-https4
+  country_code: RO
+- name: 🇩🇪 DE 🇩🇪DE-https27
   type: http
-  server: 89.111.28.78
+  server: 217.92.132.233
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.28.78
+  servername: 217.92.132.233
   iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV 🇺🇸US-https1|T#29
+  country_code: DE
+- name: 🇱🇻 LV 🇺🇸US-https1|T#28
   type: http
   server: 185.219.159.16
   port: 443
@@ -294,14 +369,24 @@ proxies:
   servername: 185.219.159.16
   iptype: jk
   country_code: LV
-- name: 🇱🇻 LV 🇺🇸US-https1|T#2
+- name: 🇱🇻 LV LV-https3
   type: http
-  server: 185.219.157.125
+  server: 89.111.31.249
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 185.219.157.125
+  servername: 89.111.31.249
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV LV-https4
+  type: http
+  server: 89.111.31.105
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.31.105
   iptype: jk
   country_code: LV
 - name: 🇱🇻 LV 🇺🇸US-https2|T#4
@@ -316,36 +401,6 @@ proxies:
   country_code: LV
 - name: 🇱🇻 LV LV-https5
   type: http
-  server: 89.111.27.213
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 89.111.27.213
-  iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV LV-https6
-  type: http
-  server: 89.111.27.221
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 89.111.27.221
-  iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV LV-https7
-  type: http
-  server: 89.111.31.105
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 89.111.31.105
-  iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV LV-https8
-  type: http
   server: 89.111.30.251
   port: 443
   udp: false
@@ -354,6 +409,63 @@ proxies:
   servername: 89.111.30.251
   iptype: jk
   country_code: LV
+- name: 🇱🇻 LV LV-https6
+  type: http
+  server: 89.111.27.214
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.27.214
+  iptype: jk
+  country_code: LV
+- name: 🇩🇪 DE 波兰 002
+  type: trojan
+  network: ws
+  server: 185.255.179.166
+  port: 443
+  password: humanity
+  skip-cert-verify: false
+  sni: www.calmlunch.com
+  ws-opts:
+    headers:
+      Host: www.calmlunch.com
+    path: /assignment
+  udp: false
+  iptype: jk
+  country_code: DE
+  tls: true
+  server-name: www.calmlunch.com
+- name: 🇱🇻 LV LV-https7
+  type: http
+  server: 89.111.28.77
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.28.77
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV LV-https8
+  type: http
+  server: 89.111.30.252
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.30.252
+  iptype: jk
+  country_code: LV
+- name: 🇭🇰 HK 🇭🇰HK-https3
+  type: http
+  server: 38.76.140.254
+  port: 8443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 38.76.140.254
+  iptype: jk
+  country_code: HK
 - name: 🇵🇱 PL 🇺🇸US-https1|T#17
   type: http
   server: 213.241.124.228
@@ -366,65 +478,55 @@ proxies:
   country_code: PL
 - name: 🇱🇻 LV LV-https9
   type: http
-  server: 89.111.30.252
+  server: 89.111.27.221
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.30.252
+  servername: 89.111.27.221
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV 🇺🇸US-https1|T#2
+  type: http
+  server: 185.219.157.125
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 185.219.157.125
   iptype: jk
   country_code: LV
 - name: 🇱🇻 LV LV-https10
   type: http
-  server: 89.111.30.85
+  server: 89.111.27.215
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.30.85
+  servername: 89.111.27.215
   iptype: jk
   country_code: LV
 - name: 🇱🇻 LV LV-https11
   type: http
-  server: 89.111.28.77
+  server: 89.111.27.213
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.28.77
+  servername: 89.111.27.213
   iptype: jk
   country_code: LV
-- name: 🇱🇻 LV 🇺🇸US-https2|T
-  type: http
-  server: 185.219.157.127
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 185.219.157.127
-  iptype: jk
-  country_code: LV
-- name: 🇮🇩 ID 🇮🇩ID-https3
-  type: http
-  server: 178.248.73.58
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 178.248.73.58
-  iptype: jk
-  country_code: ID
 - name: 🇱🇻 LV LV-https12
   type: http
-  server: 89.111.27.214
+  server: 89.111.28.75
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.27.214
+  servername: 89.111.28.75
   iptype: jk
   country_code: LV
-- name: 🇮🇹 IT 🇮🇹IT-https5
+- name: 🇮🇹 IT 🇮🇹IT-https8
   type: http
   server: 93.63.43.131
   port: 443
@@ -434,17 +536,7 @@ proxies:
   servername: 93.63.43.131
   iptype: jk
   country_code: IT
-- name: 🇷🇸 RS 🇺🇸US-https1|T#47
-  type: http
-  server: 212.200.119.174
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 212.200.119.174
-  iptype: jk
-  country_code: RS
-- name: 🇮🇹 IT 🇮🇹IT-https6
+- name: 🇮🇹 IT 🇮🇹IT-https9
   type: http
   server: 109.116.41.154
   port: 443
@@ -454,16 +546,56 @@ proxies:
   servername: 109.116.41.154
   iptype: jk
   country_code: IT
-- name: 🇱🇻 LV LV-https13
+- name: 🇷🇸 RS 🇺🇸US-https1|T#46
   type: http
-  server: 89.111.31.100
+  server: 212.200.119.174
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.31.100
+  servername: 212.200.119.174
   iptype: jk
-  country_code: LV
+  country_code: RS
+- name: 🇮🇹 IT 🇮🇹IT-https12
+  type: http
+  server: 2.228.224.4
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 2.228.224.4
+  iptype: jk
+  country_code: IT
+- name: 🇮🇹 IT 🇮🇹IT-https13
+  type: http
+  server: 37.100.85.116
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 37.100.85.116
+  iptype: jk
+  country_code: IT
+- name: 🇺🇸 US 🇺🇸US-https83
+  type: http
+  server: 173.13.157.60
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 173.13.157.60
+  iptype: jk
+  country_code: US
+- name: 🇮🇹 IT 🇮🇹IT-https14
+  type: http
+  server: 93.71.245.84
+  port: 8090
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 93.71.245.84
+  iptype: jk
+  country_code: IT
 - name: 🇵🇾 PY PY-https1
   type: http
   server: 181.126.49.38
@@ -474,37 +606,35 @@ proxies:
   servername: 181.126.49.38
   iptype: jk
   country_code: PY
-- name: 🇮🇹 IT 🇮🇹IT-https9
+- name: 🇮🇳 IN 印度 002
+  type: vless
+  network: ws
+  server: 122.176.216.52
+  port: 443
+  uuid: 16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
+  servername: app-6ada5023.deploy.meerasolution.com
+  skip-cert-verify: false
+  tls: true
+  udp: true
+  tfo: false
+  client-fingerprint: chrome
+  ws-opts:
+    headers:
+      Host: app-6ada5023.deploy.meerasolution.com
+    path: /ws/16ae3ea5-cf3e-6973-7bf3-2b4b28d0ea88
+  iptype: jk
+  country_code: IN
+- name: 🇵🇱 PL 🇺🇸US-https1|T#142
   type: http
-  server: 37.100.85.116
+  server: 46.170.93.122
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 37.100.85.116
+  servername: 46.170.93.122
   iptype: jk
-  country_code: IT
-- name: 🇮🇹 IT 🇮🇹IT-https10
-  type: http
-  server: 2.228.224.4
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 2.228.224.4
-  iptype: jk
-  country_code: IT
-- name: 🇱🇻 LV LV-https14
-  type: http
-  server: 89.111.28.74
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 89.111.28.74
-  iptype: jk
-  country_code: LV
-- name: 🇹🇼 TW 🇺🇸US-https1|T#37
+  country_code: PL
+- name: 🇹🇼 TW 🇺🇸US-https1|T#36
   type: http
   server: 211.72.236.159
   port: 443
@@ -514,46 +644,6 @@ proxies:
   servername: 211.72.236.159
   iptype: jk
   country_code: TW
-- name: 🇭🇰 HK 🇭🇰HK-https6
-  type: http
-  server: 221.120.177.43
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 221.120.177.43
-  iptype: jk
-  country_code: HK
-- name: 🇱🇻 LV LV-https15
-  type: http
-  server: 89.111.30.183
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 89.111.30.183
-  iptype: jk
-  country_code: LV
-- name: 🇨🇳 CN 🇨🇳CN-https20
-  type: http
-  server: 117.82.138.100
-  port: 1080
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 117.82.138.100
-  iptype: jk
-  country_code: CN
-- name: 🇱🇻 LV LV-https16
-  type: http
-  server: 89.111.31.249
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 89.111.31.249
-  iptype: jk
-  country_code: LV
 - name: 🇹🇬 TG TG-https1
   type: http
   server: 156.38.64.51
@@ -564,27 +654,77 @@ proxies:
   servername: 156.38.64.51
   iptype: jk
   country_code: TG
-- name: 🇮🇹 IT 🇮🇹IT-https11
+- name: 🇭🇰 HK 🇭🇰HK-https6
   type: http
-  server: 93.42.177.250
+  server: 221.120.177.43
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 93.42.177.250
+  servername: 221.120.177.43
   iptype: jk
-  country_code: IT
-- name: 🇱🇻 LV LV-https17
+  country_code: HK
+- name: 🇵🇱 PL 🇵🇱PL-https5
   type: http
-  server: 89.111.27.215
+  server: 83.13.36.250
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 89.111.27.215
+  servername: 83.13.36.250
+  iptype: jk
+  country_code: PL
+- name: 🇱🇻 LV LV-https13
+  type: http
+  server: 89.111.30.182
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.30.182
   iptype: jk
   country_code: LV
-- name: 🇿🇦 ZA 🇿🇦ZA-https3
+- name: 🇿🇦 ZA 🇿🇦ZA-https2
+  type: http
+  server: 196.21.187.115
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 196.21.187.115
+  iptype: jk
+  country_code: ZA
+- name: 🇱🇻 LV LV-https14
+  type: http
+  server: 89.111.27.220
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.27.220
+  iptype: jk
+  country_code: LV
+- name: 🇱🇻 LV LV-https15
+  type: http
+  server: 89.111.28.74
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 89.111.28.74
+  iptype: jk
+  country_code: LV
+- name: 🇮🇹 IT 🇮🇹IT-https17
+  type: http
+  server: 188.219.81.246
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 188.219.81.246
+  iptype: jk
+  country_code: IT
+- name: 🇿🇦 ZA 🇿🇦ZA-https4
   type: http
   server: 196.21.109.82
   port: 443
@@ -594,16 +734,16 @@ proxies:
   servername: 196.21.109.82
   iptype: jk
   country_code: ZA
-- name: 🇿🇦 ZA 🇿🇦ZA-https4
+- name: 🇱🇻 LV 🇺🇸US-https2|T
   type: http
-  server: 196.21.60.44
+  server: 185.219.157.127
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 196.21.60.44
+  servername: 185.219.157.127
   iptype: jk
-  country_code: ZA
+  country_code: LV
 - name: 🇵🇰 PK 🇵🇰PK-https1
   type: http
   server: 110.38.225.213
@@ -614,6 +754,26 @@ proxies:
   servername: 110.38.225.213
   iptype: jk
   country_code: PK
+- name: 🇿🇦 ZA 🇿🇦ZA-https7
+  type: http
+  server: 196.21.60.44
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 196.21.60.44
+  iptype: jk
+  country_code: ZA
+- name: 🇫🇷 FR 🇫🇷FR-https27
+  type: http
+  server: 80.15.99.54
+  port: 8090
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 80.15.99.54
+  iptype: jk
+  country_code: FR
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -621,150 +781,176 @@ proxy-groups:
   - ⚡ 精选速度
   - ♻️ 自动测速
   - DIRECT
-  - 🇺🇸 US 🇺🇸US-https1|T#88
-  - 🇺🇸 US 🇺🇸US-https51
+  - 🇺🇸 US 🇺🇸US-https1|T#87
+  - 🇺🇸 US 🇺🇸US-https52
+  - 🇺🇸 US 🇺🇸US-https59
+  - 🇺🇸 US 🇺🇸US-https1|T#189
+  - 🇺🇸 US 🇺🇸US-https62
+  - 🇺🇸 US 🇺🇸US-https64
+  - 🇫🇷 FR 瑞士 002
   - 🇺🇸 US 🇺🇸US-https76
-  - 🇲🇽 MX 🇲🇽MX-https1
-  - 🇨🇷 CR CR-https2
-  - 🇫🇷 FR 🇫🇷FR-https3
-  - 🇪🇸 ES 🇪🇸ES-https1
-  - 🇯🇵 JP 🇺🇸US-https1|T#19
-  - 🇫🇷 FR 🇫🇷FR-https6
-  - 🇹🇼 TW 🇹🇼TW-https1
+  - 🇨🇷 CR CR-https1
   - 🇨🇷 CR CR-https3
+  - 🇫🇮 FI 荷兰 004
+  - 🇫🇷 FR 🇫🇷FR-https6
+  - 🇩🇪 DE 🇩🇪DE-https4
+  - 🇩🇪 DE 🇺🇸US-https1|T#32
+  - 🇪🇸 ES 🇪🇸ES-https1
+  - 🇫🇷 FR 🇫🇷FR-https8
+  - 🇨🇷 CR CR-https4
+  - 🇨🇿 CZ 🇺🇸US-https1|T#40
+  - 🇫🇷 FR 🇫🇷FR-https11
   - 🇫🇷 FR 🇫🇷FR-https12
-  - 🇩🇪 DE 🇺🇸US-https1|T#33
-  - 🇩🇪 DE 🇩🇪DE-https10
-  - 🇨🇿 CZ 🇺🇸US-https1|T#41
+  - 🇩🇪 DE 🇩🇪DE-https19
   - 🇸🇮 SI SI-https1
-  - 🇸🇰 SK SK-https2
-  - 🇭🇺 HU 🇭🇺HU-https4
   - 🇩🇰 DK 🇺🇸US-https1|T#20
-  - 🇭🇰 HK 🇭🇰HK-https2
-  - 🇩🇪 DE 🇺🇸US-https1|T#91
-  - 🇵🇹 PT 🇵🇹PT-https2
-  - 🇮🇹 IT 🇮🇹IT-https2
-  - 🇩🇪 DE 🇩🇪DE-https21
-  - 🇷🇴 RO 🇷🇴RO-https20
+  - 🇯🇵 JP 🇺🇸US-https1|T#19
+  - 🇹🇼 TW 🇹🇼TW-https1
+  - 🇸🇰 SK SK-https2
+  - 🇫🇷 FR 🇫🇷FR-https16
+  - 🇫🇷 FR 🇫🇷FR-https17
+  - 🇩🇪 DE 🇺🇸US-https1|T#90
+  - 🇮🇹 IT 🇮🇹IT-https3
+  - 🇧🇾 BY 白俄罗斯 004
   - 🇱🇻 LV LV-https2
+  - 🇷🇴 RO 🇷🇴RO-https22
+  - 🇩🇪 DE 🇩🇪DE-https27
+  - 🇱🇻 LV 🇺🇸US-https1|T#28
   - 🇱🇻 LV LV-https3
   - 🇱🇻 LV LV-https4
-  - 🇱🇻 LV 🇺🇸US-https1|T#29
-  - 🇱🇻 LV 🇺🇸US-https1|T#2
   - 🇱🇻 LV 🇺🇸US-https2|T#4
   - 🇱🇻 LV LV-https5
   - 🇱🇻 LV LV-https6
+  - 🇩🇪 DE 波兰 002
   - 🇱🇻 LV LV-https7
   - 🇱🇻 LV LV-https8
+  - 🇭🇰 HK 🇭🇰HK-https3
   - 🇵🇱 PL 🇺🇸US-https1|T#17
   - 🇱🇻 LV LV-https9
+  - 🇱🇻 LV 🇺🇸US-https1|T#2
   - 🇱🇻 LV LV-https10
   - 🇱🇻 LV LV-https11
-  - 🇱🇻 LV 🇺🇸US-https2|T
-  - 🇮🇩 ID 🇮🇩ID-https3
   - 🇱🇻 LV LV-https12
-  - 🇮🇹 IT 🇮🇹IT-https5
-  - 🇷🇸 RS 🇺🇸US-https1|T#47
-  - 🇮🇹 IT 🇮🇹IT-https6
-  - 🇱🇻 LV LV-https13
-  - 🇵🇾 PY PY-https1
+  - 🇮🇹 IT 🇮🇹IT-https8
   - 🇮🇹 IT 🇮🇹IT-https9
-  - 🇮🇹 IT 🇮🇹IT-https10
-  - 🇱🇻 LV LV-https14
-  - 🇹🇼 TW 🇺🇸US-https1|T#37
-  - 🇭🇰 HK 🇭🇰HK-https6
-  - 🇱🇻 LV LV-https15
-  - 🇨🇳 CN 🇨🇳CN-https20
-  - 🇱🇻 LV LV-https16
+  - 🇷🇸 RS 🇺🇸US-https1|T#46
+  - 🇮🇹 IT 🇮🇹IT-https12
+  - 🇮🇹 IT 🇮🇹IT-https13
+  - 🇺🇸 US 🇺🇸US-https83
+  - 🇮🇹 IT 🇮🇹IT-https14
+  - 🇵🇾 PY PY-https1
+  - 🇮🇳 IN 印度 002
+  - 🇵🇱 PL 🇺🇸US-https1|T#142
+  - 🇹🇼 TW 🇺🇸US-https1|T#36
   - 🇹🇬 TG TG-https1
-  - 🇮🇹 IT 🇮🇹IT-https11
-  - 🇱🇻 LV LV-https17
-  - 🇿🇦 ZA 🇿🇦ZA-https3
+  - 🇭🇰 HK 🇭🇰HK-https6
+  - 🇵🇱 PL 🇵🇱PL-https5
+  - 🇱🇻 LV LV-https13
+  - 🇿🇦 ZA 🇿🇦ZA-https2
+  - 🇱🇻 LV LV-https14
+  - 🇱🇻 LV LV-https15
+  - 🇮🇹 IT 🇮🇹IT-https17
   - 🇿🇦 ZA 🇿🇦ZA-https4
+  - 🇱🇻 LV 🇺🇸US-https2|T
   - 🇵🇰 PK 🇵🇰PK-https1
+  - 🇿🇦 ZA 🇿🇦ZA-https7
+  - 🇫🇷 FR 🇫🇷FR-https27
 - name: ⚡ 精选速度
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
-  - 🇺🇸 US 🇺🇸US-https1|T#88
-  - 🇺🇸 US 🇺🇸US-https51
+  - 🇺🇸 US 🇺🇸US-https1|T#87
+  - 🇺🇸 US 🇺🇸US-https52
+  - 🇺🇸 US 🇺🇸US-https59
+  - 🇺🇸 US 🇺🇸US-https1|T#189
+  - 🇺🇸 US 🇺🇸US-https62
+  - 🇺🇸 US 🇺🇸US-https64
+  - 🇫🇷 FR 瑞士 002
   - 🇺🇸 US 🇺🇸US-https76
-  - 🇲🇽 MX 🇲🇽MX-https1
-  - 🇨🇷 CR CR-https2
-  - 🇫🇷 FR 🇫🇷FR-https3
-  - 🇪🇸 ES 🇪🇸ES-https1
-  - 🇯🇵 JP 🇺🇸US-https1|T#19
-  - 🇫🇷 FR 🇫🇷FR-https6
-  - 🇹🇼 TW 🇹🇼TW-https1
+  - 🇨🇷 CR CR-https1
+  - 🇨🇷 CR CR-https3
 - name: ♻️ 自动测速
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
-  - 🇺🇸 US 🇺🇸US-https1|T#88
-  - 🇺🇸 US 🇺🇸US-https51
+  - 🇺🇸 US 🇺🇸US-https1|T#87
+  - 🇺🇸 US 🇺🇸US-https52
+  - 🇺🇸 US 🇺🇸US-https59
+  - 🇺🇸 US 🇺🇸US-https1|T#189
+  - 🇺🇸 US 🇺🇸US-https62
+  - 🇺🇸 US 🇺🇸US-https64
+  - 🇫🇷 FR 瑞士 002
   - 🇺🇸 US 🇺🇸US-https76
-  - 🇲🇽 MX 🇲🇽MX-https1
-  - 🇨🇷 CR CR-https2
-  - 🇫🇷 FR 🇫🇷FR-https3
-  - 🇪🇸 ES 🇪🇸ES-https1
-  - 🇯🇵 JP 🇺🇸US-https1|T#19
-  - 🇫🇷 FR 🇫🇷FR-https6
-  - 🇹🇼 TW 🇹🇼TW-https1
+  - 🇨🇷 CR CR-https1
   - 🇨🇷 CR CR-https3
+  - 🇫🇮 FI 荷兰 004
+  - 🇫🇷 FR 🇫🇷FR-https6
+  - 🇩🇪 DE 🇩🇪DE-https4
+  - 🇩🇪 DE 🇺🇸US-https1|T#32
+  - 🇪🇸 ES 🇪🇸ES-https1
+  - 🇫🇷 FR 🇫🇷FR-https8
+  - 🇨🇷 CR CR-https4
+  - 🇨🇿 CZ 🇺🇸US-https1|T#40
+  - 🇫🇷 FR 🇫🇷FR-https11
   - 🇫🇷 FR 🇫🇷FR-https12
-  - 🇩🇪 DE 🇺🇸US-https1|T#33
-  - 🇩🇪 DE 🇩🇪DE-https10
-  - 🇨🇿 CZ 🇺🇸US-https1|T#41
+  - 🇩🇪 DE 🇩🇪DE-https19
   - 🇸🇮 SI SI-https1
-  - 🇸🇰 SK SK-https2
-  - 🇭🇺 HU 🇭🇺HU-https4
   - 🇩🇰 DK 🇺🇸US-https1|T#20
-  - 🇭🇰 HK 🇭🇰HK-https2
-  - 🇩🇪 DE 🇺🇸US-https1|T#91
-  - 🇵🇹 PT 🇵🇹PT-https2
-  - 🇮🇹 IT 🇮🇹IT-https2
-  - 🇩🇪 DE 🇩🇪DE-https21
-  - 🇷🇴 RO 🇷🇴RO-https20
+  - 🇯🇵 JP 🇺🇸US-https1|T#19
+  - 🇹🇼 TW 🇹🇼TW-https1
+  - 🇸🇰 SK SK-https2
+  - 🇫🇷 FR 🇫🇷FR-https16
+  - 🇫🇷 FR 🇫🇷FR-https17
+  - 🇩🇪 DE 🇺🇸US-https1|T#90
+  - 🇮🇹 IT 🇮🇹IT-https3
+  - 🇧🇾 BY 白俄罗斯 004
   - 🇱🇻 LV LV-https2
+  - 🇷🇴 RO 🇷🇴RO-https22
+  - 🇩🇪 DE 🇩🇪DE-https27
+  - 🇱🇻 LV 🇺🇸US-https1|T#28
   - 🇱🇻 LV LV-https3
   - 🇱🇻 LV LV-https4
-  - 🇱🇻 LV 🇺🇸US-https1|T#29
-  - 🇱🇻 LV 🇺🇸US-https1|T#2
   - 🇱🇻 LV 🇺🇸US-https2|T#4
   - 🇱🇻 LV LV-https5
   - 🇱🇻 LV LV-https6
+  - 🇩🇪 DE 波兰 002
   - 🇱🇻 LV LV-https7
   - 🇱🇻 LV LV-https8
+  - 🇭🇰 HK 🇭🇰HK-https3
   - 🇵🇱 PL 🇺🇸US-https1|T#17
   - 🇱🇻 LV LV-https9
+  - 🇱🇻 LV 🇺🇸US-https1|T#2
   - 🇱🇻 LV LV-https10
   - 🇱🇻 LV LV-https11
-  - 🇱🇻 LV 🇺🇸US-https2|T
-  - 🇮🇩 ID 🇮🇩ID-https3
   - 🇱🇻 LV LV-https12
-  - 🇮🇹 IT 🇮🇹IT-https5
-  - 🇷🇸 RS 🇺🇸US-https1|T#47
-  - 🇮🇹 IT 🇮🇹IT-https6
-  - 🇱🇻 LV LV-https13
-  - 🇵🇾 PY PY-https1
+  - 🇮🇹 IT 🇮🇹IT-https8
   - 🇮🇹 IT 🇮🇹IT-https9
-  - 🇮🇹 IT 🇮🇹IT-https10
-  - 🇱🇻 LV LV-https14
-  - 🇹🇼 TW 🇺🇸US-https1|T#37
-  - 🇭🇰 HK 🇭🇰HK-https6
-  - 🇱🇻 LV LV-https15
-  - 🇨🇳 CN 🇨🇳CN-https20
-  - 🇱🇻 LV LV-https16
+  - 🇷🇸 RS 🇺🇸US-https1|T#46
+  - 🇮🇹 IT 🇮🇹IT-https12
+  - 🇮🇹 IT 🇮🇹IT-https13
+  - 🇺🇸 US 🇺🇸US-https83
+  - 🇮🇹 IT 🇮🇹IT-https14
+  - 🇵🇾 PY PY-https1
+  - 🇮🇳 IN 印度 002
+  - 🇵🇱 PL 🇺🇸US-https1|T#142
+  - 🇹🇼 TW 🇺🇸US-https1|T#36
   - 🇹🇬 TG TG-https1
-  - 🇮🇹 IT 🇮🇹IT-https11
-  - 🇱🇻 LV LV-https17
-  - 🇿🇦 ZA 🇿🇦ZA-https3
+  - 🇭🇰 HK 🇭🇰HK-https6
+  - 🇵🇱 PL 🇵🇱PL-https5
+  - 🇱🇻 LV LV-https13
+  - 🇿🇦 ZA 🇿🇦ZA-https2
+  - 🇱🇻 LV LV-https14
+  - 🇱🇻 LV LV-https15
+  - 🇮🇹 IT 🇮🇹IT-https17
   - 🇿🇦 ZA 🇿🇦ZA-https4
+  - 🇱🇻 LV 🇺🇸US-https2|T
   - 🇵🇰 PK 🇵🇰PK-https1
+  - 🇿🇦 ZA 🇿🇦ZA-https7
+  - 🇫🇷 FR 🇫🇷FR-https27
 - name: 🤖 ChatGPT
   type: select
   proxies:
