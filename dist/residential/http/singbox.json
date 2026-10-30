@@ -1,17 +1,6 @@
 [
   {
-    "tag": "🇺🇸 US 🇺🇸US-https52",
-    "type": "http",
-    "server": "70.91.247.164",
-    "server_port": 8443,
-    "tls": {
-      "enabled": true,
-      "server_name": "70.91.247.164",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇺🇸 US 🇺🇸US-https59",
+    "tag": "🇺🇸 US 🇺🇸US-https49",
     "type": "http",
     "server": "24.121.152.67",
     "server_port": 443,
@@ -33,7 +22,7 @@
     }
   },
   {
-    "tag": "🇩🇪 DE 🇩🇪DE-https19",
+    "tag": "🇩🇪 DE 🇩🇪DE-https12",
     "type": "http",
     "server": "217.237.171.227",
     "server_port": 443,
@@ -44,7 +33,7 @@
     }
   },
   {
-    "tag": "🇱🇻 LV LV-https2",
+    "tag": "🇱🇻 LV LV-https5",
     "type": "http",
     "server": "89.111.31.247",
     "server_port": 443,
@@ -55,7 +44,18 @@
     }
   },
   {
-    "tag": "🇷🇴 RO 🇷🇴RO-https22",
+    "tag": "🇱🇻 LV LV-https11",
+    "type": "http",
+    "server": "89.111.30.183",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "89.111.30.183",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇷🇴 RO 🇷🇴RO-https7",
     "type": "http",
     "server": "81.180.222.73",
     "server_port": 443,
@@ -66,7 +66,18 @@
     }
   },
   {
-    "tag": "🇮🇹 IT 🇮🇹IT-https13",
+    "tag": "🇮🇹 IT 🇮🇹IT-https4",
+    "type": "http",
+    "server": "188.219.81.246",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "188.219.81.246",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇮🇹 IT 🇮🇹IT-https12",
     "type": "http",
     "server": "37.100.85.116",
     "server_port": 443,
@@ -77,18 +88,7 @@
     }
   },
   {
-    "tag": "🇵🇱 PL 🇺🇸US-https1|T#142",
-    "type": "http",
-    "server": "46.170.93.122",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "46.170.93.122",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇭🇰 HK 🇭🇰HK-https6",
+    "tag": "🇭🇰 HK 🇭🇰HK-https5",
     "type": "http",
     "server": "221.120.177.43",
     "server_port": 443,
@@ -99,13 +99,13 @@
     }
   },
   {
-    "tag": "🇮🇹 IT 🇮🇹IT-https17",
+    "tag": "🇿🇦 ZA 🇺🇸US-https1|T#163",
     "type": "http",
-    "server": "188.219.81.246",
+    "server": "198.54.223.176",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "188.219.81.246",
+      "server_name": "198.54.223.176",
       "insecure": true
     }
   }
