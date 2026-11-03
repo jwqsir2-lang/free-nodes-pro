@@ -1,15 +1,5 @@
 proxies:
-- name: 🇺🇸 US 🇺🇸US-https35
-  type: http
-  server: 71.43.26.234
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 71.43.26.234
-  iptype: jk
-  country_code: US
-- name: 🇩🇪 DE 🇩🇪DE-https16
+- name: 🇩🇪 DE 🇩🇪DE-https15
   type: http
   server: 91.64.164.126
   port: 443
@@ -19,7 +9,17 @@ proxies:
   servername: 91.64.164.126
   iptype: jk
   country_code: DE
-- name: 🇴🇲 OM 🇺🇸US-https1|T#186
+- name: 🇿🇦 ZA 🇺🇸US-https1|T#163
+  type: http
+  server: 198.54.223.176
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 198.54.223.176
+  iptype: jk
+  country_code: ZA
+- name: 🇴🇲 OM 🇺🇸US-https1|T#185
   type: http
   server: 134.0.214.206
   port: 443

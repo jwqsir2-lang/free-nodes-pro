@@ -1,17 +1,6 @@
 [
   {
-    "tag": "🇺🇸 US 🇺🇸US-https35",
-    "type": "http",
-    "server": "71.43.26.234",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "71.43.26.234",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇩🇪 DE 🇩🇪DE-https16",
+    "tag": "🇩🇪 DE 🇩🇪DE-https15",
     "type": "http",
     "server": "91.64.164.126",
     "server_port": 443,
@@ -22,7 +11,18 @@
     }
   },
   {
-    "tag": "🇴🇲 OM 🇺🇸US-https1|T#186",
+    "tag": "🇿🇦 ZA 🇺🇸US-https1|T#163",
+    "type": "http",
+    "server": "198.54.223.176",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "198.54.223.176",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇴🇲 OM 🇺🇸US-https1|T#185",
     "type": "http",
     "server": "134.0.214.206",
     "server_port": 443,

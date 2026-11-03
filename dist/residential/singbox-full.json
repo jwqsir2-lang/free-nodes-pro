@@ -37,18 +37,7 @@
   ],
   "outbounds": [
     {
-      "tag": "🇺🇸 US 🇺🇸US-https35",
-      "type": "http",
-      "server": "71.43.26.234",
-      "server_port": 443,
-      "tls": {
-        "enabled": true,
-        "server_name": "71.43.26.234",
-        "insecure": true
-      }
-    },
-    {
-      "tag": "🇩🇪 DE 🇩🇪DE-https16",
+      "tag": "🇩🇪 DE 🇩🇪DE-https15",
       "type": "http",
       "server": "91.64.164.126",
       "server_port": 443,
@@ -59,7 +48,18 @@
       }
     },
     {
-      "tag": "🇴🇲 OM 🇺🇸US-https1|T#186",
+      "tag": "🇿🇦 ZA 🇺🇸US-https1|T#163",
+      "type": "http",
+      "server": "198.54.223.176",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "198.54.223.176",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇴🇲 OM 🇺🇸US-https1|T#185",
       "type": "http",
       "server": "134.0.214.206",
       "server_port": 443,
@@ -87,9 +87,9 @@
         "⚡ 精选速度",
         "♻️ 自动测速",
         "direct",
-        "🇺🇸 US 🇺🇸US-https35",
-        "🇩🇪 DE 🇩🇪DE-https16",
-        "🇴🇲 OM 🇺🇸US-https1|T#186",
+        "🇩🇪 DE 🇩🇪DE-https15",
+        "🇿🇦 ZA 🇺🇸US-https1|T#163",
+        "🇴🇲 OM 🇺🇸US-https1|T#185",
         "🇳🇦 NA NA-https1"
       ],
       "default": "⚡ 精选速度"
@@ -98,9 +98,9 @@
       "type": "urltest",
       "tag": "⚡ 精选速度",
       "outbounds": [
-        "🇺🇸 US 🇺🇸US-https35",
-        "🇩🇪 DE 🇩🇪DE-https16",
-        "🇴🇲 OM 🇺🇸US-https1|T#186",
+        "🇩🇪 DE 🇩🇪DE-https15",
+        "🇿🇦 ZA 🇺🇸US-https1|T#163",
+        "🇴🇲 OM 🇺🇸US-https1|T#185",
         "🇳🇦 NA NA-https1"
       ],
       "url": "https://www.gstatic.com/generate_204",
@@ -110,9 +110,9 @@
       "type": "urltest",
       "tag": "♻️ 自动测速",
       "outbounds": [
-        "🇺🇸 US 🇺🇸US-https35",
-        "🇩🇪 DE 🇩🇪DE-https16",
-        "🇴🇲 OM 🇺🇸US-https1|T#186",
+        "🇩🇪 DE 🇩🇪DE-https15",
+        "🇿🇦 ZA 🇺🇸US-https1|T#163",
+        "🇴🇲 OM 🇺🇸US-https1|T#185",
         "🇳🇦 NA NA-https1"
       ],
       "url": "https://www.gstatic.com/generate_204",
