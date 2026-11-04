@@ -1,6 +1,17 @@
 [
   {
-    "tag": "🇩🇪 DE 🇩🇪DE-https15",
+    "tag": "🇺🇸 US 🇺🇸US-https56",
+    "type": "http",
+    "server": "66.210.50.131",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "66.210.50.131",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇩🇪 DE 🇩🇪DE-https28",
     "type": "http",
     "server": "91.64.164.126",
     "server_port": 443,
@@ -11,18 +22,7 @@
     }
   },
   {
-    "tag": "🇿🇦 ZA 🇺🇸US-https1|T#163",
-    "type": "http",
-    "server": "198.54.223.176",
-    "server_port": 443,
-    "tls": {
-      "enabled": true,
-      "server_name": "198.54.223.176",
-      "insecure": true
-    }
-  },
-  {
-    "tag": "🇴🇲 OM 🇺🇸US-https1|T#185",
+    "tag": "🇴🇲 OM 🇺🇸US-https1|T#160",
     "type": "http",
     "server": "134.0.214.206",
     "server_port": 443,
@@ -33,13 +33,13 @@
     }
   },
   {
-    "tag": "🇳🇦 NA NA-https1",
+    "tag": "🇨🇳 CN 🇨🇳CN-https1",
     "type": "http",
-    "server": "41.205.129.179",
-    "server_port": 443,
+    "server": "117.82.138.100",
+    "server_port": 1080,
     "tls": {
       "enabled": true,
-      "server_name": "41.205.129.179",
+      "server_name": "117.82.138.100",
       "insecure": true
     }
   }
