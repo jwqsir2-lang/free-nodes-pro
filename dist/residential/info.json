@@ -1,10 +1,10 @@
 {
   "app": "FreeNodesPro v2.1 (author: 无情gg)",
-  "at": "2026-11-04 08:40:52 (jk)",
-  "total": 4,
+  "at": "2026-11-05 09:00:16 (jk)",
+  "total": 3,
   "with_speed": 0,
   "iptype": {
-    "jk": 4
+    "jk": 3
   },
   "unlock": {
     "GPT": 0,
@@ -12,47 +12,36 @@
     "GM": 0
   },
   "regions": {
-    "US": 2,
     "DE": 1,
-    "其他": 1
+    "US": 2
   },
   "nodes": [
     {
-      "name": "🇺🇸 US 🇺🇸US-https56",
-      "type": "http",
-      "server": "66.210.50.131",
-      "port": 443,
-      "delay": 360,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇩🇪 DE 🇩🇪DE-https28",
+      "name": "🇩🇪 DE 🇩🇪DE-https17",
       "type": "http",
       "server": "91.64.164.126",
       "port": 443,
-      "delay": 821,
+      "delay": 849,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}
     },
     {
-      "name": "🇴🇲 OM 🇺🇸US-https1|T#160",
+      "name": "🇿🇦 ZA 🇺🇸US-https1|T#150",
+      "type": "http",
+      "server": "198.54.223.176",
+      "port": 443,
+      "delay": 1556,
+      "kbps": 0,
+      "iptype": "jk",
+      "unlock": {}
+    },
+    {
+      "name": "🇴🇲 OM 🇺🇸US-https1|T#161",
       "type": "http",
       "server": "134.0.214.206",
       "port": 443,
-      "delay": 1615,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇨🇳 CN 🇨🇳CN-https1",
-      "type": "http",
-      "server": "117.82.138.100",
-      "port": 1080,
-      "delay": 1642,
+      "delay": 1581,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}
