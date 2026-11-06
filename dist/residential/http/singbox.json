@@ -1,6 +1,94 @@
 [
   {
-    "tag": "🇩🇪 DE 🇩🇪DE-https17",
+    "tag": "🇺🇸 US 🇺🇸US-https25",
+    "type": "http",
+    "server": "71.43.26.234",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "71.43.26.234",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇺🇸 US 🇺🇸US-https56",
+    "type": "http",
+    "server": "66.210.50.131",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "66.210.50.131",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇺🇸 US 🇺🇸US-https57",
+    "type": "http",
+    "server": "73.97.247.195",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "73.97.247.195",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV 🇺🇸US-https5|T#1",
+    "type": "http",
+    "server": "185.219.159.111",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "185.219.159.111",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV 🇺🇸US-https6|T#1",
+    "type": "http",
+    "server": "185.219.159.112",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "185.219.159.112",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV 🇺🇸US-https3|T#4",
+    "type": "http",
+    "server": "185.219.159.114",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "185.219.159.114",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV 🇺🇸US-https4|T#3",
+    "type": "http",
+    "server": "185.219.159.113",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "185.219.159.113",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇱🇻 LV LV-https21",
+    "type": "http",
+    "server": "89.111.27.218",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "89.111.27.218",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇩🇪 DE 🇩🇪DE-https30",
     "type": "http",
     "server": "91.64.164.126",
     "server_port": 443,
@@ -11,24 +99,35 @@
     }
   },
   {
-    "tag": "🇿🇦 ZA 🇺🇸US-https1|T#150",
+    "tag": "🇷🇺 RU 🇷🇺RU-https1",
     "type": "http",
-    "server": "198.54.223.176",
+    "server": "91.246.116.84",
     "server_port": 443,
     "tls": {
       "enabled": true,
-      "server_name": "198.54.223.176",
+      "server_name": "91.246.116.84",
       "insecure": true
     }
   },
   {
-    "tag": "🇴🇲 OM 🇺🇸US-https1|T#161",
+    "tag": "🇴🇲 OM 🇺🇸US-https1|T#165",
     "type": "http",
     "server": "134.0.214.206",
     "server_port": 443,
     "tls": {
       "enabled": true,
       "server_name": "134.0.214.206",
+      "insecure": true
+    }
+  },
+  {
+    "tag": "🇳🇦 NA NA-https1",
+    "type": "http",
+    "server": "41.205.129.179",
+    "server_port": 443,
+    "tls": {
+      "enabled": true,
+      "server_name": "41.205.129.179",
       "insecure": true
     }
   }
