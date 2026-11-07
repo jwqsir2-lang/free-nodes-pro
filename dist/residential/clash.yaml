@@ -4,77 +4,7 @@ log-level: warning
 external-controller: 127.0.0.1:9090
 ipv6: false
 proxies:
-- name: 🇺🇸 US 🇺🇸US-https25
-  type: http
-  server: 71.43.26.234
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 71.43.26.234
-  iptype: jk
-  country_code: US
-- name: 🇺🇸 US 🇺🇸US-https56
-  type: http
-  server: 66.210.50.131
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 66.210.50.131
-  iptype: jk
-  country_code: US
-- name: 🇺🇸 US 🇺🇸US-https57
-  type: http
-  server: 73.97.247.195
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 73.97.247.195
-  iptype: jk
-  country_code: US
-- name: 🇱🇻 LV 🇺🇸US-https5|T#1
-  type: http
-  server: 185.219.159.111
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 185.219.159.111
-  iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV 🇺🇸US-https6|T#1
-  type: http
-  server: 185.219.159.112
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 185.219.159.112
-  iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV 🇺🇸US-https3|T#4
-  type: http
-  server: 185.219.159.114
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 185.219.159.114
-  iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV 🇺🇸US-https4|T#3
-  type: http
-  server: 185.219.159.113
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 185.219.159.113
-  iptype: jk
-  country_code: LV
-- name: 🇱🇻 LV LV-https21
+- name: 🇱🇻 LV LV-https25
   type: http
   server: 89.111.27.218
   port: 443
@@ -84,52 +14,16 @@ proxies:
   servername: 89.111.27.218
   iptype: jk
   country_code: LV
-- name: 🇩🇪 DE 🇩🇪DE-https30
+- name: 🇿🇦 ZA 🇺🇸US-https1|T#173
   type: http
-  server: 91.64.164.126
+  server: 198.54.223.176
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 91.64.164.126
+  servername: 198.54.223.176
   iptype: jk
-  country_code: DE
-- name: 🇷🇺 RU 🇷🇺RU-https1
-  type: http
-  server: 91.246.116.84
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 91.246.116.84
-  iptype: jk
-  country_code: RU
-- name: 🇹🇼 TW 中国 001
-  type: vless
-  network: ws
-  server: 60.248.219.78
-  port: 443
-  uuid: c1c04450-bf71-4049-ad0c-9cf6d94d9f1f
-  servername: ty986gfazs.cainiaohub.xyz
-  skip-cert-verify: true
-  tls: true
-  ws-opts:
-    headers:
-      Host: ty986gfazs.cainiaohub.xyz
-    path: /81574b6b-c9d7-44a0-b83d-dad56e8cb530
-  udp: false
-  iptype: jk
-  country_code: TW
-- name: 🇴🇲 OM 🇺🇸US-https1|T#165
-  type: http
-  server: 134.0.214.206
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 134.0.214.206
-  iptype: jk
-  country_code: OM
+  country_code: ZA
 - name: 🇳🇦 NA NA-https1
   type: http
   server: 41.205.129.179
@@ -147,18 +41,8 @@ proxy-groups:
   - ⚡ 精选速度
   - ♻️ 自动测速
   - DIRECT
-  - 🇺🇸 US 🇺🇸US-https25
-  - 🇺🇸 US 🇺🇸US-https56
-  - 🇺🇸 US 🇺🇸US-https57
-  - 🇱🇻 LV 🇺🇸US-https5|T#1
-  - 🇱🇻 LV 🇺🇸US-https6|T#1
-  - 🇱🇻 LV 🇺🇸US-https3|T#4
-  - 🇱🇻 LV 🇺🇸US-https4|T#3
-  - 🇱🇻 LV LV-https21
-  - 🇩🇪 DE 🇩🇪DE-https30
-  - 🇷🇺 RU 🇷🇺RU-https1
-  - 🇹🇼 TW 中国 001
-  - 🇴🇲 OM 🇺🇸US-https1|T#165
+  - 🇱🇻 LV LV-https25
+  - 🇿🇦 ZA 🇺🇸US-https1|T#173
   - 🇳🇦 NA NA-https1
 - name: ⚡ 精选速度
   type: url-test
@@ -166,34 +50,17 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
-  - 🇺🇸 US 🇺🇸US-https25
-  - 🇺🇸 US 🇺🇸US-https56
-  - 🇺🇸 US 🇺🇸US-https57
-  - 🇱🇻 LV 🇺🇸US-https5|T#1
-  - 🇱🇻 LV 🇺🇸US-https6|T#1
-  - 🇱🇻 LV 🇺🇸US-https3|T#4
-  - 🇱🇻 LV 🇺🇸US-https4|T#3
-  - 🇱🇻 LV LV-https21
-  - 🇩🇪 DE 🇩🇪DE-https30
-  - 🇷🇺 RU 🇷🇺RU-https1
+  - 🇱🇻 LV LV-https25
+  - 🇿🇦 ZA 🇺🇸US-https1|T#173
+  - 🇳🇦 NA NA-https1
 - name: ♻️ 自动测速
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
-  - 🇺🇸 US 🇺🇸US-https25
-  - 🇺🇸 US 🇺🇸US-https56
-  - 🇺🇸 US 🇺🇸US-https57
-  - 🇱🇻 LV 🇺🇸US-https5|T#1
-  - 🇱🇻 LV 🇺🇸US-https6|T#1
-  - 🇱🇻 LV 🇺🇸US-https3|T#4
-  - 🇱🇻 LV 🇺🇸US-https4|T#3
-  - 🇱🇻 LV LV-https21
-  - 🇩🇪 DE 🇩🇪DE-https30
-  - 🇷🇺 RU 🇷🇺RU-https1
-  - 🇹🇼 TW 中国 001
-  - 🇴🇲 OM 🇺🇸US-https1|T#165
+  - 🇱🇻 LV LV-https25
+  - 🇿🇦 ZA 🇺🇸US-https1|T#173
   - 🇳🇦 NA NA-https1
 - name: 🤖 ChatGPT
   type: select
