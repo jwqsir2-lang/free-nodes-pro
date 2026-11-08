@@ -37,7 +37,103 @@
   ],
   "outbounds": [
     {
-      "tag": "🇱🇻 LV LV-https25",
+      "tag": "🇺🇸 US 🇺🇸US-https76",
+      "type": "http",
+      "server": "71.43.26.234",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "71.43.26.234",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇺🇸 US 🇺🇸US-https79",
+      "type": "http",
+      "server": "73.97.247.195",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "73.97.247.195",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇸🇪 SE 瑞士 002",
+      "type": "vless",
+      "server": "138.124.86.230",
+      "server_port": 48115,
+      "tls": {
+        "enabled": true,
+        "server_name": "138-124-86-230.sslip.io",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "138-124-86-230-sslip-io"
+      },
+      "uuid": "b2fe1fa4-6a79-4938-a3f4-63b54ae7f16b"
+    },
+    {
+      "tag": "🇱🇻 LV 🇺🇸US-https5|T#1",
+      "type": "http",
+      "server": "185.219.159.111",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "185.219.159.111",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇱🇻 LV 🇺🇸US-https3|T#4",
+      "type": "http",
+      "server": "185.219.159.114",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "185.219.159.114",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇱🇻 LV 🇺🇸US-https6|T#1",
+      "type": "http",
+      "server": "185.219.159.112",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "185.219.159.112",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇱🇻 LV 🇺🇸US-https4|T#3",
+      "type": "http",
+      "server": "185.219.159.113",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "185.219.159.113",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇩🇪 DE 🇩🇪DE-https25",
+      "type": "http",
+      "server": "91.64.164.126",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "91.64.164.126",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇱🇻 LV LV-https20",
       "type": "http",
       "server": "89.111.27.218",
       "server_port": 443,
@@ -48,7 +144,29 @@
       }
     },
     {
-      "tag": "🇿🇦 ZA 🇺🇸US-https1|T#173",
+      "tag": "🇷🇺 RU 🇷🇺RU-https4",
+      "type": "http",
+      "server": "195.46.187.216",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "195.46.187.216",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇴🇲 OM 🇺🇸US-https1|T#158",
+      "type": "http",
+      "server": "134.0.214.206",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "134.0.214.206",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇿🇦 ZA 🇺🇸US-https1|T#148",
       "type": "http",
       "server": "198.54.223.176",
       "server_port": 443,
@@ -76,8 +194,18 @@
         "⚡ 精选速度",
         "♻️ 自动测速",
         "direct",
-        "🇱🇻 LV LV-https25",
-        "🇿🇦 ZA 🇺🇸US-https1|T#173",
+        "🇺🇸 US 🇺🇸US-https76",
+        "🇺🇸 US 🇺🇸US-https79",
+        "🇸🇪 SE 瑞士 002",
+        "🇱🇻 LV 🇺🇸US-https5|T#1",
+        "🇱🇻 LV 🇺🇸US-https3|T#4",
+        "🇱🇻 LV 🇺🇸US-https6|T#1",
+        "🇱🇻 LV 🇺🇸US-https4|T#3",
+        "🇩🇪 DE 🇩🇪DE-https25",
+        "🇱🇻 LV LV-https20",
+        "🇷🇺 RU 🇷🇺RU-https4",
+        "🇴🇲 OM 🇺🇸US-https1|T#158",
+        "🇿🇦 ZA 🇺🇸US-https1|T#148",
         "🇳🇦 NA NA-https1"
       ],
       "default": "⚡ 精选速度"
@@ -86,9 +214,16 @@
       "type": "urltest",
       "tag": "⚡ 精选速度",
       "outbounds": [
-        "🇱🇻 LV LV-https25",
-        "🇿🇦 ZA 🇺🇸US-https1|T#173",
-        "🇳🇦 NA NA-https1"
+        "🇺🇸 US 🇺🇸US-https76",
+        "🇺🇸 US 🇺🇸US-https79",
+        "🇸🇪 SE 瑞士 002",
+        "🇱🇻 LV 🇺🇸US-https5|T#1",
+        "🇱🇻 LV 🇺🇸US-https3|T#4",
+        "🇱🇻 LV 🇺🇸US-https6|T#1",
+        "🇱🇻 LV 🇺🇸US-https4|T#3",
+        "🇩🇪 DE 🇩🇪DE-https25",
+        "🇱🇻 LV LV-https20",
+        "🇷🇺 RU 🇷🇺RU-https4"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
@@ -97,8 +232,18 @@
       "type": "urltest",
       "tag": "♻️ 自动测速",
       "outbounds": [
-        "🇱🇻 LV LV-https25",
-        "🇿🇦 ZA 🇺🇸US-https1|T#173",
+        "🇺🇸 US 🇺🇸US-https76",
+        "🇺🇸 US 🇺🇸US-https79",
+        "🇸🇪 SE 瑞士 002",
+        "🇱🇻 LV 🇺🇸US-https5|T#1",
+        "🇱🇻 LV 🇺🇸US-https3|T#4",
+        "🇱🇻 LV 🇺🇸US-https6|T#1",
+        "🇱🇻 LV 🇺🇸US-https4|T#3",
+        "🇩🇪 DE 🇩🇪DE-https25",
+        "🇱🇻 LV LV-https20",
+        "🇷🇺 RU 🇷🇺RU-https4",
+        "🇴🇲 OM 🇺🇸US-https1|T#158",
+        "🇿🇦 ZA 🇺🇸US-https1|T#148",
         "🇳🇦 NA NA-https1"
       ],
       "url": "https://www.gstatic.com/generate_204",
