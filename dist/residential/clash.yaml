@@ -4,27 +4,7 @@ log-level: warning
 external-controller: 127.0.0.1:9090
 ipv6: false
 proxies:
-- name: 🇺🇸 US 🇺🇸US-https76
-  type: http
-  server: 184.183.60.62
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 184.183.60.62
-  iptype: jk
-  country_code: US
-- name: 🇺🇸 US 🇺🇸US-https77
-  type: http
-  server: 184.188.201.107
-  port: 443
-  udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 184.188.201.107
-  iptype: jk
-  country_code: US
-- name: 🇺🇸 US 🇺🇸US-https83
+- name: 🇺🇸 US 🇺🇸US-https43
   type: http
   server: 73.97.247.195
   port: 443
@@ -34,27 +14,21 @@ proxies:
   servername: 73.97.247.195
   iptype: jk
   country_code: US
-- name: 🇫🇷 FR 🇫🇷FR-https12
-  type: http
-  server: 82.66.57.57
-  port: 443
-  udp: false
+- name: 🇸🇪 SE 瑞士 002
+  type: vless
+  network: grpc
+  server: 138.124.86.230
+  port: 48115
+  uuid: b2fe1fa4-6a79-4938-a3f4-63b54ae7f16b
+  servername: 138-124-86-230.sslip.io
   tls: true
-  skip_cert_verify: true
-  servername: 82.66.57.57
-  iptype: jk
-  country_code: FR
-- name: 🇱🇻 LV LV-https7
-  type: http
-  server: 89.111.27.218
-  port: 443
+  client-fingerprint: firefox
+  grpc-opts:
+    grpc-service-name: 138-124-86-230-sslip-io
   udp: false
-  tls: true
-  skip_cert_verify: true
-  servername: 89.111.27.218
   iptype: jk
-  country_code: LV
-- name: 🇫🇷 FR 🇫🇷FR-https25
+  country_code: SE
+- name: 🇫🇷 FR 🇫🇷FR-https21
   type: http
   server: 45.13.104.49
   port: 443
@@ -64,16 +38,16 @@ proxies:
   servername: 45.13.104.49
   iptype: jk
   country_code: FR
-- name: 🇳🇦 NA NA-https1
+- name: 🇿🇦 ZA 🇺🇸US-https1|T#128
   type: http
-  server: 41.205.129.179
+  server: 198.54.223.176
   port: 443
   udp: false
   tls: true
   skip_cert_verify: true
-  servername: 41.205.129.179
+  servername: 198.54.223.176
   iptype: jk
-  country_code: NA
+  country_code: ZA
 proxy-groups:
 - name: 🚀 节点选择
   type: select
@@ -81,39 +55,30 @@ proxy-groups:
   - ⚡ 精选速度
   - ♻️ 自动测速
   - DIRECT
-  - 🇺🇸 US 🇺🇸US-https76
-  - 🇺🇸 US 🇺🇸US-https77
-  - 🇺🇸 US 🇺🇸US-https83
-  - 🇫🇷 FR 🇫🇷FR-https12
-  - 🇱🇻 LV LV-https7
-  - 🇫🇷 FR 🇫🇷FR-https25
-  - 🇳🇦 NA NA-https1
+  - 🇺🇸 US 🇺🇸US-https43
+  - 🇸🇪 SE 瑞士 002
+  - 🇫🇷 FR 🇫🇷FR-https21
+  - 🇿🇦 ZA 🇺🇸US-https1|T#128
 - name: ⚡ 精选速度
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
-  - 🇺🇸 US 🇺🇸US-https76
-  - 🇺🇸 US 🇺🇸US-https77
-  - 🇺🇸 US 🇺🇸US-https83
-  - 🇫🇷 FR 🇫🇷FR-https12
-  - 🇱🇻 LV LV-https7
-  - 🇫🇷 FR 🇫🇷FR-https25
-  - 🇳🇦 NA NA-https1
+  - 🇺🇸 US 🇺🇸US-https43
+  - 🇸🇪 SE 瑞士 002
+  - 🇫🇷 FR 🇫🇷FR-https21
+  - 🇿🇦 ZA 🇺🇸US-https1|T#128
 - name: ♻️ 自动测速
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
-  - 🇺🇸 US 🇺🇸US-https76
-  - 🇺🇸 US 🇺🇸US-https77
-  - 🇺🇸 US 🇺🇸US-https83
-  - 🇫🇷 FR 🇫🇷FR-https12
-  - 🇱🇻 LV LV-https7
-  - 🇫🇷 FR 🇫🇷FR-https25
-  - 🇳🇦 NA NA-https1
+  - 🇺🇸 US 🇺🇸US-https43
+  - 🇸🇪 SE 瑞士 002
+  - 🇫🇷 FR 🇫🇷FR-https21
+  - 🇿🇦 ZA 🇺🇸US-https1|T#128
 - name: 🤖 ChatGPT
   type: select
   proxies:

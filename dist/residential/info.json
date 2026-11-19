@@ -1,10 +1,10 @@
 {
   "app": "FreeNodesPro v2.1 (author: 无情gg)",
-  "at": "2026-11-18 09:47:14 (jk)",
-  "total": 7,
+  "at": "2026-11-19 09:55:56 (jk)",
+  "total": 4,
   "with_speed": 0,
   "iptype": {
-    "jk": 7
+    "jk": 4
   },
   "unlock": {
     "GPT": 0,
@@ -12,77 +12,47 @@
     "GM": 0
   },
   "regions": {
-    "US": 3,
-    "FR": 2,
-    "其他": 2
+    "US": 2,
+    "其他": 1,
+    "FR": 1
   },
   "nodes": [
     {
-      "name": "🇺🇸 US 🇺🇸US-https76",
-      "type": "http",
-      "server": "184.183.60.62",
-      "port": 443,
-      "delay": 425,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇺🇸 US 🇺🇸US-https77",
-      "type": "http",
-      "server": "184.188.201.107",
-      "port": 443,
-      "delay": 427,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇺🇸 US 🇺🇸US-https83",
+      "name": "🇺🇸 US 🇺🇸US-https43",
       "type": "http",
       "server": "73.97.247.195",
       "port": 443,
-      "delay": 484,
+      "delay": 444,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}
     },
     {
-      "name": "🇫🇷 FR 🇫🇷FR-https12",
-      "type": "http",
-      "server": "82.66.57.57",
-      "port": 443,
-      "delay": 504,
+      "name": "🇸🇪 SE 瑞士 002",
+      "type": "vless",
+      "server": "138.124.86.230",
+      "port": 48115,
+      "delay": 491,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}
     },
     {
-      "name": "🇱🇻 LV LV-https7",
-      "type": "http",
-      "server": "89.111.27.218",
-      "port": 443,
-      "delay": 602,
-      "kbps": 0,
-      "iptype": "jk",
-      "unlock": {}
-    },
-    {
-      "name": "🇫🇷 FR 🇫🇷FR-https25",
+      "name": "🇫🇷 FR 🇫🇷FR-https21",
       "type": "http",
       "server": "45.13.104.49",
       "port": 443,
-      "delay": 641,
+      "delay": 617,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}
     },
     {
-      "name": "🇳🇦 NA NA-https1",
+      "name": "🇿🇦 ZA 🇺🇸US-https1|T#128",
       "type": "http",
-      "server": "41.205.129.179",
+      "server": "198.54.223.176",
       "port": 443,
-      "delay": 1486,
+      "delay": 1477,
       "kbps": 0,
       "iptype": "jk",
       "unlock": {}
