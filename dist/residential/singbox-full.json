@@ -37,7 +37,7 @@
   ],
   "outbounds": [
     {
-      "tag": "🇺🇸 US 🇺🇸US-https43",
+      "tag": "🇺🇸 US 🇺🇸US-https13",
       "type": "http",
       "server": "73.97.247.195",
       "server_port": 443,
@@ -67,7 +67,18 @@
       "uuid": "b2fe1fa4-6a79-4938-a3f4-63b54ae7f16b"
     },
     {
-      "tag": "🇫🇷 FR 🇫🇷FR-https21",
+      "tag": "🇫🇷 FR 🇫🇷FR-https6",
+      "type": "http",
+      "server": "82.66.57.57",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "82.66.57.57",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇫🇷 FR 🇫🇷FR-https20",
       "type": "http",
       "server": "45.13.104.49",
       "server_port": 443,
@@ -78,7 +89,18 @@
       }
     },
     {
-      "tag": "🇿🇦 ZA 🇺🇸US-https1|T#128",
+      "tag": "🇷🇺 RU 🇷🇺RU-https1",
+      "type": "http",
+      "server": "91.246.116.84",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "91.246.116.84",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇿🇦 ZA 🇺🇸US-https1|T#120",
       "type": "http",
       "server": "198.54.223.176",
       "server_port": 443,
@@ -95,10 +117,12 @@
         "⚡ 精选速度",
         "♻️ 自动测速",
         "direct",
-        "🇺🇸 US 🇺🇸US-https43",
+        "🇺🇸 US 🇺🇸US-https13",
         "🇸🇪 SE 瑞士 002",
-        "🇫🇷 FR 🇫🇷FR-https21",
-        "🇿🇦 ZA 🇺🇸US-https1|T#128"
+        "🇫🇷 FR 🇫🇷FR-https6",
+        "🇫🇷 FR 🇫🇷FR-https20",
+        "🇷🇺 RU 🇷🇺RU-https1",
+        "🇿🇦 ZA 🇺🇸US-https1|T#120"
       ],
       "default": "⚡ 精选速度"
     },
@@ -106,10 +130,12 @@
       "type": "urltest",
       "tag": "⚡ 精选速度",
       "outbounds": [
-        "🇺🇸 US 🇺🇸US-https43",
+        "🇺🇸 US 🇺🇸US-https13",
         "🇸🇪 SE 瑞士 002",
-        "🇫🇷 FR 🇫🇷FR-https21",
-        "🇿🇦 ZA 🇺🇸US-https1|T#128"
+        "🇫🇷 FR 🇫🇷FR-https6",
+        "🇫🇷 FR 🇫🇷FR-https20",
+        "🇷🇺 RU 🇷🇺RU-https1",
+        "🇿🇦 ZA 🇺🇸US-https1|T#120"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
@@ -118,10 +144,12 @@
       "type": "urltest",
       "tag": "♻️ 自动测速",
       "outbounds": [
-        "🇺🇸 US 🇺🇸US-https43",
+        "🇺🇸 US 🇺🇸US-https13",
         "🇸🇪 SE 瑞士 002",
-        "🇫🇷 FR 🇫🇷FR-https21",
-        "🇿🇦 ZA 🇺🇸US-https1|T#128"
+        "🇫🇷 FR 🇫🇷FR-https6",
+        "🇫🇷 FR 🇫🇷FR-https20",
+        "🇷🇺 RU 🇷🇺RU-https1",
+        "🇿🇦 ZA 🇺🇸US-https1|T#120"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"

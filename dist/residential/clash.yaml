@@ -4,7 +4,7 @@ log-level: warning
 external-controller: 127.0.0.1:9090
 ipv6: false
 proxies:
-- name: 🇺🇸 US 🇺🇸US-https43
+- name: 🇺🇸 US 🇺🇸US-https13
   type: http
   server: 73.97.247.195
   port: 443
@@ -28,7 +28,17 @@ proxies:
   udp: false
   iptype: jk
   country_code: SE
-- name: 🇫🇷 FR 🇫🇷FR-https21
+- name: 🇫🇷 FR 🇫🇷FR-https6
+  type: http
+  server: 82.66.57.57
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 82.66.57.57
+  iptype: jk
+  country_code: FR
+- name: 🇫🇷 FR 🇫🇷FR-https20
   type: http
   server: 45.13.104.49
   port: 443
@@ -38,7 +48,17 @@ proxies:
   servername: 45.13.104.49
   iptype: jk
   country_code: FR
-- name: 🇿🇦 ZA 🇺🇸US-https1|T#128
+- name: 🇷🇺 RU 🇷🇺RU-https1
+  type: http
+  server: 91.246.116.84
+  port: 443
+  udp: false
+  tls: true
+  skip_cert_verify: true
+  servername: 91.246.116.84
+  iptype: jk
+  country_code: RU
+- name: 🇿🇦 ZA 🇺🇸US-https1|T#120
   type: http
   server: 198.54.223.176
   port: 443
@@ -55,30 +75,36 @@ proxy-groups:
   - ⚡ 精选速度
   - ♻️ 自动测速
   - DIRECT
-  - 🇺🇸 US 🇺🇸US-https43
+  - 🇺🇸 US 🇺🇸US-https13
   - 🇸🇪 SE 瑞士 002
-  - 🇫🇷 FR 🇫🇷FR-https21
-  - 🇿🇦 ZA 🇺🇸US-https1|T#128
+  - 🇫🇷 FR 🇫🇷FR-https6
+  - 🇫🇷 FR 🇫🇷FR-https20
+  - 🇷🇺 RU 🇷🇺RU-https1
+  - 🇿🇦 ZA 🇺🇸US-https1|T#120
 - name: ⚡ 精选速度
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
-  - 🇺🇸 US 🇺🇸US-https43
+  - 🇺🇸 US 🇺🇸US-https13
   - 🇸🇪 SE 瑞士 002
-  - 🇫🇷 FR 🇫🇷FR-https21
-  - 🇿🇦 ZA 🇺🇸US-https1|T#128
+  - 🇫🇷 FR 🇫🇷FR-https6
+  - 🇫🇷 FR 🇫🇷FR-https20
+  - 🇷🇺 RU 🇷🇺RU-https1
+  - 🇿🇦 ZA 🇺🇸US-https1|T#120
 - name: ♻️ 自动测速
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
-  - 🇺🇸 US 🇺🇸US-https43
+  - 🇺🇸 US 🇺🇸US-https13
   - 🇸🇪 SE 瑞士 002
-  - 🇫🇷 FR 🇫🇷FR-https21
-  - 🇿🇦 ZA 🇺🇸US-https1|T#128
+  - 🇫🇷 FR 🇫🇷FR-https6
+  - 🇫🇷 FR 🇫🇷FR-https20
+  - 🇷🇺 RU 🇷🇺RU-https1
+  - 🇿🇦 ZA 🇺🇸US-https1|T#120
 - name: 🤖 ChatGPT
   type: select
   proxies:
