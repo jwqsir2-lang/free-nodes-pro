@@ -37,7 +37,7 @@
   ],
   "outbounds": [
     {
-      "tag": "🇺🇸 US 🇺🇸US-https13",
+      "tag": "🇺🇸 US 🇺🇸US-https53",
       "type": "http",
       "server": "73.97.247.195",
       "server_port": 443,
@@ -48,26 +48,7 @@
       }
     },
     {
-      "tag": "🇸🇪 SE 瑞士 002",
-      "type": "vless",
-      "server": "138.124.86.230",
-      "server_port": 48115,
-      "tls": {
-        "enabled": true,
-        "server_name": "138-124-86-230.sslip.io",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "138-124-86-230-sslip-io"
-      },
-      "uuid": "b2fe1fa4-6a79-4938-a3f4-63b54ae7f16b"
-    },
-    {
-      "tag": "🇫🇷 FR 🇫🇷FR-https6",
+      "tag": "🇫🇷 FR 🇫🇷FR-https9",
       "type": "http",
       "server": "82.66.57.57",
       "server_port": 443,
@@ -78,13 +59,13 @@
       }
     },
     {
-      "tag": "🇫🇷 FR 🇫🇷FR-https20",
+      "tag": "🇱🇻 LV LV-https8",
       "type": "http",
-      "server": "45.13.104.49",
+      "server": "89.111.27.218",
       "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "45.13.104.49",
+        "server_name": "89.111.27.218",
         "insecure": true
       }
     },
@@ -100,7 +81,7 @@
       }
     },
     {
-      "tag": "🇿🇦 ZA 🇺🇸US-https1|T#120",
+      "tag": "🇿🇦 ZA 🇺🇸US-https1|T#123",
       "type": "http",
       "server": "198.54.223.176",
       "server_port": 443,
@@ -111,18 +92,41 @@
       }
     },
     {
+      "tag": "🇳🇦 NA NA-https1",
+      "type": "http",
+      "server": "41.205.129.179",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "41.205.129.179",
+        "insecure": true
+      }
+    },
+    {
+      "tag": "🇫🇷 FR 🇫🇷FR-https28",
+      "type": "http",
+      "server": "45.13.104.49",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "server_name": "45.13.104.49",
+        "insecure": true
+      }
+    },
+    {
       "type": "selector",
       "tag": "🚀 节点选择",
       "outbounds": [
         "⚡ 精选速度",
         "♻️ 自动测速",
         "direct",
-        "🇺🇸 US 🇺🇸US-https13",
-        "🇸🇪 SE 瑞士 002",
-        "🇫🇷 FR 🇫🇷FR-https6",
-        "🇫🇷 FR 🇫🇷FR-https20",
+        "🇺🇸 US 🇺🇸US-https53",
+        "🇫🇷 FR 🇫🇷FR-https9",
+        "🇱🇻 LV LV-https8",
         "🇷🇺 RU 🇷🇺RU-https1",
-        "🇿🇦 ZA 🇺🇸US-https1|T#120"
+        "🇿🇦 ZA 🇺🇸US-https1|T#123",
+        "🇳🇦 NA NA-https1",
+        "🇫🇷 FR 🇫🇷FR-https28"
       ],
       "default": "⚡ 精选速度"
     },
@@ -130,12 +134,13 @@
       "type": "urltest",
       "tag": "⚡ 精选速度",
       "outbounds": [
-        "🇺🇸 US 🇺🇸US-https13",
-        "🇸🇪 SE 瑞士 002",
-        "🇫🇷 FR 🇫🇷FR-https6",
-        "🇫🇷 FR 🇫🇷FR-https20",
+        "🇺🇸 US 🇺🇸US-https53",
+        "🇫🇷 FR 🇫🇷FR-https9",
+        "🇱🇻 LV LV-https8",
         "🇷🇺 RU 🇷🇺RU-https1",
-        "🇿🇦 ZA 🇺🇸US-https1|T#120"
+        "🇿🇦 ZA 🇺🇸US-https1|T#123",
+        "🇳🇦 NA NA-https1",
+        "🇫🇷 FR 🇫🇷FR-https28"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
@@ -144,12 +149,13 @@
       "type": "urltest",
       "tag": "♻️ 自动测速",
       "outbounds": [
-        "🇺🇸 US 🇺🇸US-https13",
-        "🇸🇪 SE 瑞士 002",
-        "🇫🇷 FR 🇫🇷FR-https6",
-        "🇫🇷 FR 🇫🇷FR-https20",
+        "🇺🇸 US 🇺🇸US-https53",
+        "🇫🇷 FR 🇫🇷FR-https9",
+        "🇱🇻 LV LV-https8",
         "🇷🇺 RU 🇷🇺RU-https1",
-        "🇿🇦 ZA 🇺🇸US-https1|T#120"
+        "🇿🇦 ZA 🇺🇸US-https1|T#123",
+        "🇳🇦 NA NA-https1",
+        "🇫🇷 FR 🇫🇷FR-https28"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "5m"
